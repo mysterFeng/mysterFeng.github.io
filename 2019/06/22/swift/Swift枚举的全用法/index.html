@@ -1,0 +1,380 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Swift枚举的全用法 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Swift枚举的全用法">
+            
+	            Swift枚举的全用法
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/swift">
+            swift
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/swift" title='swift'>
+                        swift
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/06/22</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="基本的枚举类型"><a href="#基本的枚举类型" class="headerlink" title="基本的枚举类型"></a>基本的枚举类型</h3><p>一个最基本的枚举：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">enum Movement &#123;</span><br><span class="line">    case letf</span><br><span class="line">    case right</span><br><span class="line">    case top</span><br><span class="line">    case bottom</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>1、你可以遍历他的枚举：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">let aMovement = Movement.left</span><br><span class="line"></span><br><span class="line">switch aMovement &#123;</span><br><span class="line">case .left:</span><br><span class="line">    print(&quot;Left&quot;)</span><br><span class="line">default:()</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、你可以对场景进行比较：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if aMovement == .left &#123;</span><br><span class="line">    print(&quot;Left&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="枚举值"><a href="#枚举值" class="headerlink" title="枚举值"></a>枚举值</h3><p>与OC不一样，Swift的枚举牛逼得多了，OC只能玩Int，他能玩：</p>
+<p>整型(Integer)<br>浮点数(Float Point)<br>字符串(String)<br>布尔类型(Boolean)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">enum Movement:Int &#123;</span><br><span class="line">    case left = 0</span><br><span class="line">    case right = 1</span><br><span class="line">    case top = 2</span><br><span class="line">    case bottom = 3</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">enum Area: String &#123;</span><br><span class="line">    case DG = &quot;dongguan&quot;</span><br><span class="line">    case GZ = &quot;guangzhou&quot;</span><br><span class="line">    case SZ = &quot;shenzhen&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不过，你要是想玩个自定义的类关联类型，那还是不行的，不过，已经够用了。如果你想要或者枚举的case对应的值，只需要print(Area.DG.rawValue)这样调用就可以了，直接调用对应的rawValue。不过有一点要注意哈，你如果用rawValue来构造一个枚举对象，他是有可能不在任何一个场景的，因为，他的返回值是可选的。</p>
+<h3 id="嵌套枚举"><a href="#嵌套枚举" class="headerlink" title="嵌套枚举"></a>嵌套枚举</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">enum Area &#123;</span><br><span class="line">    enum DongGuan &#123;</span><br><span class="line">        case NanCheng</span><br><span class="line">        case DongCheng</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    enum GuangZhou &#123;</span><br><span class="line">        case TianHe</span><br><span class="line">        case CheBei</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print(Area.DongGuan.DongCheng)</span><br></pre></td></tr></table></figure>
+
+<h3 id="关联值"><a href="#关联值" class="headerlink" title="关联值"></a>关联值</h3><p>这个关联值的说法就比较学术了，其实很简单，我们平时也经常用：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">enum Trade &#123;</span><br><span class="line">    case Buy(stock:String,amount:Int)</span><br><span class="line">    case Sell(stock:String,amount:Int)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let trade = Trade.Buy(stock: &quot;003100&quot;, amount: 100)</span><br><span class="line"></span><br><span class="line">switch trade &#123;</span><br><span class="line">case .Buy(let stock,let amount):</span><br><span class="line">    </span><br><span class="line">    print(&quot;stock:\(stock),amount:\(amount)&quot;)</span><br><span class="line">    </span><br><span class="line">case .Sell(let stock,let amount):</span><br><span class="line">    print(&quot;stock:\(stock),amount:\(amount)&quot;)</span><br><span class="line">default:</span><br><span class="line">    ()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>你看，其实就是枚举的case可以传值，不要小看这功能，放在OC里面，要写这样的代码，麻烦了去了。</p>
+<h3 id="方法和属性"><a href="#方法和属性" class="headerlink" title="方法和属性"></a>方法和属性</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">enum Device &#123;</span><br><span class="line">    case iPad, iPhone, AppleTV, AppleWatch</span><br><span class="line">    func introduced() -&gt; String &#123;</span><br><span class="line">        </span><br><span class="line">        switch self &#123;</span><br><span class="line">        case .iPad: return &quot;iPad&quot;</span><br><span class="line">        case .iPhone: return &quot;iPhone&quot;</span><br><span class="line">        case .AppleWatch: return &quot;AppleWatch&quot;</span><br><span class="line">        case .AppleTV: return &quot;AppleTV&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print(Device.iPhone.introduced())</span><br></pre></td></tr></table></figure>
+
+<p>很清晰，我们定义了一个设备枚举，有iPad, iPhone, AppleTV, AppleWatch，还有一个介绍的方法。这里的introduced方法，你可以认为枚举是一个类，introduced是一个成员方法，Device.iPhone就是一个Device的实例，case们是他的属性，好了，有了这个对像，Device.iPhone可以认为，Device里面有一个匿名属性，现在设置这个属性为iPhone。好了，introduced里面的switch self，其实就是遍历这个匿名属性的所有场景，如iPad，iPhone等，然后根据不同的场景返回不同的值。</p>
+<h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><p>增加一个存储属性到枚举中不被允许，但你依然能够创建计算属性。当然，计算属性的内容都是建立在枚举值下或者枚举关联值得到的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">enum Device &#123;</span><br><span class="line">  case iPad, iPhone</span><br><span class="line">  var year: Int &#123;</span><br><span class="line">    switch self &#123;</span><br><span class="line">        case iPhone: return 2007</span><br><span class="line">        case iPad: return 2010</span><br><span class="line">     &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">enum Device &#123;</span><br><span class="line">    case iPad, iPhone, AppleTV, AppleWatch</span><br><span class="line">    func introduced() -&gt; String &#123;</span><br><span class="line">        </span><br><span class="line">        switch self &#123;</span><br><span class="line">        case .iPad: return &quot;iPad&quot;</span><br><span class="line">        case .iPhone: return &quot;iPhone&quot;</span><br><span class="line">        case .AppleWatch: return &quot;AppleWatch&quot;</span><br><span class="line">        case .AppleTV: return &quot;AppleTV&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    static func fromSlang(term: String) -&gt; Device? &#123;</span><br><span class="line">        </span><br><span class="line">        if term == &quot;iWatch&quot; &#123;</span><br><span class="line">            </span><br><span class="line">            return .AppleWatch</span><br><span class="line">        &#125;</span><br><span class="line">        return nil</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print(Device.fromSlang(term: &quot;iWatch&quot;))</span><br></pre></td></tr></table></figure>
+
+<p>static func fromSlang(term: String) -&gt; Device?就是一个静态方法。</p>
+<h3 id="协议"><a href="#协议" class="headerlink" title="协议"></a>协议</h3><p>Swift也允许你在枚举中使用协议(Protocols)和协议扩展(Protocol Extension)。<br>Swift协议定义一个接口或类型以供其他数据结构来遵循。enum当然也不例外。我们先从Swift标准库中的一个例子开始.<br>CustomStringConvertible是一个以打印为目的的自定义格式化输出的类型。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">protocol CustomStringConvertible &#123;</span><br><span class="line">  var description: String &#123; get &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>该协议只有一个要求，即一个只读(getter)类型的字符串(String类型)。我们可以很容易为enum实现这个协议。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">enum Trade :CustomStringConvertible&#123;</span><br><span class="line">    case Buy(stock:String,amount:Int)</span><br><span class="line">    case Sell(stock:String,amount:Int)</span><br><span class="line">    </span><br><span class="line">    var description: String &#123;</span><br><span class="line">        </span><br><span class="line">        switch self &#123;</span><br><span class="line">        case .Buy(_, _):</span><br><span class="line">            return &quot;Buy&quot;</span><br><span class="line">            </span><br><span class="line">        case .Sell(_, _):</span><br><span class="line">            return &quot;Sell&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print(Trade.Buy(stock: &quot;003100&quot;, amount: 100).description)</span><br></pre></td></tr></table></figure>
+
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><p>枚举也可以进行扩展。最明显的用例就是将枚举的case和method分离，这样阅读你的代码能够简单快速地消化掉enum内容，紧接着转移到方法定义:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">enum Device &#123;</span><br><span class="line">    case iPad, iPhone, AppleTV, AppleWatch</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">extension Device: CustomStringConvertible&#123;</span><br><span class="line">    </span><br><span class="line">    func introduced() -&gt; String &#123;</span><br><span class="line">        </span><br><span class="line">        switch self &#123;</span><br><span class="line">        case .iPad: return &quot;iPad&quot;</span><br><span class="line">        case .iPhone: return &quot;iPhone&quot;</span><br><span class="line">        case .AppleWatch: return &quot;AppleWatch&quot;</span><br><span class="line">        case .AppleTV: return &quot;AppleTV&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">    var description: String &#123;</span><br><span class="line">        </span><br><span class="line">        switch self &#123;</span><br><span class="line">        case .iPad: return &quot;iPad&quot;</span><br><span class="line">        case .iPhone: return &quot;iPhone&quot;</span><br><span class="line">        case .AppleWatch: return &quot;AppleWatch&quot;</span><br><span class="line">        case .AppleTV: return &quot;AppleTV&quot;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print(Device.AppleTV.description)</span><br><span class="line"></span><br><span class="line">print(Device.iPhone.introduced())</span><br></pre></td></tr></table></figure>
+
+<h3 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">enum Rubbish&lt;T&gt; &#123;</span><br><span class="line">    </span><br><span class="line">    case price(T)</span><br><span class="line">    </span><br><span class="line">    func getPrice() -&gt; T &#123;</span><br><span class="line">        </span><br><span class="line">        switch self &#123;</span><br><span class="line">        case .price(let value):</span><br><span class="line">            return value</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">print(Rubbish&lt;Int&gt;.price(100).getPrice())</span><br></pre></td></tr></table></figure>
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/08/23/ios/HandyJSON与SwiftyJSON的使用/" class="pre-post btn btn-default" title='HandyJSON与SwiftyJSON的使用'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">HandyJSON与SwiftyJSON的使用</span>
+        </a>
+    
+    
+        <a href="/2019/05/22/swift/屏幕旋转/" class="next-post btn btn-default" title='屏幕旋转'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">屏幕旋转</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本的枚举类型"><span class="toc-text">基本的枚举类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#枚举值"><span class="toc-text">枚举值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#嵌套枚举"><span class="toc-text">嵌套枚举</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关联值"><span class="toc-text">关联值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方法和属性"><span class="toc-text">方法和属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#属性"><span class="toc-text">属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#静态方法"><span class="toc-text">静态方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#协议"><span class="toc-text">协议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#扩展"><span class="toc-text">扩展</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#泛型"><span class="toc-text">泛型</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

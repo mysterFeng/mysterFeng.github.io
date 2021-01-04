@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>flutter安装 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="flutter安装">
+            
+	            flutter安装
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Flutter">
+            Flutter
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2020/06/01</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>mac下安装很简单，但是在Windows环境下有点小问题记录一下，安装java环境和安卓运行环境都没有遇到问题，主要是flutter安装的时候输入命令验证报错了<br>###win7 运行 flutter doctor 报错 无法将“Unblock-File”项识别为 cmdlet、函数、脚本文件或可运行程序的名称。<br>参考文章 <a href="https://juejin.im/post/6844903935522635784" target="_blank" rel="noopener">https://juejin.im/post/6844903935522635784</a></p>
+<h3 id="安装gradle-、先下载好然后拷贝到C盘wrap目录下"><a href="#安装gradle-、先下载好然后拷贝到C盘wrap目录下" class="headerlink" title="安装gradle 、先下载好然后拷贝到C盘wrap目录下"></a>安装gradle 、先下载好然后拷贝到C盘wrap目录下</h3><h3 id="AS安装flutter插件一直装不上是因为不会支持最新版AS，我换成了3-6-1版本就ok了"><a href="#AS安装flutter插件一直装不上是因为不会支持最新版AS，我换成了3-6-1版本就ok了" class="headerlink" title="AS安装flutter插件一直装不上是因为不会支持最新版AS，我换成了3.6.1版本就ok了"></a>AS安装flutter插件一直装不上是因为不会支持最新版AS，我换成了3.6.1版本就ok了</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Doctor summary (to see all details, run flutter doctor -v):</span><br><span class="line">[√] Flutter (Channel stable, 1.22.3, on Microsoft Windows [Version 6.1.7601], locale zh-CN)</span><br><span class="line">[!] Android toolchain - develop for Android devices (Android SDK version 30.0.2)</span><br><span class="line">    X Android license status unknown.</span><br><span class="line">      Run `flutter doctor --android-licenses` to accept the SDK licenses.</span><br><span class="line">      See https://flutter.dev/docs/get-started/install/windows#android-setup for more</span><br><span class="line">      details.</span><br><span class="line">[√] Android Studio (version 3.6)</span><br><span class="line">[√] Connected device (1 available)</span><br><span class="line"></span><br><span class="line">! Doctor found issues in 1 category.</span><br></pre></td></tr></table></figure>
+
+<p>flutter doctor –android-licenses</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Exception in thread &quot;main&quot; java.lang.NoClassDefFoundError: javax/xml/bind/annotation/XmlSche</span><br><span class="line">ma</span><br><span class="line">        at com.android.repository.api.SchemaModule$SchemaModuleVersion.&lt;init&gt;(SchemaModule.j</span><br><span class="line">ava:156)</span><br><span class="line">        at com.android.repository.api.SchemaModule.&lt;init&gt;(SchemaModule.java:75)</span><br><span class="line">        at com.android.sdklib.repository.AndroidSdkHandler.&lt;clinit&gt;(AndroidSdkHandler.java:8</span><br><span class="line">1)</span><br><span class="line">        at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main(SdkManagerCli.java:73)</span><br><span class="line">        at com.android.sdklib.tool.sdkmanager.SdkManagerCli.main(SdkManagerCli.java:48)</span><br><span class="line">Caused by: java.lang.ClassNotFoundException: javax.xml.bind.annotation.XmlSchema</span><br><span class="line">        at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.jav</span><br><span class="line">a:606)</span><br><span class="line">        at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.</span><br><span class="line">java:168)</span><br><span class="line">        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)</span><br><span class="line">        ... 5 more</span><br></pre></td></tr></table></figure>
+
+<p>问题是 jdk版本太高了</p>
+<h3 id="配置夜神模拟器"><a href="#配置夜神模拟器" class="headerlink" title="配置夜神模拟器"></a>配置夜神模拟器</h3><p>nox_adb.exe connect 127.0.0.1:62001</p>
+<p>这个命令试了好几次才成功，中间各种重启最后才终于连上</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/1747706-0b78fe2fe392c7be.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>Vscode命令行的关键键<br>r 键 :开启热重载<br>p 键: 显示布局网格<br>o 键:切换android 和 ios的预览模式<br>q 键:退出调试预览模式</p>
+<p>终于准备好可以开始干了</p>
+<h3 id="sdk版本管理"><a href="#sdk版本管理" class="headerlink" title="sdk版本管理"></a>sdk版本管理</h3><p>先下载用的sdk到本地安装目录<br>open .bash_profile  编辑选择版本<br>source .bash_profile  让文件生效<br>然后在更改vscode 配置<br><img src="https://upload-images.jianshu.io/upload_images/1747706-fe45a027803de6bd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>重启vscode ，切换版本成功了</p>
+<p>运行后又出现了下面的问题<br><img src="https://upload-images.jianshu.io/upload_images/1747706-275c4c3ddb1927ac.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"><br>按网上的解决直接删除<br>rm ios/Podfile</p>
+<p>//执行了版本回退到 v1.5.4-hotfix.2<br>git reset –hard tag<br>flutter doctor后<br>出现以下问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Doctor summary (to see all details, run flutter doctor -v):</span><br><span class="line">[!] Flutter (Channel stable, v1.5.4-hotfix.2, on Mac OS X 10.15.5 19F101, locale zh-Hans-CN)</span><br><span class="line">    ✗ Downloaded executables cannot execute on host.</span><br><span class="line">      See https://github.com/flutter/flutter/issues/6207 for more information</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">[✓] Android toolchain - develop for Android devices (Android SDK version 30.0.0)</span><br><span class="line">[!] iOS toolchain - develop for iOS devices (Xcode 11.3.1)</span><br><span class="line">    ✗ libimobiledevice and ideviceinstaller are not installed. To install with Brew, run:</span><br><span class="line">        brew update</span><br><span class="line">        brew install --HEAD usbmuxd</span><br><span class="line">        brew link usbmuxd</span><br><span class="line">        brew install --HEAD libimobiledevice</span><br><span class="line">        brew install ideviceinstaller</span><br><span class="line">    ✗ ios-deploy not installed. To install:</span><br><span class="line">        brew install ios-deploy</span><br><span class="line">[✓] Android Studio (version 3.6)</span><br><span class="line">[✓] VS Code (version 1.51.1)</span><br><span class="line">[✓] Connected device (1 available)</span><br><span class="line"></span><br><span class="line">! Doctor found issues in 2 categories.</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2020/06/03/flutter/仿京东商城01/" class="pre-post btn btn-default" title='仿京东商城01'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">仿京东商城01</span>
+        </a>
+    
+    
+        <a href="/2020/05/23/swift/swift - 快速设置富文本的分类/" class="next-post btn btn-default" title='swift - 快速设置富文本的分类'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">swift - 快速设置富文本的分类</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装gradle-、先下载好然后拷贝到C盘wrap目录下"><span class="toc-text">安装gradle 、先下载好然后拷贝到C盘wrap目录下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AS安装flutter插件一直装不上是因为不会支持最新版AS，我换成了3-6-1版本就ok了"><span class="toc-text">AS安装flutter插件一直装不上是因为不会支持最新版AS，我换成了3.6.1版本就ok了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配置夜神模拟器"><span class="toc-text">配置夜神模拟器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sdk版本管理"><span class="toc-text">sdk版本管理</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

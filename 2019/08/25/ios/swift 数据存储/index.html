@@ -1,0 +1,440 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Swift数据存储 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Swift数据存储">
+            
+	            Swift数据存储
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/swift">
+            swift
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/08/25</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="一、沙盒"><a href="#一、沙盒" class="headerlink" title="一、沙盒"></a>一、沙盒</h3><p><img src="https://upload-images.jianshu.io/upload_images/1747706-f0928ba8c06acef8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>最上面的bundle container目录为APP程序的安装目录，在安装后为不可修改状态。<br>中间的data container目录为APP数据存储目录，保存APP运行时需要的数据。<br>最下面的iCloud container目录为云存储目录，当APP需要iCloud云存储时可以进行访问。</p>
+<p>####data container文件目录如图<br><img src="https://upload-images.jianshu.io/upload_images/1747706-6f87eaf40e8a1634.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>####Documents<br>保存用户创建的文档文件的目录，用户可以通过文件分享分享该目录下的文件。在iTunes和iCloud备份时会备份该目录。建议保存你希望用户看得见的文件。</p>
+<h4 id="Library"><a href="#Library" class="headerlink" title="Library"></a>Library</h4><p>该目录下除Caches目录外，在iTunes和iCloud备份时会备份除Caches目录外的其他所有目录。</p>
+<ul>
+<li>Cache<br>建议保存数据缓存使用。在用户的磁盘空间已经使用完毕时有可能删除该目录下的文件，在APP使用期间不会删除，APP没有运行时系统有可能进行删除。需要持久化的数据建议不要保存在该目录下，以免系统强制删除。</li>
+<li>Preferences<br>用户偏好存储目录，在使用NSUserDefaults或者CFPreferences接口保存的数据保存在该目录下，编程人员不需要对该目录进行管理。在iTunes和iCloud备份时会备份该目录</li>
+<li>Application Support<br>建议用来存储除用户数据相关以外的所有文件，如游戏的新关卡。在iTunes和iCloud备份时会备份该目录。</li>
+<li>Frameworks<br>用来保存动态库的文件夹，在iOS系统中已不能使用，该目录可以忽略</li>
+</ul>
+<h4 id="tmp"><a href="#tmp" class="headerlink" title="tmp"></a>tmp</h4><p>苹果建议该目录用来保存临时使用的数据，编程人员应该在数据长时间内不使用时主动删除该目录下的文件，在APP没有运行期间，系统可能删除该目录下的文件。在iTunes和iCloud备份时不会备份该目录</p>
+<blockquote>
+<p>综上所述，我们保存文件可以保存在Application Support或者Documents目录之下，临时缓存文件则可根据需要保存到tmp和Cache目录下面，由于tmp和Cache目录有可能被系统删除，所有不能保存重要的文件数据。<br>除系统推荐的目录之外，用户也可以自己创建目录，也可以在推荐的目录下创建子目录进行管理。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//沙盒根目录</span><br><span class="line">NSString *homePath = NSHomeDirectory();</span><br><span class="line">//document目录</span><br><span class="line">NSString *documentPath = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES).firstObject;</span><br><span class="line">//library目录</span><br><span class="line">NSString *libraryPath = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES).firstObject;</span><br><span class="line">//caches目录</span><br><span class="line">NSString *cachesPath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).firstObject;</span><br><span class="line">//application support目录</span><br><span class="line">NSString *applicationSupportPath = NSSearchPathForDirectoriesInDomains(NSApplicationSupportDirectory, NSUserDomainMask, YES).firstObject;</span><br><span class="line">//preference目录</span><br><span class="line">NSString *preferencePath = NSSearchPathForDirectoriesInDomains(NSPreferencePanesDirectory, NSUserDomainMask, YES).firstObject;</span><br><span class="line">//tem目录</span><br><span class="line">NSString *temPath = NSTemporaryDirectory();</span><br></pre></td></tr></table></figure>
+
+<h3 id="二、-文件操作"><a href="#二、-文件操作" class="headerlink" title="二、 文件操作"></a>二、 文件操作</h3><p>####1. 遍历一个目录下的所有文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let manager = FileManager.default</span><br><span class="line">let urlForDocument = manager.urls(for: .documentDirectory, in:.userDomainMask)</span><br><span class="line">let url = urlForDocument[0] as URL</span><br><span class="line">print(url)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let contentsOfPath = try? manager.contentsOfDirectory(atPath: url.path)</span><br><span class="line">print(&quot;contentsOfPath: \(contentsOfPath)&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>对指定路径执行浅搜索，返回指定目录路径下的文件、子目录及符号链接的列表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let contentsOfURL = try? manager.contentsOfDirectory(at: url,</span><br><span class="line">                        includingPropertiesForKeys: nil, options: .skipsHiddenFiles)</span><br><span class="line">print(&quot;contentsOfURL: \(contentsOfURL)&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>深度遍历，会递归遍历子文件夹（但不会递归符号链接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let enumeratorAtURL = manager.enumerator(at: url, includingPropertiesForKeys: nil,</span><br><span class="line">                                         options: .skipsHiddenFiles, errorHandler:nil)</span><br><span class="line">print(&quot;enumeratorAtURL: \(enumeratorAtURL?.allObjects)&quot;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>深度遍历，会递归遍历子文件夹（包括符号链接，所以要求性能的话用enumeratorAtPath）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">let subPaths = manager.subpaths(atPath: url.path)</span><br><span class="line">print(&quot;subPaths: \(subPaths)&quot;)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>####2.判断文件或文件夹是否存在</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let fileManager = FileManager.default</span><br><span class="line">let filePath:String = NSHomeDirectory() + &quot;/Documents/aaa.txt&quot;</span><br><span class="line">let exist = fileManager.fileExists(atPath: filePath)</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-创建文件夹"><a href="#3-创建文件夹" class="headerlink" title="3.创建文件夹"></a>3.创建文件夹</h4><p>方式一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let myDirectory:String = NSHomeDirectory() + &quot;/Documents/myFolder/Files&quot;</span><br><span class="line">let fileManager = FileManager.default</span><br><span class="line"> </span><br><span class="line">//withIntermediateDirectories为ture表示路径中间如果有不存在的文件夹都会创建</span><br><span class="line">try! fileManager.createDirectory(atPath: myDirectory,</span><br><span class="line">                        withIntermediateDirectories: true, attributes: nil)</span><br></pre></td></tr></table></figure>
+
+<p>方式二</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">func createFolder(name:String,baseUrl:NSURL)&#123;</span><br><span class="line">    let manager = FileManager.default</span><br><span class="line">    let folder = baseUrl.appendingPathComponent(name, isDirectory: true)</span><br><span class="line">    print(&quot;文件夹: \(folder)&quot;)</span><br><span class="line">    let exist = manager.fileExists(atPath: folder!.path)</span><br><span class="line">    if !exist &#123;</span><br><span class="line">        try! manager.createDirectory(at: folder!, withIntermediateDirectories: true,</span><br><span class="line">                                     attributes: nil)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">     </span><br><span class="line">//在文档目录下新建folder目录</span><br><span class="line">let manager = FileManager.default</span><br><span class="line">let urlForDocument = manager.urls(for: .documentDirectory, in: .userDomainMask)</span><br><span class="line">let url = urlForDocument[0] as NSURL</span><br><span class="line">createFolder(name: &quot;folder&quot;, baseUrl: url)</span><br></pre></td></tr></table></figure>
+
+<p>####4.将对象写入文件<br>可以通过write(to:)方法，可以创建文件并将对象写入，对象包括String，NSString，UIImage，NSArray，NSDictionary等。</p>
+<ul>
+<li><p>把String保存到文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let filePath:String = NSHomeDirectory() + &quot;/Documents/aaa.txt&quot;</span><br><span class="line">let info = &quot;学习使我快乐&quot;</span><br><span class="line">try! info.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把图片保存到文件路径下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let filePath = NSHomeDirectory() + &quot;/Documents/aaa.png&quot;</span><br><span class="line">let image = UIImage(named: &quot;aaa.png&quot;)</span><br><span class="line">let data:Data = UIImagePNGRepresentation(image!)!</span><br><span class="line">try? data.write(to: URL(fileURLWithPath: filePath))</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把NSArray保存到文件路径下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let array = NSArray(objects: &quot;aaa&quot;,&quot;bbb&quot;,&quot;ccc&quot;)</span><br><span class="line">let filePath:String = NSHomeDirectory() + &quot;/Documents/array.plist&quot;</span><br><span class="line">array.write(toFile: filePath, atomically: true)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>把NSDictionary保存到文件路径下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let dictionary:NSDictionary = [&quot;Gold&quot;: &quot;1st Place&quot;, &quot;Silver&quot;: &quot;2nd Place&quot;]</span><br><span class="line">let filePath:String = NSHomeDirectory() + &quot;/Documents/dictionary.plist&quot;</span><br><span class="line">dictionary.write(toFile: filePath, atomically: true)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>####5. 创建文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">func createFile(name:String, fileBaseUrl:URL)&#123;</span><br><span class="line">    let manager = FileManager.default</span><br><span class="line">     </span><br><span class="line">    let file = fileBaseUrl.appendingPathComponent(name)</span><br><span class="line">    print(&quot;文件: \(file)&quot;)</span><br><span class="line">    let exist = manager.fileExists(atPath: file.path)</span><br><span class="line">    if !exist &#123;</span><br><span class="line">        let data = Data(base64Encoded:&quot;aGVsbG8gd29ybGQ=&quot; ,options:.ignoreUnknownCharacters)</span><br><span class="line">        let createSuccess = manager.createFile(atPath: file.path,contents:data,attributes:nil)</span><br><span class="line">        print(&quot;文件创建结果: \(createSuccess)&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">//在文档目录下新建test.txt文件</span><br><span class="line">let manager = FileManager.default</span><br><span class="line">let urlForDocument = manager.urls( for: .documentDirectory,</span><br><span class="line">                                   in:.userDomainMask)</span><br><span class="line">let url = urlForDocument[0]</span><br><span class="line">createFile(name:&quot;test.txt&quot;, fileBaseUrl: url)</span><br></pre></td></tr></table></figure>
+
+<p>####6.复制文件<br>方法一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let fileManager = FileManager.default</span><br><span class="line">let homeDirectory = NSHomeDirectory()</span><br><span class="line">let srcUrl = homeDirectory + &quot;/Documents/aaa.txt&quot;</span><br><span class="line">let toUrl = homeDirectory + &quot;/Documents/copyed.txt&quot;</span><br><span class="line">try! fileManager.copyItem(atPath: srcUrl, toPath: toUrl)</span><br></pre></td></tr></table></figure>
+
+<p>方法二</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">// 定位到用户文档目录</span><br><span class="line">let manager = FileManager.default</span><br><span class="line">let urlForDocument = manager.urls( for:.documentDirectory, in:.userDomainMask)</span><br><span class="line">let url = urlForDocument[0]</span><br><span class="line"> </span><br><span class="line">// 将test.txt文件拷贝到文档目录根目录下的copyed.txt文件</span><br><span class="line">let srcUrl = url.appendingPathComponent(&quot;test.txt&quot;)</span><br><span class="line">let toUrl = url.appendingPathComponent(&quot;copyed.txt&quot;)</span><br><span class="line"> </span><br><span class="line">try! manager.copyItem(at: srcUrl, to: toUrl)</span><br></pre></td></tr></table></figure>
+
+<p>####7.移动文件<br>方法一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let fileManager = FileManager.default</span><br><span class="line">let homeDirectory = NSHomeDirectory()</span><br><span class="line">let srcUrl = homeDirectory + &quot;/Documents/aaa.txt&quot;</span><br><span class="line">let toUrl = homeDirectory + &quot;/Documents/moved/aaa.txt&quot;</span><br><span class="line">try! fileManager.moveItem(atPath: srcUrl, toPath: toUrl)</span><br></pre></td></tr></table></figure>
+
+<p>方法二</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 定位到用户文档目录</span><br><span class="line">let manager = FileManager.default</span><br><span class="line">let urlForDocument = manager.urls( for: .documentDirectory, in:.userDomainMask)</span><br><span class="line">let url = urlForDocument[0]</span><br><span class="line"> </span><br><span class="line">let srcUrl = url.appendingPathComponent(&quot;test.txt&quot;)</span><br><span class="line">let toUrl = url.appendingPathComponent(&quot;copyed.txt&quot;)</span><br><span class="line">// 移动srcUrl中的文件（test.txt）到toUrl中（copyed.txt）</span><br><span class="line">try! manager.moveItem(at: srcUrl, to: toUrl)</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-删除文件"><a href="#8-删除文件" class="headerlink" title="8.删除文件"></a>8.删除文件</h4><p>方法一</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">let fileManager = FileManager.default</span><br><span class="line">let homeDirectory = NSHomeDirectory()</span><br><span class="line">let srcUrl = homeDirectory + &quot;/Documents/hangge.txt&quot;</span><br><span class="line">try! fileManager.removeItem(atPath: srcUrl)</span><br></pre></td></tr></table></figure>
+
+<p>方法二</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 定位到用户文档目录</span><br><span class="line">let manager = FileManager.default</span><br><span class="line">let urlForDocument = manager.urls(for: .documentDirectory, in:.userDomainMask)</span><br><span class="line">let url = urlForDocument[0]</span><br><span class="line"> </span><br><span class="line">let toUrl = url.appendingPathComponent(&quot;copyed.txt&quot;)</span><br><span class="line">// 删除文档根目录下的toUrl路径的文件（copyed.txt文件）</span><br><span class="line">try! manager.removeItem(at: toUrl)</span><br></pre></td></tr></table></figure>
+
+<p>####9.删除目录下所有的文件<br>方法1：获取所有文件，然后遍历删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let fileManager = FileManager.default</span><br><span class="line">let myDirectory = NSHomeDirectory() + &quot;/Documents/Files&quot;</span><br><span class="line">let fileArray = fileManager.subpaths(atPath: myDirectory)</span><br><span class="line">for fn in fileArray!&#123;</span><br><span class="line">    try! fileManager.removeItem(atPath: myDirectory + &quot;/\(fn)&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>方法2：删除目录后重新创建该目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">let fileManager = FileManager.default</span><br><span class="line">let myDirectory = NSHomeDirectory() + &quot;/Documents/Files&quot;</span><br><span class="line">try! fileManager.removeItem(atPath: myDirectory)</span><br><span class="line">try! fileManager.createDirectory(atPath: myDirectory, withIntermediateDirectories: true,</span><br><span class="line">                                 attributes: nil)</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-读取文件"><a href="#10-读取文件" class="headerlink" title="10.读取文件"></a>10.读取文件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let manager = FileManager.default</span><br><span class="line">let urlsForDocDirectory = manager.urls(for: .documentDirectory, in:.userDomainMask)</span><br><span class="line">let docPath = urlsForDocDirectory[0]</span><br><span class="line">let file = docPath.appendingPathComponent(&quot;test.txt&quot;)</span><br><span class="line"> </span><br><span class="line">//方法1</span><br><span class="line">let readHandler = try! FileHandle(forReadingFrom:file)</span><br><span class="line">let data = readHandler.readDataToEndOfFile()</span><br><span class="line">let readString = String(data: data, encoding: String.Encoding.utf8)</span><br><span class="line">print(&quot;文件内容: \(readString)&quot;)</span><br><span class="line"> </span><br><span class="line">//方法2</span><br><span class="line">let data2 = manager.contents(atPath: file.path)</span><br><span class="line">let readString2 = String(data: data2!, encoding: String.Encoding.utf8)</span><br><span class="line">print(&quot;文件内容: \(readString2)&quot;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-在任意位置写入数据"><a href="#11-在任意位置写入数据" class="headerlink" title="11.在任意位置写入数据"></a>11.在任意位置写入数据</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let manager = FileManager.default</span><br><span class="line">let urlsForDocDirectory = manager.urls(for:.documentDirectory, in:.userDomainMask)</span><br><span class="line">let docPath = urlsForDocDirectory[0]</span><br><span class="line">let file = docPath.appendingPathComponent(&quot;test.txt&quot;)</span><br><span class="line"> </span><br><span class="line">let string = &quot;添加一些文字到文件末尾&quot;</span><br><span class="line">let appendedData = string.data(using: String.Encoding.utf8, allowLossyConversion: true)</span><br><span class="line">let writeHandler = try? FileHandle(forWritingTo:file)</span><br><span class="line">writeHandler!.seekToEndOfFile()</span><br><span class="line">writeHandler!.write(appendedData!)</span><br></pre></td></tr></table></figure>
+
+<h4 id="12-文件权限判断"><a href="#12-文件权限判断" class="headerlink" title="12.文件权限判断"></a>12.文件权限判断</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">let manager = FileManager.default</span><br><span class="line">let urlForDocument = manager.urls(for: .documentDirectory, in:.userDomainMask)</span><br><span class="line">let docPath = urlForDocument[0]</span><br><span class="line">let file = docPath.appendingPathComponent(&quot;test.txt&quot;)</span><br><span class="line"> </span><br><span class="line">let readable = manager.isReadableFile(atPath: file.path)</span><br><span class="line">print(&quot;可读: \(readable)&quot;)</span><br><span class="line">let writeable = manager.isWritableFile(atPath: file.path)</span><br><span class="line">print(&quot;可写: \(writeable)&quot;)</span><br><span class="line">let executable = manager.isExecutableFile(atPath: file.path)</span><br><span class="line">print(&quot;可执行: \(executable)&quot;)</span><br><span class="line">let deleteable = manager.isDeletableFile(atPath: file.path)</span><br><span class="line">print(&quot;可删除: \(deleteable)&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>####13.获取文件属性（创建时间，修改时间，文件大小，文件类型等信息）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">let manager = FileManager.default</span><br><span class="line">let urlForDocument = manager.urls(for: .documentDirectory, in:.userDomainMask)</span><br><span class="line">let docPath = urlForDocument[0]</span><br><span class="line">let file = docPath.appendingPathComponent(&quot;test.txt&quot;)</span><br><span class="line"> </span><br><span class="line">let attributes = try? manager.attributesOfItem(atPath: file.path) //结果为Dictionary类型</span><br><span class="line">print(&quot;attributes: \(attributes!)&quot;)</span><br><span class="line">print(&quot;创建时间：\(attributes![FileAttributeKey.creationDate]!)&quot;)</span><br><span class="line">print(&quot;修改时间：\(attributes![FileAttributeKey.modificationDate]!)&quot;)</span><br><span class="line">print(&quot;文件大小：\(attributes![FileAttributeKey.size]!)&quot;)</span><br></pre></td></tr></table></figure>
+
+<p>####14.文件/文件夹比较</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">let manager = FileManager.default</span><br><span class="line">let urlForDocument = manager.urls(for: .documentDirectory, in:.userDomainMask)</span><br><span class="line">let docPath = urlForDocument[0]</span><br><span class="line">let contents = try! manager.contentsOfDirectory(atPath: docPath.path)</span><br><span class="line"> </span><br><span class="line">//下面比较用户文档中前面两个文件是否内容相同（该方法也可以用来比较目录）</span><br><span class="line">let count = contents.count</span><br><span class="line">if count &gt; 1 &#123;</span><br><span class="line">    let path1 = docPath.path + &quot;/&quot; + (contents[0] as String)</span><br><span class="line">    let path2 = docPath.path + &quot;/&quot; + (contents[1] as String)</span><br><span class="line">    let equal = manager.contentsEqual(atPath: path1,andPath:path2)</span><br><span class="line">    print(&quot;path1：\(path1)&quot;)</span><br><span class="line">    print(&quot;path2：\(path2)&quot;)</span><br><span class="line">    print(&quot;比较结果： \(equal)&quot;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>###15.程序打包安装的目录 NSBundle.mainBundle()<br>工程打包安装后会在NSBundle.mainBundle()路径下，该路径是只读的，不允许修改。<br>所以当我们工程中有一个SQLite数据库要使用，在程序启动时，我们可以把该路径下的数据库拷贝一份到Documents路径下，以后整个工程都将操作Documents路径下的数据库。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//声明一个Documents下的路径</span><br><span class="line">var dbPath = NSHomeDirectory() + &quot;/Documents/hanggeDB.sqlite&quot;</span><br><span class="line">//判断数据库文件是否存在</span><br><span class="line">if !NSFileManager.defaultManager().fileExistsAtPath(dbPath)&#123;</span><br><span class="line">    //获取安装包内数据库路径</span><br><span class="line">    var bundleDBPath:String? = NSBundle.mainBundle().pathForResource(&quot;hanggeDB&quot;, ofType: &quot;sqlite&quot;)</span><br><span class="line">    //将安装包内数据库拷贝到Documents目录下</span><br><span class="line">    NSFileManager.defaultManager().copyItemAtPath(bundleDBPath!, toPath: dbPath, error: nil)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、存储方式"><a href="#三、存储方式" class="headerlink" title="三、存储方式"></a>三、存储方式</h3>
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/09/24/ios/Swift - 访问控制（fileprivate，private，internal，public，open）/" class="pre-post btn btn-default" title='Swift - 访问控制（fileprivate，private，internal，public，open）'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Swift - 访问控制（fileprivate，private，internal，public，open）</span>
+        </a>
+    
+    
+        <a href="/2019/08/24/ios/Const文件相关内容/" class="next-post btn btn-default" title='Const文件相关内容'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Const文件相关内容</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、沙盒"><span class="toc-text">一、沙盒</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Library"><span class="toc-text">Library</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#tmp"><span class="toc-text">tmp</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、-文件操作"><span class="toc-text">二、 文件操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-创建文件夹"><span class="toc-text">3.创建文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-删除文件"><span class="toc-text">8.删除文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-读取文件"><span class="toc-text">10.读取文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-在任意位置写入数据"><span class="toc-text">11.在任意位置写入数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-文件权限判断"><span class="toc-text">12.文件权限判断</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、存储方式"><span class="toc-text">三、存储方式</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

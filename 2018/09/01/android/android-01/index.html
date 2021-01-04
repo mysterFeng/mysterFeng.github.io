@@ -1,0 +1,427 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Android入门篇 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Android入门篇">
+            
+	            Android入门篇
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/Android">
+            Android
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2018/09/01</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h2 id="开发环境搭建"><a href="#开发环境搭建" class="headerlink" title="开发环境搭建"></a>开发环境搭建</h2><ol>
+<li><p>JDK (Java Development kit)</p>
+<ul>
+<li><a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="noopener">下载地址</a></li>
+<li>推荐下载6.0或以后的版本</li>
+<li>jdk安装(jdk集成了jre)：jdk是java开发工具 jre是java的运行环境<br><code>注意</code>：需要安装环境变量</li>
+</ul>
+</li>
+<li><p>Eclipse</p>
+<ul>
+<li><a href>下载地址</a></li>
+<li>eclipseInstaller使用</li>
+<li>Android SDK (Softtware Development kit)</li>
+<li>ADT (Android Development kit)</li>
+</ul>
+</li>
+<li><p>andriod studio</p>
+</li>
+</ol>
+<h2 id="新建Android项目"><a href="#新建Android项目" class="headerlink" title="新建Android项目"></a>新建Android项目</h2><h3 id="Application-Name"><a href="#Application-Name" class="headerlink" title="Application Name"></a>Application Name</h3><p>应用名称：发布应用APP的名称如QQ</p>
+<h3 id="Project-Name"><a href="#Project-Name" class="headerlink" title="Project Name"></a>Project Name</h3><p>项目名称：文件名称</p>
+<h3 id="package-Name"><a href="#package-Name" class="headerlink" title="package Name"></a>package Name</h3><p>包名：</p>
+<h3 id="Minimun-Required-SDK"><a href="#Minimun-Required-SDK" class="headerlink" title="Minimun Required SDK"></a>Minimun Required SDK</h3><p>最小sdk支持</p>
+<h3 id="target-SDK"><a href="#target-SDK" class="headerlink" title="target SDK"></a>target SDK</h3><p>当前开发所用的版本</p>
+<h3 id="Compile-With"><a href="#Compile-With" class="headerlink" title="Compile With"></a>Compile With</h3><p>编译的版本</p>
+<h2 id="项目结构介绍"><a href="#项目结构介绍" class="headerlink" title="项目结构介绍"></a>项目结构介绍</h2><h3 id="src-存放java源代码文件"><a href="#src-存放java源代码文件" class="headerlink" title="src/存放java源代码文件"></a>src/存放java源代码文件</h3><h3 id="gen存放系统自动生成的配置文件"><a href="#gen存放系统自动生成的配置文件" class="headerlink" title="gen存放系统自动生成的配置文件"></a>gen存放系统自动生成的配置文件</h3><h3 id="Android4-4-2"><a href="#Android4-4-2" class="headerlink" title="Android4.4.2"></a>Android4.4.2</h3><h3 id="assets-不会自动生成id不会自动占用空间"><a href="#assets-不会自动生成id不会自动占用空间" class="headerlink" title="assets 不会自动生成id不会自动占用空间"></a>assets 不会自动生成id不会自动占用空间</h3><h3 id="bin-存放被编译后生成的文件-如apk"><a href="#bin-存放被编译后生成的文件-如apk" class="headerlink" title="bin 存放被编译后生成的文件 如apk"></a>bin 存放被编译后生成的文件 如apk</h3><h3 id="res-存放应用用到的所有资源，如图片布局"><a href="#res-存放应用用到的所有资源，如图片布局" class="headerlink" title="res 存放应用用到的所有资源，如图片布局"></a>res 存放应用用到的所有资源，如图片布局</h3><h3 id="layout-布局文件"><a href="#layout-布局文件" class="headerlink" title="layout 布局文件"></a>layout 布局文件</h3><h3 id="values-存放字符串，主题，颜色。样式等资源文件"><a href="#values-存放字符串，主题，颜色。样式等资源文件" class="headerlink" title="values 存放字符串，主题，颜色。样式等资源文件"></a>values 存放字符串，主题，颜色。样式等资源文件</h3><h3 id="AndroidManifest-xml清单文件"><a href="#AndroidManifest-xml清单文件" class="headerlink" title="AndroidManifest.xml清单文件"></a>AndroidManifest.xml清单文件</h3><h2 id="TextView-显示文本框控件-gt-label"><a href="#TextView-显示文本框控件-gt-label" class="headerlink" title="TextView 显示文本框控件 =&gt;  label"></a>TextView 显示文本框控件 =&gt;  label</h2><p>属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">id --- 控件的id</span><br><span class="line">layout_width ---控件的宽度</span><br><span class="line">layout_height ---控件的高度</span><br><span class="line">text          --- 文本内容</span><br><span class="line">textSize      --- 文件大小</span><br><span class="line">textColor     --- 文件颜色</span><br><span class="line">background    --- 控件背景</span><br><span class="line">hint          --- 输入提示文本  placeholder</span><br><span class="line">inputType     --- 输入文本</span><br><span class="line">singleLine    --- 单行显示</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">wrap_content : 包裹实际文本内容</span><br><span class="line">match_parent: 当前控件铺满父类容器 2.3 api之后添加的一个属性值</span><br><span class="line">fill_parent: 当前控件铺满父类容器 在2.3 api 之前的一个属性值</span><br></pre></td></tr></table></figure>
+
+<h2 id="EditText-输入文本框-gt-textField"><a href="#EditText-输入文本框-gt-textField" class="headerlink" title="EditText 输入文本框    =&gt;  textField"></a>EditText 输入文本框    =&gt;  textField</h2><h2 id="ImageView"><a href="#ImageView" class="headerlink" title="ImageView"></a>ImageView</h2><p>属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">src =&gt;setImage 铺满图片  引入图片路径 res文件夹会自动根据分辨率引入图片</span><br><span class="line">background    铺满背景</span><br></pre></td></tr></table></figure>
+
+<h2 id="Button和ImageButton"><a href="#Button和ImageButton" class="headerlink" title="Button和ImageButton"></a>Button和ImageButton</h2><ul>
+<li>共有的特性<br>都可以作为一个按钮产生点击事件</li>
+<li>不同点</li>
+</ul>
+<ol>
+<li>button有text的属性，imageButton没有</li>
+<li>imageButton有src属性，button没有</li>
+<li>产生明显的点击效果</li>
+</ol>
+<ul>
+<li>监听点击事件</li>
+</ul>
+<ol>
+<li>匿名内部类的实现</li>
+<li>独立类的实现</li>
+<li>实现接口的方式来实现</li>
+</ol>
+<p>1.初始化当前所需要控件，如何初始化一个控件？</p>
+<blockquote>
+<p>findViewById – 返回的是一个View的对象<br>设置button的监听器，通过监听器实现点击事件<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">  //初始化</span><br><span class="line">  loginBtn = (Button)findViewById(R.id.button1)</span><br><span class="line">  //匿名内部类的实现</span><br><span class="line">  loginBtn.setOnClickListener(new OnCliclListerner()&#123;</span><br><span class="line"></span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  //独立类实现</span><br><span class="line">  loginBtn.setOnClickListener(listener）</span><br><span class="line"></span><br><span class="line">  //外部类的写法和作用</span><br><span class="line">OnClickListerner 是一个接口</span><br><span class="line">class MyOnClickListener implements OnClickListerner&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 通过实现一个接口的方式实现监听事件</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="string-文件下读取字符串等-在values文件下string-xml"><a href="#string-文件下读取字符串等-在values文件下string-xml" class="headerlink" title="@string/ 文件下读取字符串等 在values文件下string.xml"></a>@string/ 文件下读取字符串等 在values文件下string.xml</h3><h2 id="AutoCompleteTextView"><a href="#AutoCompleteTextView" class="headerlink" title="AutoCompleteTextView"></a>AutoCompleteTextView</h2><ol>
+<li><p>功能<br>动态匹配输入内容</p>
+</li>
+<li><p>独特属性</p>
+</li>
+</ol>
+<h2 id="MultiAutoCompleteTextView"><a href="#MultiAutoCompleteTextView" class="headerlink" title="MultiAutoCompleteTextView"></a>MultiAutoCompleteTextView</h2><p>支持多选</p>
+<h2 id="ToggleButton"><a href="#ToggleButton" class="headerlink" title="ToggleButton"></a>ToggleButton</h2><p>选中和未选中状态<br>属性：checked = true<br>textOff= 关<br>textOn = 开</p>
+<h2 id="CheckBox"><a href="#CheckBox" class="headerlink" title="CheckBox"></a>CheckBox</h2><h2 id="RadioGroup"><a href="#RadioGroup" class="headerlink" title="RadioGroup"></a>RadioGroup</h2><h2 id="五布局之线性布局LinearLayout-常用"><a href="#五布局之线性布局LinearLayout-常用" class="headerlink" title="五布局之线性布局LinearLayout  常用"></a>五布局之线性布局LinearLayout  常用</h2><p>包含的子控件将以横向或者垂直排布<br>LinearLayout是可以嵌套布局的<br>属性：<br>orientation 水平或垂直属性<br>gravity   居中排布<br>子类控件在LinearLayout中常用到的属性<br>layout_gravity  – 指本身在当前父容器的xy的一个位置<br>layout_weight  – 指本身控件占当前父容器的一个比例 类似于flex布局</p>
+<h2 id="五布局之相对布局RelativeLayout-常用"><a href="#五布局之相对布局RelativeLayout-常用" class="headerlink" title="五布局之相对布局RelativeLayout 常用"></a>五布局之相对布局RelativeLayout 常用</h2><p>layout_alignParentLeft 子控件相对父控件容器靠左边<br>layout_alignParentTop  子控件相对父控件容器靠上边<br>layout_marginLeft       子控件相对父控件容器左边的距离<br>layout_marginTop        子控件相对父控件容器上边的距离<br>layout_centerInParent   子控件相对父控件容器水平垂直居中<br>layout_centerHorizontal  子控件相对父控件容器水平居中<br>layout_centerVertical    子控件相对父控件容器垂直居中</p>
+<p>子类控件相对子类控件的一个位置<br>layout_below     该控件位于给定id控件的底部<br>layout_toRightOf   该控件位于给定id控件的右边<br>layout_above        该控件位于给定id控件的上面<br>layout_toLeftOf         该控件位于给定id控件的左边<br>layout_alignBaseLine    该控件位于给定id控件的内容在一条线上<br>layout_alignBottom   该控件和给定id控件的底部对齐<br>layout_alignLeft     该控件和给定id控件的左边对齐<br>layout_alignRight     该控件和给定id控件的右边对齐<br>layout_alignTop      该控件和给定id控件的上边对齐</p>
+<h2 id="五布局之帧布局FrameLayout"><a href="#五布局之帧布局FrameLayout" class="headerlink" title="五布局之帧布局FrameLayout"></a>五布局之帧布局FrameLayout</h2><p>在这个布局中，所有的子元素都不能被知道放置的位置，他们统统防御这个区域的左上角，并且后面的子元素直接覆盖在前面的子元素之上，将前面的子元素部分和全部遮挡</p>
+<h2 id="五布局之绝对布局AbsoulteLayout"><a href="#五布局之绝对布局AbsoulteLayout" class="headerlink" title="五布局之绝对布局AbsoulteLayout"></a>五布局之绝对布局AbsoulteLayout</h2><p>开发中比较少用，手机屏幕的差距，所以几乎用不到</p>
+<h2 id="五布局之表格布局TableLayout-少用"><a href="#五布局之表格布局TableLayout-少用" class="headerlink" title="五布局之表格布局TableLayout  少用"></a>五布局之表格布局TableLayout  少用</h2><p>collapseColumn = “1，2”<br>隐藏从0开始的索引列，列直接必须逗号隔开</p>
+<p>shrinkColumns<br>收缩从0开始的索引列<br>stretchColumn<br>拉伸从0开始的索引列，以填满剩下的多余空白空间</p>
+<p>layout_column = 1 该控件实现在第2列<br>layout_span = 2   该控件占据2列</p>
+<h2 id="Activity如何创建-类似ios的Controller"><a href="#Activity如何创建-类似ios的Controller" class="headerlink" title="Activity如何创建 类似ios的Controller"></a>Activity如何创建 类似ios的Controller</h2><ol>
+<li>继承Android的Activity类</li>
+<li>重写方法</li>
+<li>设置显示布局</li>
+<li>在AndroidManifest文件中，注册Activity</li>
+</ol>
+<h2 id="Activity的生命周期"><a href="#Activity的生命周期" class="headerlink" title="Activity的生命周期"></a>Activity的生命周期</h2><p>onCreate();创建<br>onStart();运行<br>onResume();获取焦点<br>onPause();失去焦点<br>onStop();暂时<br>onDestroy();销毁<br>onRestart();</p>
+<h2 id="页面跳转"><a href="#页面跳转" class="headerlink" title="页面跳转"></a>页面跳转</h2><p>inter-filter 从哪个页面进入</p>
+<ol>
+<li>startActivity的方式跳转  无返回结果<ul>
+<li>初始化Intent   </li>
+</ul>
+</li>
+<li>通过startActivityForresult  有返回结果<ul>
+<li>requestcode：请求标志</li>
+<li>resultcode： 第二个页面回传结果标志</li>
+<li>data：第二个页面回传的数据</li>
+</ul>
+</li>
+</ol>
+<h2 id="APP签名打包"><a href="#APP签名打包" class="headerlink" title="APP签名打包"></a>APP签名打包</h2><p>export  =&gt;keystore<br>alias: china<br>password：<br>Confirm：<br>validity：</p>
+<h2 id="文本框样式"><a href="#文本框样式" class="headerlink" title="文本框样式"></a>文本框样式</h2>
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2018/09/02/android/android-02/" class="pre-post btn btn-default" title='Android学习 (一)'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Android学习 (一)</span>
+        </a>
+    
+    
+        <a href="/2018/08/21/ios/rn-01/" class="next-post btn btn-default" title='RN入门'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">RN入门</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#开发环境搭建"><span class="toc-text">开发环境搭建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#新建Android项目"><span class="toc-text">新建Android项目</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Application-Name"><span class="toc-text">Application Name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Project-Name"><span class="toc-text">Project Name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#package-Name"><span class="toc-text">package Name</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Minimun-Required-SDK"><span class="toc-text">Minimun Required SDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#target-SDK"><span class="toc-text">target SDK</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compile-With"><span class="toc-text">Compile With</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#项目结构介绍"><span class="toc-text">项目结构介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#src-存放java源代码文件"><span class="toc-text">src/存放java源代码文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#gen存放系统自动生成的配置文件"><span class="toc-text">gen存放系统自动生成的配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android4-4-2"><span class="toc-text">Android4.4.2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assets-不会自动生成id不会自动占用空间"><span class="toc-text">assets 不会自动生成id不会自动占用空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bin-存放被编译后生成的文件-如apk"><span class="toc-text">bin 存放被编译后生成的文件 如apk</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#res-存放应用用到的所有资源，如图片布局"><span class="toc-text">res 存放应用用到的所有资源，如图片布局</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#layout-布局文件"><span class="toc-text">layout 布局文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#values-存放字符串，主题，颜色。样式等资源文件"><span class="toc-text">values 存放字符串，主题，颜色。样式等资源文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AndroidManifest-xml清单文件"><span class="toc-text">AndroidManifest.xml清单文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#TextView-显示文本框控件-gt-label"><span class="toc-text">TextView 显示文本框控件 =&gt;  label</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#EditText-输入文本框-gt-textField"><span class="toc-text">EditText 输入文本框    =&gt;  textField</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ImageView"><span class="toc-text">ImageView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Button和ImageButton"><span class="toc-text">Button和ImageButton</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#string-文件下读取字符串等-在values文件下string-xml"><span class="toc-text">@string/ 文件下读取字符串等 在values文件下string.xml</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AutoCompleteTextView"><span class="toc-text">AutoCompleteTextView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MultiAutoCompleteTextView"><span class="toc-text">MultiAutoCompleteTextView</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ToggleButton"><span class="toc-text">ToggleButton</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CheckBox"><span class="toc-text">CheckBox</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RadioGroup"><span class="toc-text">RadioGroup</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五布局之线性布局LinearLayout-常用"><span class="toc-text">五布局之线性布局LinearLayout  常用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五布局之相对布局RelativeLayout-常用"><span class="toc-text">五布局之相对布局RelativeLayout 常用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五布局之帧布局FrameLayout"><span class="toc-text">五布局之帧布局FrameLayout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五布局之绝对布局AbsoulteLayout"><span class="toc-text">五布局之绝对布局AbsoulteLayout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五布局之表格布局TableLayout-少用"><span class="toc-text">五布局之表格布局TableLayout  少用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity如何创建-类似ios的Controller"><span class="toc-text">Activity如何创建 类似ios的Controller</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Activity的生命周期"><span class="toc-text">Activity的生命周期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面跳转"><span class="toc-text">页面跳转</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#APP签名打包"><span class="toc-text">APP签名打包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#文本框样式"><span class="toc-text">文本框样式</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

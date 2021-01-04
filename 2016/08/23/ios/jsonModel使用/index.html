@@ -1,0 +1,383 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>JsonModel的使用 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="JsonModel的使用">
+            
+	            JsonModel的使用
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios">
+            ios
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/framework详解" title='framework详解'>
+                        framework详解
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/08/23</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="基本使用"><a href="#基本使用" class="headerlink" title="基本使用"></a>基本使用</h3><h4 id="initWithDictionary使用"><a href="#initWithDictionary使用" class="headerlink" title="initWithDictionary使用"></a>initWithDictionary使用</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">JSONModel</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>)   <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>)   <span class="built_in">NSString</span> *sex;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> age;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</span><br><span class="line">                        <span class="string">@"name"</span>:<span class="string">@"Jack"</span>,</span><br><span class="line">                        <span class="string">@"age"</span>:@<span class="number">23</span>,</span><br><span class="line">                        <span class="string">@"gender"</span>:<span class="string">@"male"</span>,</span><br><span class="line">                      &#125;;</span><br><span class="line"> <span class="built_in">NSError</span> *error;</span><br><span class="line"> Person *person = [[Person alloc] initWithDictionary:dict error:&amp;error];</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="key值转换"><a href="#key值转换" class="headerlink" title="key值转换"></a>key值转换</h4><p> 原来字典里的gender这个key变成了sex，这就需要我们定义一个转换的mapper（JSONKeyMapper）：<br> <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Person</span></span></span><br><span class="line"></span><br><span class="line">+ (JSONKeyMapper *)keyMapper</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> [[JSONKeyMapper alloc] initWithModelToJSONDictionary:@&#123;</span><br><span class="line">                                                                  <span class="string">@"gender"</span>: <span class="string">@"sex"</span>,</span><br><span class="line">                                                                  &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<h4 id="自定义错误"><a href="#自定义错误" class="headerlink" title="自定义错误"></a>自定义错误</h4><p>比如，当age对应的数值小于25的时候，打印出Too young!,并阻止模型的转换：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="built_in">BOOL</span>)validate:(<span class="built_in">NSError</span> **)error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (![<span class="keyword">super</span> validate:error])</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.age &lt; <span class="number">25</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        *error = [<span class="built_in">NSError</span> errorWithDomain:<span class="string">@"Too young!"</span> code:<span class="number">10</span> userInfo:<span class="literal">nil</span>];</span><br><span class="line">        <span class="built_in">NSError</span> *errorLog = *error;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,errorLog.domain);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="类型自动匹配"><a href="#类型自动匹配" class="headerlink" title="类型自动匹配"></a>类型自动匹配</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123; <span class="string">"id"</span>: <span class="string">"10"</span>, <span class="string">"country"</span>: <span class="string">"Germany"</span>, <span class="string">"dialCode"</span>: <span class="number">49</span>, <span class="string">"isInEurope"</span>: <span class="literal">true</span> &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"JSONModel.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">CountryModel</span> : <span class="title">JSONModel</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">int</span> <span class="keyword">id</span>;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span>* country;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span>* dialCode;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> isInEurope;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">如果传过来的JSON合法，你所定义的所有的属性都会与该JSON的值想对应，甚至JSONModel会尝试去转换数据为你期望的类型，如上所示:</span><br><span class="line"></span><br><span class="line">- 转换<span class="keyword">id</span>，从字符串转换为<span class="keyword">int</span></span><br><span class="line">- 只需要拷贝一下country的值</span><br><span class="line">- 转换diaCode，从number转换为字符串</span><br><span class="line">- 最后一个是将isInEurope转换为<span class="built_in">BOOL</span>属性</span><br><span class="line">`所以，你所需要做的就是将你的属性定义为期望的类型.`</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="模型嵌套、模型集合"><a href="#模型嵌套、模型集合" class="headerlink" title="模型嵌套、模型集合"></a>模型嵌套、模型集合</h3><p>举个例子，我们让上面的Person对象含有一个数组Friends，它里面的元素是对象Friend，也就是好友信息。若要实现模型的嵌套，我们只需在原来的模型类里增加一个协议Friend：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"JSONModel.h"</span></span></span><br><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">Friend</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Friend</span> : <span class="title">JSONModel</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> age;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> : <span class="title">JSONModel</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) <span class="built_in">NSInteger</span> age;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">copy</span>) <span class="built_in">NSString</span> *gender;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">NSArray</span>&lt;Friend&gt; *friends;<span class="comment">//数组，嵌套模型</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="key映射"><a href="#key映射" class="headerlink" title="key映射"></a>key映射</h3><p>服务器返回数据</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"order_id"</span>: <span class="number">104</span>,</span><br><span class="line">  <span class="string">"order_details"</span> : [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"name"</span>: <span class="string">"Product#1"</span>,</span><br><span class="line">      <span class="string">"price"</span>: &#123;</span><br><span class="line">        <span class="string">"usd"</span>: <span class="number">12.95</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">可以随意改对应的字段，可以随意取对应的数据，很强大</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">OrderModel</span> : <span class="title">JSONModel</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">int</span> <span class="keyword">id</span>;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">float</span> price;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span>* productName;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">OrderModel</span></span></span><br><span class="line"></span><br><span class="line">+(JSONKeyMapper*)keyMapper</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">return</span> [[JSONKeyMapper alloc] initWithDictionary:@&#123;</span><br><span class="line">    <span class="string">@"order_id"</span>: <span class="string">@"id"</span>,</span><br><span class="line">    <span class="string">@"order_details.name"</span>: <span class="string">@"productName"</span>,</span><br><span class="line">    <span class="string">@"order_details.price.usd"</span>: <span class="string">@"price"</span></span><br><span class="line">  &#125;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置全局键映射-应用于所有model"><a href="#设置全局键映射-应用于所有model" class="headerlink" title="设置全局键映射(应用于所有model)"></a>设置全局键映射(应用于所有model)</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[JSONModel setGlobalKeyMapper:[</span><br><span class="line">    [JSONKeyMapper alloc] initWithDictionary:@&#123;</span><br><span class="line">      <span class="string">@"item_id"</span>:<span class="string">@"ID"</span>,</span><br><span class="line">      <span class="string">@"item.name"</span>: <span class="string">@"itemName"</span></span><br><span class="line">   &#125;]</span><br><span class="line">];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="设置下划线自动转驼峰"><a href="#设置下划线自动转驼峰" class="headerlink" title="设置下划线自动转驼峰"></a>设置下划线自动转驼峰</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"order_id"</span>: <span class="number">104</span>,</span><br><span class="line">  <span class="string">"order_product"</span> : <span class="string">@"Product#1"</span>,</span><br><span class="line">  <span class="string">"order_price"</span> : <span class="number">12.95</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">OrderModel</span> : <span class="title">JSONModel</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">int</span> orderId;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">float</span> orderPrice;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span>* orderProduct;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">OrderModel</span></span></span><br><span class="line"></span><br><span class="line">+(JSONKeyMapper*)keyMapper</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">return</span> [JSONKeyMapper mapperFromUnderscoreCaseToCamelCase];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="可选属性-就是说这个属性可以为null或者为空"><a href="#可选属性-就是说这个属性可以为null或者为空" class="headerlink" title="可选属性 (就是说这个属性可以为null或者为空)"></a>可选属性 (就是说这个属性可以为null或者为空)</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"id"</span>: <span class="string">"123"</span>,</span><br><span class="line">  <span class="string">"name"</span>: null,</span><br><span class="line">  <span class="string">"price"</span>: <span class="number">12.95</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ProductModel</span> : <span class="title">JSONModel</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">int</span> <span class="keyword">id</span>;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span>&lt;Optional&gt;* name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">float</span> price;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSNumber</span>&lt;Optional&gt;* uuid;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ProductModel</span></span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+<h3 id="忽略属性-就是完全忽略这个属性"><a href="#忽略属性-就是完全忽略这个属性" class="headerlink" title="忽略属性 (就是完全忽略这个属性)"></a>忽略属性 (就是完全忽略这个属性)</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">"id"</span>: <span class="string">"123"</span>,</span><br><span class="line">  <span class="string">"name"</span>: null</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">ProductModel</span> : <span class="title">JSONModel</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">int</span> <span class="keyword">id</span>;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span>&lt;Ignore&gt;* customProperty;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ProductModel</span></span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="设置所有的属性为可选-所有属性值可以为空"><a href="#设置所有的属性为可选-所有属性值可以为空" class="headerlink" title="设置所有的属性为可选(所有属性值可以为空)"></a>设置所有的属性为可选(所有属性值可以为空)</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ProductModel</span></span></span><br><span class="line">+(<span class="built_in">BOOL</span>)propertyIsOptional:(<span class="built_in">NSString</span>*)propertyName</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="使用JSONModel自带的-HTTP-请求"><a href="#使用JSONModel自带的-HTTP-请求" class="headerlink" title="使用JSONModel自带的 HTTP 请求"></a>使用JSONModel自带的 HTTP 请求</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//add extra headers</span></span><br><span class="line">[[JSONHTTPClient requestHeaders] setValue:<span class="string">@"MySecret"</span> forKey:<span class="string">@"AuthorizationToken"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//make post, get requests</span></span><br><span class="line">[JSONHTTPClient postJSONFromURLWithString:<span class="string">@"http://mydomain.com/api"</span></span><br><span class="line">                                   params:@&#123;<span class="string">@"postParam1"</span>:<span class="string">@"value1"</span>&#125;</span><br><span class="line">                               completion:^(<span class="keyword">id</span> json, JSONModelError *err) &#123;</span><br><span class="line"></span><br><span class="line">                                   <span class="comment">//check err, process json ...</span></span><br><span class="line"></span><br><span class="line">                               &#125;];</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="将model转化为字典或者json格式的字符串"><a href="#将model转化为字典或者json格式的字符串" class="headerlink" title="将model转化为字典或者json格式的字符串"></a>将model转化为字典或者json格式的字符串</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ProductModel* pm = [[ProductModel alloc] initWithString:jsonString error:<span class="literal">nil</span>];</span><br><span class="line">pm.name = <span class="string">@"Changed Name"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//convert to dictionary</span></span><br><span class="line"><span class="built_in">NSDictionary</span>* dict = [pm toDictionary];</span><br><span class="line"></span><br><span class="line"><span class="comment">//convert to text</span></span><br><span class="line"><span class="built_in">NSString</span>* string = [pm toJSONString];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="自定义数据的转换"><a href="#自定义数据的转换" class="headerlink" title="自定义数据的转换"></a>自定义数据的转换</h3><h3 id="自定义处理指定的属性"><a href="#自定义处理指定的属性" class="headerlink" title="自定义处理指定的属性"></a>自定义处理指定的属性</h3><h3 id="自定义JSON校验"><a href="#自定义JSON校验" class="headerlink" title="自定义JSON校验"></a>自定义JSON校验</h3><h3 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h3><p><a href="https://www.jianshu.com/p/38634a7af1dd" target="_blank" rel="noopener">JSONModel源码解析</a></p>
+<h3 id="参照博客"><a href="#参照博客" class="headerlink" title="参照博客"></a>参照博客</h3><p><a href="https://www.jianshu.com/p/3cce56f374b4" target="_blank" rel="noopener">iOS中JSONModel的使用</a></p>
+
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2016/09/23/ios/YTKNetwork使用/" class="pre-post btn btn-default" title='YTKNetwork使用'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">YTKNetwork使用</span>
+        </a>
+    
+    
+        <a href="/2016/03/22/tool/cocoapods/" class="next-post btn btn-default" title='cocoapods常用命令'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">cocoapods常用命令</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本使用"><span class="toc-text">基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#initWithDictionary使用"><span class="toc-text">initWithDictionary使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#key值转换"><span class="toc-text">key值转换</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#自定义错误"><span class="toc-text">自定义错误</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#类型自动匹配"><span class="toc-text">类型自动匹配</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型嵌套、模型集合"><span class="toc-text">模型嵌套、模型集合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#key映射"><span class="toc-text">key映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置全局键映射-应用于所有model"><span class="toc-text">设置全局键映射(应用于所有model)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置下划线自动转驼峰"><span class="toc-text">设置下划线自动转驼峰</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#可选属性-就是说这个属性可以为null或者为空"><span class="toc-text">可选属性 (就是说这个属性可以为null或者为空)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#忽略属性-就是完全忽略这个属性"><span class="toc-text">忽略属性 (就是完全忽略这个属性)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设置所有的属性为可选-所有属性值可以为空"><span class="toc-text">设置所有的属性为可选(所有属性值可以为空)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用JSONModel自带的-HTTP-请求"><span class="toc-text">使用JSONModel自带的 HTTP 请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#将model转化为字典或者json格式的字符串"><span class="toc-text">将model转化为字典或者json格式的字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义数据的转换"><span class="toc-text">自定义数据的转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义处理指定的属性"><span class="toc-text">自定义处理指定的属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义JSON校验"><span class="toc-text">自定义JSON校验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码解析"><span class="toc-text">源码解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参照博客"><span class="toc-text">参照博客</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

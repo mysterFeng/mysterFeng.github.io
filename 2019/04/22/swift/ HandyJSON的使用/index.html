@@ -1,0 +1,363 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>HandyJSON的使用 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="HandyJSON的使用">
+            
+	            HandyJSON的使用
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/swift">
+            swift
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/swift" title='swift'>
+                        swift
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/04/22</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>在OC中，我们有很多优秀的第三方库帮助我们实现，比如MJExtension、JSONModel等，这些库基本都是利用runtime实现读取属性名并利用kvc重新赋值属性<br>在Swift中，由于runtime的局限，比较出名的有SwiftyJSON、ObjectMapper等。<br>其中：<br>1、SwiftyJSON本质上仍然是根据JSON结构去取值，使用起来顺手、清晰；但这种做法没能妥善解决上述的几个问题，因为它不是机遇model的，我们使用的时候，依然必须制定key去获取value，这在一定程度上不是很友好。</p>
+<p>2、ObjectMapper实现了JSON直接转Model的功能，不过使用起来，代码量会多一点，因为我们必须遵循Mappable协议，制定json内的每一个key和model属性的对应关系。</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="1-HandyJSON支持-JSON直接转Model，定义class时，有两点注意："><a href="#1-HandyJSON支持-JSON直接转Model，定义class时，有两点注意：" class="headerlink" title="1.HandyJSON支持 JSON直接转Model，定义class时，有两点注意："></a>1.HandyJSON支持 JSON直接转Model，定义class时，有两点注意：</h4><p>必须遵循HandyJSON协议</p>
+<p>需要实现空的initializer (当然Struct结构体 可以不需要init()，下文有说明)</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> BasicTypes: HandyJSON &#123;</span><br><span class="line">    var <span class="keyword">int</span>: Int = <span class="number">2</span></span><br><span class="line">    var doubleOptional: Double?</span><br><span class="line">    var stringImplicitlyUnwrapped: String!</span><br><span class="line"></span><br><span class="line">    required init() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let jsonString = <span class="string">"&#123;\"doubleOptional\":1.1,\"stringImplicitlyUnwrapped\":\"hello\",\"int\":1&#125;"</span></span><br><span class="line"><span class="keyword">if</span> let object = BasicTypes.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="comment">// …</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是最简单的模型，只有三个属性，对于复杂的嵌套结构，一样这样处理实现，参考下文</p>
+<h4 id="2-HandyJSON还支持Struct，使用方式与Class基本一致"><a href="#2-HandyJSON还支持Struct，使用方式与Class基本一致" class="headerlink" title="2.HandyJSON还支持Struct，使用方式与Class基本一致"></a>2.HandyJSON还支持Struct，使用方式与Class基本一致</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> BasicTypes: HandyJSON &#123;</span><br><span class="line">    var <span class="keyword">int</span>: Int = <span class="number">2</span></span><br><span class="line">    var doubleOptional: Double?</span><br><span class="line">    var stringImplicitlyUnwrapped: String!</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let jsonString = <span class="string">"&#123;\"doubleOptional\":1.1,\"stringImplicitlyUnwrapped\":\"hello\",\"int\":1&#125;"</span></span><br><span class="line"><span class="keyword">if</span> let object = BasicTypes.deserialize(from: jsonString) &#123;</span><br><span class="line">    <span class="comment">// …</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里注意一下，虽然Struct自己已经帮助构造了init初始化，但如果我们需要重载init，构造我们自己的初始化，还是需要写一下的。</p>
+<h4 id="3-HandyJSON支持枚举，只需要enum构造时服从HandyJSONEnum协议即可。"><a href="#3-HandyJSON支持枚举，只需要enum构造时服从HandyJSONEnum协议即可。" class="headerlink" title="3.HandyJSON支持枚举，只需要enum构造时服从HandyJSONEnum协议即可。"></a>3.HandyJSON支持枚举，只需要enum构造时服从HandyJSONEnum协议即可。</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> AnimalType: String, HandyJSONEnum &#123;</span><br><span class="line">    <span class="keyword">case</span> Cat = <span class="string">"cat"</span></span><br><span class="line">    <span class="keyword">case</span> Dog = <span class="string">"dog"</span></span><br><span class="line">    <span class="keyword">case</span> Bird = <span class="string">"bird"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> Animal: HandyJSON &#123;</span><br><span class="line">    var name: String?</span><br><span class="line">    var type: AnimalType?</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let jsonString = <span class="string">"&#123;\"type\":\"cat\",\"name\":\"Tom\"&#125;"</span></span><br><span class="line"><span class="keyword">if</span> let animal = Animal.deserialize(from: jsonString) &#123;</span><br><span class="line">    print(animal.type?.rawValue)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、此外，HandyJSON还支持一些非基础类型、复杂类型，包括嵌套结构，如可选、隐式解包可选、集合等"><a href="#4、此外，HandyJSON还支持一些非基础类型、复杂类型，包括嵌套结构，如可选、隐式解包可选、集合等" class="headerlink" title="4、此外，HandyJSON还支持一些非基础类型、复杂类型，包括嵌套结构，如可选、隐式解包可选、集合等"></a>4、此外，HandyJSON还支持一些非基础类型、复杂类型，包括嵌套结构，如可选、隐式解包可选、集合等</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> BasicTypes: HandyJSON &#123;</span><br><span class="line">    var <span class="keyword">bool</span>: Bool = <span class="literal">true</span></span><br><span class="line">    var intOptional: Int?</span><br><span class="line">    var doubleImplicitlyUnwrapped: Double!</span><br><span class="line">    var anyObjectOptional: Any?</span><br><span class="line"></span><br><span class="line">    var arrayInt: Array&lt;Int&gt; = []</span><br><span class="line">    var arrayStringOptional: Array&lt;String&gt;?</span><br><span class="line">    var setInt: Set&lt;Int&gt;?</span><br><span class="line">    var dictAnyObject: Dictionary&lt;String, Any&gt; = [:]</span><br><span class="line"></span><br><span class="line">    var nsNumber = <span class="number">2</span></span><br><span class="line">    var nsString: <span class="built_in">NSString</span>?</span><br><span class="line"></span><br><span class="line">    required init() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let object = BasicTypes()</span><br><span class="line">object.intOptional = <span class="number">1</span></span><br><span class="line">object.doubleImplicitlyUnwrapped = <span class="number">1.1</span></span><br><span class="line">object.anyObjectOptional = <span class="string">"StringValue"</span></span><br><span class="line">object.arrayInt = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">object.arrayStringOptional = [<span class="string">"a"</span>, <span class="string">"b"</span>]</span><br><span class="line">object.setInt = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">object.dictAnyObject = [<span class="string">"key1"</span>: <span class="number">1</span>, <span class="string">"key2"</span>: <span class="string">"stringValue"</span>]</span><br><span class="line">object.nsNumber = <span class="number">2</span></span><br><span class="line">object.nsString = <span class="string">"nsStringValue"</span></span><br><span class="line"></span><br><span class="line">let jsonString = object.toJSONString()!</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> let object = JSONDeserializer&lt;BasicTypes&gt;.deserializeFrom(json: jsonString) &#123;</span><br><span class="line">    <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5、HandyJSON支持指定从哪个具体路径开始解析，反序列化到Model。"><a href="#5、HandyJSON支持指定从哪个具体路径开始解析，反序列化到Model。" class="headerlink" title="5、HandyJSON支持指定从哪个具体路径开始解析，反序列化到Model。"></a>5、HandyJSON支持指定从哪个具体路径开始解析，反序列化到Model。</h4><p>这个比较常用，因为正常情况下，接口一般都会返回包括错误码，错误消息，正式请求数据等，但我们一般只需要把正式数据转换成Model即可。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Cat: HandyJSON &#123;</span><br><span class="line">    var <span class="keyword">id</span>: Int64!</span><br><span class="line">    var name: String!</span><br><span class="line"></span><br><span class="line">    required init() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let jsonString = <span class="string">"&#123;\"code\":200,\"msg\":\"success\",\"data\":&#123;\"cat\":&#123;\"id\":12345,\"name\":\"Kitty\"&#125;&#125;&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> let cat = JSONDeserializer&lt;Cat&gt;.deserializeFrom(json: jsonString, designatedPath: <span class="string">"data.cat"</span>) &#123;</span><br><span class="line">    print(cat.name)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中，直接通过 designatedPath 定位到我们需要的节点处。</p>
+<h4 id="6、handyJSON支持有继承关系的Model类，就是说及时某个类没有实现HandyJSON协议，只要父类有实现，依然可以转化model。"><a href="#6、handyJSON支持有继承关系的Model类，就是说及时某个类没有实现HandyJSON协议，只要父类有实现，依然可以转化model。" class="headerlink" title="6、handyJSON支持有继承关系的Model类，就是说及时某个类没有实现HandyJSON协议，只要父类有实现，依然可以转化model。"></a>6、handyJSON支持有继承关系的Model类，就是说及时某个类没有实现HandyJSON协议，只要父类有实现，依然可以转化model。</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Animal: HandyJSON &#123;</span><br><span class="line">    var <span class="keyword">id</span>: Int?</span><br><span class="line">    var color: String?</span><br><span class="line"></span><br><span class="line">    required init() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> Cat: Animal &#123;</span><br><span class="line">    var name: String?</span><br><span class="line"></span><br><span class="line">    required init() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let jsonString = <span class="string">"&#123;\"id\":12345,\"color\":\"black\",\"name\":\"cat\"&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> let cat = JSONDeserializer&lt;Cat&gt;.deserializeFrom(json: jsonString) &#123;</span><br><span class="line">    print(cat)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="7、上面都是基本在说JSON转模型，那么反过来实现呢？HandyJSON还支持对象转字典、对象转模型。"><a href="#7、上面都是基本在说JSON转模型，那么反过来实现呢？HandyJSON还支持对象转字典、对象转模型。" class="headerlink" title="7、上面都是基本在说JSON转模型，那么反过来实现呢？HandyJSON还支持对象转字典、对象转模型。"></a>7、上面都是基本在说JSON转模型，那么反过来实现呢？HandyJSON还支持对象转字典、对象转模型。</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> BasicTypes: HandyJSON &#123;</span><br><span class="line">    var <span class="keyword">int</span>: Int = <span class="number">2</span></span><br><span class="line">    var doubleOptional: Double?</span><br><span class="line">    var stringImplicitlyUnwrapped: String!</span><br><span class="line"></span><br><span class="line">    required init() &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">let object = BasicTypes()</span><br><span class="line">object.int = <span class="number">1</span></span><br><span class="line">object.doubleOptional = <span class="number">1.1</span></span><br><span class="line">object.stringImplicitlyUnwrapped = “hello<span class="string">"</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">print(object.toJSON()!) // 序列化到字典</span></span><br><span class="line"><span class="string">print(object.toJSONString()!) // 序列化到JSON字符串</span></span><br><span class="line"><span class="string">print(object.toJSONString(prettyPrint: true)!) // 序列化为格式化后的JSON字符串</span></span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/05/22/swift/学习中的问题与总结/" class="pre-post btn btn-default" title='学习中的问题与总结'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">学习中的问题与总结</span>
+        </a>
+    
+    
+        <a href="/2019/03/26/swift/moya的使用/" class="next-post btn btn-default" title='moya的使用'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">moya的使用</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用"><span class="toc-text">使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-HandyJSON支持-JSON直接转Model，定义class时，有两点注意："><span class="toc-text">1.HandyJSON支持 JSON直接转Model，定义class时，有两点注意：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-HandyJSON还支持Struct，使用方式与Class基本一致"><span class="toc-text">2.HandyJSON还支持Struct，使用方式与Class基本一致</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-HandyJSON支持枚举，只需要enum构造时服从HandyJSONEnum协议即可。"><span class="toc-text">3.HandyJSON支持枚举，只需要enum构造时服从HandyJSONEnum协议即可。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、此外，HandyJSON还支持一些非基础类型、复杂类型，包括嵌套结构，如可选、隐式解包可选、集合等"><span class="toc-text">4、此外，HandyJSON还支持一些非基础类型、复杂类型，包括嵌套结构，如可选、隐式解包可选、集合等</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、HandyJSON支持指定从哪个具体路径开始解析，反序列化到Model。"><span class="toc-text">5、HandyJSON支持指定从哪个具体路径开始解析，反序列化到Model。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、handyJSON支持有继承关系的Model类，就是说及时某个类没有实现HandyJSON协议，只要父类有实现，依然可以转化model。"><span class="toc-text">6、handyJSON支持有继承关系的Model类，就是说及时某个类没有实现HandyJSON协议，只要父类有实现，依然可以转化model。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、上面都是基本在说JSON转模型，那么反过来实现呢？HandyJSON还支持对象转字典、对象转模型。"><span class="toc-text">7、上面都是基本在说JSON转模型，那么反过来实现呢？HandyJSON还支持对象转字典、对象转模型。</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

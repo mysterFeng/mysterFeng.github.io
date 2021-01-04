@@ -1,0 +1,343 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>Const文件相关内容 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="Const文件相关内容">
+            
+	            Const文件相关内容
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios">
+            ios
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/08/24</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <ul>
+<li>屏幕适配相关</li>
+<li>文件导入</li>
+<li>颜色字体相关</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  Const.swift</span><br><span class="line">//</span><br><span class="line">//  Created by 刘刘峰 on 2019/11/3.</span><br><span class="line">//  Copyright © 2019 刘刘峰. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">import Foundation</span><br><span class="line">import UIKit</span><br><span class="line">import SnapKit</span><br><span class="line">import Kingfisher</span><br><span class="line">import Toast</span><br><span class="line">import SwiftMessages</span><br><span class="line"></span><br><span class="line">@_exported import SwiftyJSON</span><br><span class="line">@_exported import HandyJSON</span><br><span class="line">@_exported import IQKeyboardManagerSwift</span><br><span class="line">@_exported import SwifterSwift</span><br><span class="line">@_exported import Moya</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">let kScreenBounds = UIScreen.main.bounds</span><br><span class="line">let kScreenWidth = UIScreen.main.bounds.size.width</span><br><span class="line">let kScreenHeigth = UIScreen.main.bounds.size.height</span><br><span class="line">let DominantColor = UIColor.init(red: 242/255.0, green: 77/255.0, blue: 51/255.0, alpha: 1)</span><br><span class="line">let FooterViewColor = UIColor.init(red: 240/255.0, green: 241/255.0, blue: 244/255.0, alpha: 1)</span><br><span class="line"></span><br><span class="line">// iphone X</span><br><span class="line">let isIphoneX = kScreenHeigth == 812 ? true : false</span><br><span class="line">let isIphone11 = kScreenHeigth == 896 ? true : false</span><br><span class="line">let isIphoneXAll = isIphoneX||isIphone11</span><br><span class="line">let isPad = DeviceInfo.isIPad()</span><br><span class="line"></span><br><span class="line">//let ZYIsiPhoneX: Bool = UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) &amp;&amp; UIScreen.main.currentMode!.size == CGSize(width: 1125, height: 2436)</span><br><span class="line"></span><br><span class="line">// navigationBarHeight</span><br><span class="line">let navigationBarHeight : CGFloat = isIphoneXAll ? 88 : 64</span><br><span class="line">// tabBarHeight</span><br><span class="line">let tabBarHeight : CGFloat = isIphoneXAll ? 49 + 34 : 49</span><br><span class="line"></span><br><span class="line">let statusBarHeight: CGFloat = isIphoneXAll ? 44 : 20</span><br><span class="line"></span><br><span class="line">//@available(iOS 13.0, *)</span><br><span class="line">//let kkwindow = (UIApplication.shared.connectedScenes.first?.delegate as? UIWindowSceneDelegate)?.window as? UIWindow</span><br><span class="line">let kkwindow = UIApplication.shared.windows.first</span><br><span class="line"></span><br><span class="line">//MARK:通用闭包</span><br><span class="line">public typealias LFCallBack = ()-&gt;()</span><br><span class="line">public typealias LFIndexCallBack = (_ selectRow:Int)-&gt;()</span><br><span class="line">public typealias LFStringCallBack = (_ String:String)-&gt;()</span><br><span class="line">public typealias LFButtonCallBack = (_ sender:UIButton)-&gt;()</span><br><span class="line">//public typealias LFDataCallBack = (_ dataCenter:PXSDataCenter)-&gt;()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">enum AppConstants &#123;</span><br><span class="line">    </span><br><span class="line">    //MARK: - 是否是测试环境</span><br><span class="line">    static let NetDebug: Bool = true</span><br><span class="line">    </span><br><span class="line">    //MARK: - 随机颜色</span><br><span class="line">    static let ColorDebug: Bool = false</span><br><span class="line">    </span><br><span class="line">    //MARK: - 日志输出</span><br><span class="line">    static let LogDebug: Bool = true</span><br><span class="line">    </span><br><span class="line">    //存储-用户信息-键</span><br><span class="line">    static let CurrentLoginUserInfo: String = &quot;&quot;</span><br><span class="line">    </span><br><span class="line">    static let KeyChainService: String = &quot;&quot;</span><br><span class="line">    </span><br><span class="line">    //存储-网络请求token-键</span><br><span class="line">    static let NetworkToken: String = &quot;NetworkToken&quot;</span><br><span class="line">    </span><br><span class="line">    //MARK: - 协议（http/https）（含“//”后缀，不能为空）</span><br><span class="line">    enum AppURLProtocol &#123;</span><br><span class="line">        </span><br><span class="line">        //测试</span><br><span class="line">        static let DebugProtocol = &quot;https://&quot;</span><br><span class="line">        </span><br><span class="line">        //生产</span><br><span class="line">        static let ProduceProtocol = &quot;https://&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //MARK: - 地址(host) （不能为空）</span><br><span class="line">    enum AppURLHOST &#123;</span><br><span class="line">        </span><br><span class="line">        //测试</span><br><span class="line">        static let DebugHOST = &quot;项目测试域名&quot;</span><br><span class="line">        </span><br><span class="line">        //生产</span><br><span class="line">        static let ProduceHOST = &quot;项目生产域名&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //MARK: - 端口（port），（含“:”前缀，如果 URL_PORT 为空，则不含）</span><br><span class="line">    enum AppURLPort &#123;</span><br><span class="line">        </span><br><span class="line">        //测试</span><br><span class="line">        static let DebugPort = &quot;&quot;</span><br><span class="line">        </span><br><span class="line">        //生产</span><br><span class="line">        static let ProducePort = &quot;&quot;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //MARK: - 接口地址</span><br><span class="line">    enum AppInterfaceAddress &#123;</span><br><span class="line">        </span><br><span class="line">        //登录</span><br><span class="line">        static let Login = &quot;接口地址路由&quot;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    //MARK: - APP的key</span><br><span class="line">    enum AppKey &#123;</span><br><span class="line">        </span><br><span class="line">        static let UMeng = &quot;三方Key&quot;</span><br><span class="line">        </span><br><span class="line">        //......</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //MARK: - APP的密钥</span><br><span class="line">    enum AppSecret &#123;</span><br><span class="line">        </span><br><span class="line">        static let UMeng = &quot;三方密钥&quot;</span><br><span class="line">        </span><br><span class="line">        //......</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //MARK: - 错误类型</span><br><span class="line">    enum ErrorType &#123;</span><br><span class="line">        </span><br><span class="line">        static let ServerError = &quot;服务器异常&quot;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//MARK: - 日志输出</span><br><span class="line">// &lt;T&gt;: 为泛型，外界传入什么就是什么</span><br><span class="line">func DLog&lt;T&gt;(_ message: T, file: String = #file, method: String = #function, line: Int = #line) &#123;</span><br><span class="line">    </span><br><span class="line">    if AppConstants.LogDebug &#123;</span><br><span class="line">        </span><br><span class="line">        print(&quot;\(method)[\(line)]:\(message)&quot;)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//MARK: - frame 相关</span><br><span class="line">/************************  屏幕尺寸  ***************************/</span><br><span class="line"></span><br><span class="line">public enum AppFrame &#123;</span><br><span class="line">    </span><br><span class="line">    static let ScreenBounds = UIScreen.main.bounds</span><br><span class="line">    </span><br><span class="line">    // 屏幕宽度</span><br><span class="line">    static let ScreenWidth = ScreenBounds.size.width</span><br><span class="line">    </span><br><span class="line">    // 屏幕高度</span><br><span class="line">    static let ScreenHeight = ScreenBounds.size.height</span><br><span class="line">    </span><br><span class="line">    // iPhone4</span><br><span class="line">    static let iPhone4 = ScreenHeight  &lt; 568 ? true : false</span><br><span class="line">    </span><br><span class="line">    // iPhone 5</span><br><span class="line">    static let iPhone5 = ScreenHeight  == 568 ? true : false</span><br><span class="line">    </span><br><span class="line">    // iPhone 6</span><br><span class="line">    static let iPhone6 = ScreenHeight  == 667 ? true : false</span><br><span class="line">    </span><br><span class="line">    // iphone 6P</span><br><span class="line">    static let iPhone6P = ScreenHeight == 736 ? true : false</span><br><span class="line">    </span><br><span class="line">    // iphone X XS</span><br><span class="line">    static let iPhoneX = ScreenHeight == 812 ? true : false</span><br><span class="line">    </span><br><span class="line">    // iphone XR XSMax</span><br><span class="line">    static let iPhoneXR = ScreenHeight == 896 ? true : false</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    // navigationBarHeight</span><br><span class="line">    static let kNavigationBarHeight : CGFloat = iPhoneX ? 88 : 64</span><br><span class="line">    </span><br><span class="line">    // tabBarHeight</span><br><span class="line">    static let kTabBarHeight : CGFloat = iPhoneX ? 49 + 34 : 49</span><br><span class="line">    </span><br><span class="line">    /** 如果是iPhoneX按照Plus 尺寸计算比例 */</span><br><span class="line">    static let Scale_Height = iPhoneX ? 736.0/667.0 : ScreenHeight / 667</span><br><span class="line">    static let Scale_Width = ScreenWidth / 375</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func ADAPTX(x:CGFloat) -&gt; CGFloat &#123;</span><br><span class="line">    </span><br><span class="line">    return AppFrame.Scale_Width * x</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func ADAPTY(y:CGFloat) -&gt; CGFloat &#123;</span><br><span class="line">    </span><br><span class="line">    return AppFrame.Scale_Height * y</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: ============================================================================</span><br><span class="line">// MARK: 设置颜色</span><br><span class="line"></span><br><span class="line">//MARK: - AppColor 相关</span><br><span class="line">public enum AppColor &#123;</span><br><span class="line">    </span><br><span class="line">    static let clear = UIColor.clear</span><br><span class="line">    </span><br><span class="line">    //APP主题色</span><br><span class="line">//    static let themeColor = RGB0X(hexValue: 0x3eb2e5)</span><br><span class="line">//    static let themeColor = RGB0X(hexValue: 0x03a9f4)</span><br><span class="line">    static let themeColor = RGB0X(hexValue: 0xF78934)</span><br><span class="line"></span><br><span class="line">//2196f3</span><br><span class="line">    //白色</span><br><span class="line">    static let white = RGB0X(hexValue: 0xFFFFFF)</span><br><span class="line">    //APP红色</span><br><span class="line">    static let red = RGB0X(hexValue: 0xff2323)</span><br><span class="line">    //APP蓝色</span><br><span class="line">    static let blue = RGB0X(hexValue: 0x488ff0)</span><br><span class="line">    //APP黑色</span><br><span class="line">    static let black = RGB0X(hexValue: 0x252525)</span><br><span class="line">    //APP深灰色</span><br><span class="line">    static let darkgGray = RGB0X(hexValue: 0x666666)</span><br><span class="line">    //APP灰色</span><br><span class="line">    static let gray = RGB0X(hexValue: 0x989796)</span><br><span class="line">    //APP轻灰色</span><br><span class="line">    static let lightGray = RGB0X(hexValue: 0xcccccc)</span><br><span class="line">    //APP背景色</span><br><span class="line">    static let vcBgColor = RGB0X(hexValue: 0xF7F7F7)</span><br><span class="line">    </span><br><span class="line">    static let lineColor = RGB0X(hexValue: 0xF0EFED)</span><br><span class="line"></span><br><span class="line">    //热门标签</span><br><span class="line">    static let hotColor = RGB0X(hexValue: 0xFC868B)</span><br><span class="line">    //推荐标签</span><br><span class="line">    static let recomColor = RGB0X(hexValue: 0x6AD8B3)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/// RGBA的颜色设置</span><br><span class="line">func RGB(_ r:CGFloat, g:CGFloat, b:CGFloat) -&gt; UIColor &#123;</span><br><span class="line">    </span><br><span class="line">    return UIColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: 1.0)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func RGBA(_ r:CGFloat, g:CGFloat, b:CGFloat, a:CGFloat) -&gt; UIColor &#123;</span><br><span class="line">    </span><br><span class="line">    return UIColor(red: r / 255.0, green: g / 255.0, blue: b / 255.0, alpha: a)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func HEXA(hexValue: Int, a: CGFloat) -&gt; (UIColor) &#123;</span><br><span class="line">    </span><br><span class="line">    return UIColor(red: ((CGFloat)((hexValue &amp; 0xFF0000) &gt;&gt; 16)) / 255.0,</span><br><span class="line">                   green: ((CGFloat)((hexValue &amp; 0xFF00) &gt;&gt; 8)) / 255.0,</span><br><span class="line">                   blue: ((CGFloat)(hexValue &amp; 0xFF)) / 255.0,</span><br><span class="line">                   alpha: a)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func RGB0X(hexValue: Int) -&gt; (UIColor) &#123;</span><br><span class="line">    </span><br><span class="line">    return HEXA(hexValue: hexValue, a: 1.0)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: ============================================================================</span><br><span class="line">// MARK: 设置字体</span><br><span class="line"></span><br><span class="line">//MARK: - AppFont相关</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">func FONT(font: CGFloat) -&gt; UIFont &#123;</span><br><span class="line">    </span><br><span class="line">    return UIFont.systemFont(ofSize: font)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">func FONT_BOLD(font: CGFloat) -&gt; UIFont &#123;</span><br><span class="line">    </span><br><span class="line">    return UIFont.boldSystemFont(ofSize: font)</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">public enum AppFont &#123;</span><br><span class="line">    static let font10 = FONT(font: 10)</span><br><span class="line"></span><br><span class="line">    static let font11 = FONT(font: 11)</span><br><span class="line"></span><br><span class="line">    static let font12 = FONT(font: 12)</span><br><span class="line">    static let font13 = FONT(font: 13)</span><br><span class="line"></span><br><span class="line">    static let font14 = FONT(font: 14)</span><br><span class="line">    static let font16 = FONT(font: 16)</span><br><span class="line">    </span><br><span class="line">    static let font14_Blod = FONT_BOLD(font: 14)</span><br><span class="line">    static let font16_Blod = FONT_BOLD(font: 16)</span><br><span class="line">    static let font18_Blod = FONT_BOLD(font: 18)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// MARK: ============================================================================</span><br><span class="line">// MARK: 界面UI固定尺寸</span><br><span class="line"></span><br><span class="line">//MARK: - AppSize 相关</span><br><span class="line">public enum AppSize &#123;</span><br><span class="line">    static let margin = 10</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/08/25/ios/swift 数据存储/" class="pre-post btn btn-default" title='Swift数据存储'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Swift数据存储</span>
+        </a>
+    
+    
+        <a href="/2019/08/24/ios/swift 基础/" class="next-post btn btn-default" title='Swift基础'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Swift基础</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <p>暂无目录</p>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

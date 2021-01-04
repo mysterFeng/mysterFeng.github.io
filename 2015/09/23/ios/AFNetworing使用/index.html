@@ -1,0 +1,387 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>AFNetworking的使用 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="AFNetworking的使用">
+            
+	            AFNetworking的使用
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios">
+            ios
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/framework详解" title='framework详解'>
+                        framework详解
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2015/09/23</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="一、基本结构"><a href="#一、基本结构" class="headerlink" title="一、基本结构"></a>一、基本结构</h3><ol>
+<li>网络通信模块(AFURLSessionManager、AFHTTPSessionManger)</li>
+<li>网络状态监听模块(Reachability)</li>
+<li>网络通信安全策略模块(Security)</li>
+<li>网络通信信息序列化/反序列化模块(Serialization)</li>
+<li>对于iOS UIKit库的扩展(UIKit)</li>
+</ol>
+<p><code>AF3.x是基于NSURLSession来封装的。所以这个类围绕着NSURLSession做了一系列的封装,其中AFHTTPSessionManager是继承于AFURLSessionManager的，我们一般做网络请求都是用这个类，但是它本身是没有做实事的，只是做了一些简单的封装，把请求逻辑分发给父类AFURLSessionManager或者其它类去做。</code></p>
+<h3 id="二、网络通信模块"><a href="#二、网络通信模块" class="headerlink" title="二、网络通信模块"></a>二、网络通信模块</h3><h4 id="AFHTTPSessionManager"><a href="#AFHTTPSessionManager" class="headerlink" title="AFHTTPSessionManager"></a>AFHTTPSessionManager</h4><!-- ![图片](/images/af01.jpg) -->
+<h5 id="1-初始化方法"><a href="#1-初始化方法" class="headerlink" title="1.初始化方法"></a>1.初始化方法</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="keyword">instancetype</span>)initWithBaseURL:(<span class="built_in">NSURL</span> *)url</span><br><span class="line">           sessionConfiguration:(<span class="built_in">NSURLSessionConfiguration</span> *)configuration</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> initWithSessionConfiguration:configuration];</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//对传过来的BaseUrl进行处理，如果有值且最后不包含/，url加上"/"</span></span><br><span class="line">  <span class="comment">//--经一位热心读者更正...以后注释也一定要走心啊...不能误导大家...</span></span><br><span class="line">    <span class="keyword">if</span> ([[url path] length] &gt; <span class="number">0</span> &amp;&amp; ![[url absoluteString] hasSuffix:<span class="string">@"/"</span>]) &#123;</span><br><span class="line">        url = [url URLByAppendingPathComponent:<span class="string">@""</span>];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.baseURL = url;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.requestSerializer = [AFHTTPRequestSerializer serializer];</span><br><span class="line">    <span class="keyword">self</span>.responseSerializer = [AFJSONResponseSerializer serializer];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-核心方法-创建NSURLSessionDataTask任务"><a href="#2-核心方法-创建NSURLSessionDataTask任务" class="headerlink" title="2.核心方法:创建NSURLSessionDataTask任务"></a>2.核心方法:创建NSURLSessionDataTask任务</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSURLSessionDataTask</span> *)dataTaskWithHTTPMethod:(<span class="built_in">NSString</span> *)method</span><br><span class="line">                                       URLString:(<span class="built_in">NSString</span> *)URLString</span><br><span class="line">                                      parameters:(<span class="keyword">id</span>)parameters</span><br><span class="line">                                  uploadProgress:(<span class="keyword">nullable</span> <span class="keyword">void</span> (^)(<span class="built_in">NSProgress</span> *uploadProgress)) uploadProgress</span><br><span class="line">                                downloadProgress:(<span class="keyword">nullable</span> <span class="keyword">void</span> (^)(<span class="built_in">NSProgress</span> *downloadProgress)) downloadProgress</span><br><span class="line">                                         success:(<span class="keyword">void</span> (^)(<span class="built_in">NSURLSessionDataTask</span> *, <span class="keyword">id</span>))success</span><br><span class="line">                                         failure:(<span class="keyword">void</span> (^)(<span class="built_in">NSURLSessionDataTask</span> *, <span class="built_in">NSError</span> *))failure</span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSError</span> *serializationError = <span class="literal">nil</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//把参数，还有各种东西转化为一个request</span></span><br><span class="line">    <span class="built_in">NSMutableURLRequest</span> *request = [<span class="keyword">self</span>.requestSerializer requestWithMethod:method URLString:[[<span class="built_in">NSURL</span> URLWithString:URLString relativeToURL:<span class="keyword">self</span>.baseURL] absoluteString] parameters:parameters error:&amp;serializationError];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> (serializationError) &#123;</span><br><span class="line">        <span class="keyword">if</span> (failure) &#123;</span><br><span class="line"><span class="meta">#pragma clang diagnostic push</span></span><br><span class="line"><span class="meta">#pragma clang diagnostic ignored <span class="meta-string">"-Wgnu"</span></span></span><br><span class="line">            <span class="comment">//如果解析错误，直接返回</span></span><br><span class="line">            <span class="built_in">dispatch_async</span>(<span class="keyword">self</span>.completionQueue ?: dispatch_get_main_queue(), ^&#123;</span><br><span class="line">                failure(<span class="literal">nil</span>, serializationError);</span><br><span class="line">            &#125;);</span><br><span class="line"><span class="meta">#pragma clang diagnostic pop</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    __block <span class="built_in">NSURLSessionDataTask</span> *dataTask = <span class="literal">nil</span>;</span><br><span class="line">    dataTask = [<span class="keyword">self</span> dataTaskWithRequest:request</span><br><span class="line">                          uploadProgress:uploadProgress</span><br><span class="line">                        downloadProgress:downloadProgress</span><br><span class="line">                       completionHandler:^(<span class="built_in">NSURLResponse</span> * __unused response, <span class="keyword">id</span> responseObject, <span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">        <span class="keyword">if</span> (error) &#123;</span><br><span class="line">            <span class="keyword">if</span> (failure) &#123;</span><br><span class="line">                failure(dataTask, error);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (success) &#123;</span><br><span class="line">                success(dataTask, responseObject);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dataTask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>主要做了两件事：</strong></p>
+<blockquote>
+<p>1.用self.requestSerializer和各种参数去获取了一个我们最终请求网络需要的NSMutableURLRequest实例。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NSMutableURLRequest *request = [self.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLString relativeToURL:self.baseURL] absoluteString] parameters:parameters error:&amp;serializationError];</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2.调用另外一个方法dataTaskWithRequest去拿到我们最终需要的NSURLSessionDataTask实例，并且在完成的回调里，调用我们传过来的成功和失败的回调。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dataTask = [self dataTaskWithRequest:request</span><br><span class="line">                      uploadProgress:uploadProgress</span><br><span class="line">                    downloadProgress:downloadProgress</span><br><span class="line">                   completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *error) &#123;</span><br><span class="line">    if (error) &#123;</span><br><span class="line">        if (failure) &#123;</span><br><span class="line">            failure(dataTask, error);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        if (success) &#123;</span><br><span class="line">            success(dataTask, responseObject);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+
+<p><code>以上两个方法实现都在AFURLSessionManager类中，也就是说最终做事的还是AFURLSessionManager</code></p>
+<h4 id="AFURLSessionManager"><a href="#AFURLSessionManager" class="headerlink" title="AFURLSessionManager"></a>AFURLSessionManager</h4><h5 id="一、生成request"><a href="#一、生成request" class="headerlink" title="一、生成request"></a>一、生成request</h5><h6 id="1-获取请求需要的NSMutableURLRequest"><a href="#1-获取请求需要的NSMutableURLRequest" class="headerlink" title="1.获取请求需要的NSMutableURLRequest"></a>1.获取请求需要的NSMutableURLRequest</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSMutableURLRequest</span> *)requestWithMethod:(<span class="built_in">NSString</span> *)method</span><br><span class="line">                                 URLString:(<span class="built_in">NSString</span> *)URLString</span><br><span class="line">                                parameters:(<span class="keyword">id</span>)parameters</span><br><span class="line">                                     error:(<span class="built_in">NSError</span> *__autoreleasing *)error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//断言，debug模式下，如果缺少改参数，crash</span></span><br><span class="line">    <span class="built_in">NSParameterAssert</span>(method);</span><br><span class="line">    <span class="built_in">NSParameterAssert</span>(URLString);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:URLString];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSParameterAssert</span>(url);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSMutableURLRequest</span> *mutableRequest = [[<span class="built_in">NSMutableURLRequest</span> alloc] initWithURL:url];</span><br><span class="line">    mutableRequest.HTTPMethod = method;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//将request的各种属性循环遍历</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSString</span> *keyPath <span class="keyword">in</span> AFHTTPRequestSerializerObservedKeyPaths()) &#123;</span><br><span class="line">        <span class="comment">//如果自己观察到的发生变化的属性，在这些方法里</span></span><br><span class="line">        <span class="keyword">if</span> ([<span class="keyword">self</span>.mutableObservedChangedKeyPaths containsObject:keyPath]) &#123;</span><br><span class="line">           <span class="comment">//把给自己设置的属性给request设置</span></span><br><span class="line">            [mutableRequest setValue:[<span class="keyword">self</span> valueForKeyPath:keyPath] forKey:keyPath];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//将传入的parameters进行编码，并添加到request中</span></span><br><span class="line">    mutableRequest = [[<span class="keyword">self</span> requestBySerializingRequest:mutableRequest withParameters:parameters error:error] mutableCopy];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mutableRequest;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>主要做了3件事：</strong></p>
+<blockquote>
+<p>1.设置mutableRequest.HTTPMethod ;<br>2.将request的各种属性循环遍历<br>3.将传入的parameters进行编码，并添加到request中</p>
+</blockquote>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSURLRequest</span> *)requestBySerializingRequest:(<span class="built_in">NSURLRequest</span> *)request</span><br><span class="line">                               withParameters:(<span class="keyword">id</span>)parameters</span><br><span class="line">                                        error:(<span class="built_in">NSError</span> *__autoreleasing *)error</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSParameterAssert</span>(request);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSMutableURLRequest</span> *mutableRequest = [request mutableCopy];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//从自己的head里去遍历，如果有值则设置给request的head</span></span><br><span class="line">    [<span class="keyword">self</span>.HTTPRequestHeaders enumerateKeysAndObjectsUsingBlock:^(<span class="keyword">id</span> field, <span class="keyword">id</span> value, <span class="built_in">BOOL</span> * __unused stop) &#123;</span><br><span class="line">        <span class="keyword">if</span> (![request valueForHTTPHeaderField:field]) &#123;</span><br><span class="line">            [mutableRequest setValue:value forHTTPHeaderField:field];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//来把各种类型的参数，array dic set转化成字符串，给request</span></span><br><span class="line">    <span class="built_in">NSString</span> *query = <span class="literal">nil</span>;</span><br><span class="line">    <span class="keyword">if</span> (parameters) &#123;</span><br><span class="line">        <span class="comment">//自定义的解析方式</span></span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">self</span>.queryStringSerialization) &#123;</span><br><span class="line">            <span class="built_in">NSError</span> *serializationError;</span><br><span class="line">            query = <span class="keyword">self</span>.queryStringSerialization(request, parameters, &amp;serializationError);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (serializationError) &#123;</span><br><span class="line">                <span class="keyword">if</span> (error) &#123;</span><br><span class="line">                    *error = serializationError;</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//默认解析方式</span></span><br><span class="line">            <span class="keyword">switch</span> (<span class="keyword">self</span>.queryStringSerializationStyle) &#123;</span><br><span class="line">                <span class="keyword">case</span> AFHTTPRequestQueryStringDefaultStyle:</span><br><span class="line">                    query = AFQueryStringFromParameters(parameters);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//最后判断该request中是否包含了GET、HEAD、DELETE（都包含在HTTPMethodsEncodingParametersInURI）。因为这几个method的quey是拼接到url后面的。而POST、PUT是把query拼接到http body中的。</span></span><br><span class="line">    <span class="keyword">if</span> ([<span class="keyword">self</span>.HTTPMethodsEncodingParametersInURI containsObject:[[request HTTPMethod] uppercaseString]]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (query &amp;&amp; query.length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">            mutableRequest.URL = [<span class="built_in">NSURL</span> URLWithString:[[mutableRequest.URL absoluteString] stringByAppendingFormat:mutableRequest.URL.query ? <span class="string">@"&amp;%@"</span> : <span class="string">@"?%@"</span>, query]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">//post put请求</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">// #2864: an empty string is a valid x-www-form-urlencoded payload</span></span><br><span class="line">        <span class="keyword">if</span> (!query) &#123;</span><br><span class="line">            query = <span class="string">@""</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (![mutableRequest valueForHTTPHeaderField:<span class="string">@"Content-Type"</span>]) &#123;</span><br><span class="line">            [mutableRequest setValue:<span class="string">@"application/x-www-form-urlencoded"</span> forHTTPHeaderField:<span class="string">@"Content-Type"</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//设置请求体</span></span><br><span class="line">        [mutableRequest setHTTPBody:[query dataUsingEncoding:<span class="keyword">self</span>.stringEncoding]];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mutableRequest;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h6 id="2-默认将参数转码成字符串"><a href="#2-默认将参数转码成字符串" class="headerlink" title="2.默认将参数转码成字符串"></a>2.默认将参数转码成字符串</h6><p><code>query = AFQueryStringFromParameters(parameters);</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> * AFQueryStringFromParameters(<span class="built_in">NSDictionary</span> *parameters) &#123;</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *mutablePairs = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//把参数给AFQueryStringPairsFromDictionary，拿到AF的一个类型的数据就一个key，value对象，在URLEncodedStringValue拼接keyValue，一个加到数组里</span></span><br><span class="line">    <span class="keyword">for</span> (AFQueryStringPair *pair <span class="keyword">in</span> AFQueryStringPairsFromDictionary(parameters)) &#123;</span><br><span class="line">        [mutablePairs addObject:[pair URLEncodedStringValue]];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//拆分数组返回参数字符串</span></span><br><span class="line">    <span class="keyword">return</span> [mutablePairs componentsJoinedByString:<span class="string">@"&amp;"</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">NSArray</span> * AFQueryStringPairsFromDictionary(<span class="built_in">NSDictionary</span> *dictionary) &#123;</span><br><span class="line">    <span class="comment">//往下调用</span></span><br><span class="line">    <span class="keyword">return</span> AFQueryStringPairsFromKeyAndValue(<span class="literal">nil</span>, dictionary);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">NSArray</span> * AFQueryStringPairsFromKeyAndValue(<span class="built_in">NSString</span> *key, <span class="keyword">id</span> value) &#123;</span><br><span class="line">    <span class="built_in">NSMutableArray</span> *mutableQueryStringComponents = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 根据需要排列的对象的description来进行升序排列，并且selector使用的是compare:</span></span><br><span class="line">    <span class="comment">// 因为对象的description返回的是NSString，所以此处compare:使用的是NSString的compare函数</span></span><br><span class="line">    <span class="comment">// 即@[@"foo", @"bar", @"bae"] ----&gt; @[@"bae", @"bar",@"foo"]</span></span><br><span class="line">    <span class="built_in">NSSortDescriptor</span> *sortDescriptor = [<span class="built_in">NSSortDescriptor</span> sortDescriptorWithKey:<span class="string">@"description"</span> ascending:<span class="literal">YES</span> selector:<span class="keyword">@selector</span>(compare:)];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判断vaLue是什么类型的，然后去递归调用自己，直到解析的是除了array dic set以外的元素，然后把得到的参数数组返回。</span></span><br><span class="line">    <span class="keyword">if</span> ([value isKindOfClass:[<span class="built_in">NSDictionary</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="built_in">NSDictionary</span> *dictionary = value;</span><br><span class="line">        <span class="comment">// Sort dictionary keys to ensure consistent ordering in query string, which is important when deserializing potentially ambiguous sequences, such as an array of dictionaries</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment">//拿到</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">id</span> nestedKey <span class="keyword">in</span> [dictionary.allKeys sortedArrayUsingDescriptors:@[ sortDescriptor ]]) &#123;</span><br><span class="line">            <span class="keyword">id</span> nestedValue = dictionary[nestedKey];</span><br><span class="line">            <span class="keyword">if</span> (nestedValue) &#123;</span><br><span class="line">                [mutableQueryStringComponents addObjectsFromArray:AFQueryStringPairsFromKeyAndValue((key ? [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@[%@]"</span>, key, nestedKey] : nestedKey), nestedValue)];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([value isKindOfClass:[<span class="built_in">NSArray</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="built_in">NSArray</span> *array = value;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">id</span> nestedValue <span class="keyword">in</span> array) &#123;</span><br><span class="line">            [mutableQueryStringComponents addObjectsFromArray:AFQueryStringPairsFromKeyAndValue([<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@[]"</span>, key], nestedValue)];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ([value isKindOfClass:[<span class="built_in">NSSet</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">        <span class="built_in">NSSet</span> *set = value;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">id</span> obj <span class="keyword">in</span> [set sortedArrayUsingDescriptors:@[ sortDescriptor ]]) &#123;</span><br><span class="line">            [mutableQueryStringComponents addObjectsFromArray:AFQueryStringPairsFromKeyAndValue(key, obj)];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        [mutableQueryStringComponents addObject:[[AFQueryStringPair alloc] initWithField:key value:value]];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mutableQueryStringComponents;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>参数转码步骤示例</strong><br>    其中有个AFQueryStringPair对象，其只有两个属性和两个方法</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">readwrite</span>, <span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="keyword">id</span> field;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">readwrite</span>, <span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="keyword">id</span> value;</span><br><span class="line">   </span><br><span class="line">    - (<span class="keyword">instancetype</span>)initWithField:(<span class="keyword">id</span>)field value:(<span class="keyword">id</span>)value &#123;</span><br><span class="line">    <span class="keyword">self</span> = [<span class="keyword">super</span> init];</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">self</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">self</span>.field = field;</span><br><span class="line">    <span class="keyword">self</span>.value = value;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">&#125;</span><br><span class="line">   </span><br><span class="line">   - (<span class="built_in">NSString</span> *)URLEncodedStringValue &#123;</span><br><span class="line">    <span class="keyword">if</span> (!<span class="keyword">self</span>.value || [<span class="keyword">self</span>.value isEqual:[<span class="built_in">NSNull</span> null]]) &#123;</span><br><span class="line">        <span class="keyword">return</span> AFPercentEscapedStringFromString([<span class="keyword">self</span>.field description]);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"%@=%@"</span>, AFPercentEscapedStringFromString([<span class="keyword">self</span>.field description]), AFPercentEscapedStringFromString([<span class="keyword">self</span>.value description])];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@&#123; </span><br><span class="line">     <span class="string">@"name"</span> : <span class="string">@"bang"</span>, </span><br><span class="line">     <span class="string">@"phone"</span>: @&#123;<span class="string">@"mobile"</span>: <span class="string">@"xx"</span>, <span class="string">@"home"</span>: <span class="string">@"xx"</span>&#125;, </span><br><span class="line">     <span class="string">@"families"</span>: @[<span class="string">@"father"</span>, <span class="string">@"mother"</span>], </span><br><span class="line">     <span class="string">@"nums"</span>: [<span class="built_in">NSSet</span> setWithObjects:<span class="string">@"1"</span>, <span class="string">@"2"</span>, <span class="literal">nil</span>] </span><br><span class="line">&#125; </span><br><span class="line">-&gt; </span><br><span class="line">@[ </span><br><span class="line">     field: <span class="string">@"name"</span>, value: <span class="string">@"bang"</span>, </span><br><span class="line">     field: <span class="string">@"phone[mobile]"</span>, value: <span class="string">@"xx"</span>, </span><br><span class="line">     field: <span class="string">@"phone[home]"</span>, value: <span class="string">@"xx"</span>, </span><br><span class="line">     field: <span class="string">@"families[]"</span>, value: <span class="string">@"father"</span>, </span><br><span class="line">     field: <span class="string">@"families[]"</span>, value: <span class="string">@"mother"</span>, </span><br><span class="line">     field: <span class="string">@"nums"</span>, value: <span class="string">@"1"</span>, </span><br><span class="line">     field: <span class="string">@"nums"</span>, value: <span class="string">@"2"</span>, </span><br><span class="line">] </span><br><span class="line">-&gt; </span><br><span class="line">name=bang&amp;phone[mobile]=xx&amp;phone[home]=xx&amp;families[]=father&amp;families[]=mother&amp;nums=<span class="number">1</span>&amp;num=<span class="number">2</span></span><br></pre></td></tr></table></figure>
+<h6 id="3-拼接参数"><a href="#3-拼接参数" class="headerlink" title="3.拼接参数"></a>3.拼接参数</h6><p>紧接着这个方法还根据该request中请求类型，来判断参数字符串应该如何设置到request中去。如果是GET、HEAD、DELETE，则把参数quey是拼接到url后面的。而POST、PUT是把query拼接到http body中的:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">if ([self.HTTPMethodsEncodingParametersInURI containsObject:[[request HTTPMethod] uppercaseString]]) &#123;</span><br><span class="line">    if (query &amp;&amp; query.length &gt; 0) &#123;</span><br><span class="line">        mutableRequest.URL = [NSURL URLWithString:[[mutableRequest.URL absoluteString] stringByAppendingFormat:mutableRequest.URL.query ? @&quot;&amp;%@&quot; : @&quot;?%@&quot;, query]];</span><br><span class="line">    &#125;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    //post put请求</span><br><span class="line">    </span><br><span class="line">    // #2864: an empty string is a valid x-www-form-urlencoded payload</span><br><span class="line">    if (!query) &#123;</span><br><span class="line">        query = @&quot;&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    if (![mutableRequest valueForHTTPHeaderField:@&quot;Content-Type&quot;]) &#123;</span><br><span class="line">        [mutableRequest setValue:@&quot;application/x-www-form-urlencoded&quot; forHTTPHeaderField:@&quot;Content-Type&quot;];</span><br><span class="line">    &#125;</span><br><span class="line">    //设置请求体</span><br><span class="line">    [mutableRequest setHTTPBody:[query dataUsingEncoding:self.stringEncoding]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>至此创建了一个request,回到AFHTTPSessionManager类中(NSURLSessionDataTask *)dataTaskWithHTTPMethod:这个方法继续往下走</code></p>
+<h5 id="二、生成task"><a href="#二、生成task" class="headerlink" title="二、生成task"></a>二、生成task</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- (<span class="built_in">NSURLSessionDataTask</span> *)dataTaskWithRequest:(<span class="built_in">NSURLRequest</span> *)request</span><br><span class="line">                               uploadProgress:(<span class="keyword">nullable</span> <span class="keyword">void</span> (^)(<span class="built_in">NSProgress</span> *uploadProgress)) uploadProgressBlock</span><br><span class="line">                             downloadProgress:(<span class="keyword">nullable</span> <span class="keyword">void</span> (^)(<span class="built_in">NSProgress</span> *downloadProgress)) downloadProgressBlock</span><br><span class="line">                            completionHandler:(<span class="keyword">nullable</span> <span class="keyword">void</span> (^)(<span class="built_in">NSURLResponse</span> *response, <span class="keyword">id</span> _Nullable responseObject,  <span class="built_in">NSError</span> * _Nullable error))completionHandler &#123;</span><br><span class="line"></span><br><span class="line">    __block <span class="built_in">NSURLSessionDataTask</span> *dataTask = <span class="literal">nil</span>;</span><br><span class="line">    <span class="comment">//第一件事，创建NSURLSessionDataTask，里面适配了Ios8以下taskIdentifiers，函数创建task对象。</span></span><br><span class="line">    <span class="comment">//其实现应该是因为iOS 8.0以下版本中会并发地创建多个task对象，而同步有没有做好，导致taskIdentifiers 不唯一…这边做了一个串行处理</span></span><br><span class="line">    url_session_manager_create_task_safely(^&#123;</span><br><span class="line">        dataTask = [<span class="keyword">self</span>.session dataTaskWithRequest:request];</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> addDelegateForDataTask:dataTask uploadProgress:uploadProgressBlock downloadProgress:downloadProgressBlock completionHandler:completionHandler];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dataTask;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><strong>后续待更新</strong></p>
+<h3 id="三、网络状态监听模块"><a href="#三、网络状态监听模块" class="headerlink" title="三、网络状态监听模块"></a>三、网络状态监听模块</h3><h4 id="AFNetworkReachabilityManager"><a href="#AFNetworkReachabilityManager" class="headerlink" title="AFNetworkReachabilityManager"></a>AFNetworkReachabilityManager</h4><h3 id="四、网络通信安全策略模块"><a href="#四、网络通信安全策略模块" class="headerlink" title="四、网络通信安全策略模块"></a>四、网络通信安全策略模块</h3><h4 id="AFSecurityPolicy"><a href="#AFSecurityPolicy" class="headerlink" title="AFSecurityPolicy"></a>AFSecurityPolicy</h4><h3 id="五、网络通信信息序列化-反序列化模块"><a href="#五、网络通信信息序列化-反序列化模块" class="headerlink" title="五、网络通信信息序列化/反序列化模块"></a>五、网络通信信息序列化/反序列化模块</h3><h4 id="AFURLRequestSerialization"><a href="#AFURLRequestSerialization" class="headerlink" title="AFURLRequestSerialization"></a>AFURLRequestSerialization</h4><h4 id="AFURLResponseSerialization"><a href="#AFURLResponseSerialization" class="headerlink" title="AFURLResponseSerialization"></a>AFURLResponseSerialization</h4><h3 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h3><p><a href="https://www.jianshu.com/p/856f0e26279d" target="_blank" rel="noopener">参考一</a><br><a href="https://www.jianshu.com/p/51b64ab1123b" target="_blank" rel="noopener">参考二</a></p>
+
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2015/09/24/ios/Masory使用/" class="pre-post btn btn-default" title='Masory使用'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">Masory使用</span>
+        </a>
+    
+    
+        <a href="/2015/09/22/tool/markdown/" class="next-post btn btn-default" title='markdown常用命令'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">markdown常用命令</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、基本结构"><span class="toc-text">一、基本结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、网络通信模块"><span class="toc-text">二、网络通信模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AFHTTPSessionManager"><span class="toc-text">AFHTTPSessionManager</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-初始化方法"><span class="toc-text">1.初始化方法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-核心方法-创建NSURLSessionDataTask任务"><span class="toc-text">2.核心方法:创建NSURLSessionDataTask任务</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AFURLSessionManager"><span class="toc-text">AFURLSessionManager</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#一、生成request"><span class="toc-text">一、生成request</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-获取请求需要的NSMutableURLRequest"><span class="toc-text">1.获取请求需要的NSMutableURLRequest</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-默认将参数转码成字符串"><span class="toc-text">2.默认将参数转码成字符串</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-拼接参数"><span class="toc-text">3.拼接参数</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#二、生成task"><span class="toc-text">二、生成task</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、网络状态监听模块"><span class="toc-text">三、网络状态监听模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AFNetworkReachabilityManager"><span class="toc-text">AFNetworkReachabilityManager</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、网络通信安全策略模块"><span class="toc-text">四、网络通信安全策略模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AFSecurityPolicy"><span class="toc-text">AFSecurityPolicy</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五、网络通信信息序列化-反序列化模块"><span class="toc-text">五、网络通信信息序列化/反序列化模块</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#AFURLRequestSerialization"><span class="toc-text">AFURLRequestSerialization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#AFURLResponseSerialization"><span class="toc-text">AFURLResponseSerialization</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考博客"><span class="toc-text">参考博客</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>MJRefresh使用 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="MJRefresh使用">
+            
+	            MJRefresh使用
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios">
+            ios
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/framework详解" title='framework详解'>
+                        framework详解
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/10/07</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="一、导入MJRefresh到项目中"><a href="#一、导入MJRefresh到项目中" class="headerlink" title="一、导入MJRefresh到项目中"></a>一、导入MJRefresh到项目中</h3><p>cocoapods导入：pod ‘MJRefresh’<br>将MJRefresh文件夹中的所有内容拖拽进项目中。<br>两种方式任选其一。使用时别忘记引入头文件：#import “MJRefresh.h”</p>
+<h3 id="二、UITableView下拉刷新和上拉刷新"><a href="#二、UITableView下拉刷新和上拉刷新" class="headerlink" title="二、UITableView下拉刷新和上拉刷新"></a>二、UITableView下拉刷新和上拉刷新</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="1-默认下拉界面"><a href="#1-默认下拉界面" class="headerlink" title="1 默认下拉界面"></a>1 默认下拉界面</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）</span></span><br><span class="line">   <span class="keyword">self</span>.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^&#123;</span><br><span class="line">       <span class="comment">//进行数据刷新操作</span></span><br><span class="line">   &#125;];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 马上进入刷新状态</span></span><br><span class="line">   [<span class="keyword">self</span>.tableView.mj_header beginRefreshing];</span><br></pre></td></tr></table></figure>
+<h4 id="2-下拉刷新设置动画图片"><a href="#2-下拉刷新设置动画图片" class="headerlink" title="2 下拉刷新设置动画图片"></a>2 下拉刷新设置动画图片</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）</span></span><br><span class="line">   <span class="keyword">self</span>.tableView.mj_header = [MJChiBaoZiHeader headerWithRefreshingTarget:<span class="keyword">self</span> refreshingAction:<span class="keyword">@selector</span>(loadNewData)];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 马上进入刷新状态</span></span><br><span class="line">   [<span class="keyword">self</span>.tableView.mj_header beginRefreshing];</span><br></pre></td></tr></table></figure>
+
+<p>ps：MJChiBaoZiHeader是继承自MJRefreshGifHeader，在这里面可以自定义加载动画图片</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"MJChiBaoZiHeader.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MJChiBaoZiHeader</span></span></span><br><span class="line"><span class="meta">#pragma mark - 重写方法</span></span><br><span class="line"><span class="meta">#pragma mark 基本设置</span></span><br><span class="line">- (<span class="keyword">void</span>)prepare</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> prepare];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置普通状态的动画图片</span></span><br><span class="line">    <span class="built_in">NSMutableArray</span> *idleImages = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSUInteger</span> i = <span class="number">1</span>; i&lt;=<span class="number">60</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"dropdown_anim__000%zd"</span>, i]];</span><br><span class="line">        [idleImages addObject:image];</span><br><span class="line">    &#125;</span><br><span class="line">     [<span class="keyword">self</span> setImages:idleImages forState:MJRefreshStateIdle];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置即将刷新状态的动画图片（一松开就会刷新的状态）</span></span><br><span class="line">    <span class="built_in">NSMutableArray</span> *refreshingImages = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSUInteger</span> i = <span class="number">1</span>; i&lt;=<span class="number">3</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"dropdown_loading_0%zd"</span>, i]];</span><br><span class="line">        [refreshingImages addObject:image];</span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="keyword">self</span> setImages:refreshingImages forState:MJRefreshStatePulling];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置正在刷新状态的动画图片</span></span><br><span class="line">    [<span class="keyword">self</span> setImages:refreshingImages forState:MJRefreshStateRefreshing];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-默认下拉刷新-隐藏时间"><a href="#3-默认下拉刷新-隐藏时间" class="headerlink" title="3 默认下拉刷新+隐藏时间"></a>3 默认下拉刷新+隐藏时间</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）</span></span><br><span class="line"> MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:<span class="keyword">self</span> refreshingAction:<span class="keyword">@selector</span>(loadNewData)];</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 设置自动切换透明度(在导航栏下面自动隐藏)</span></span><br><span class="line"> header.automaticallyChangeAlpha = <span class="literal">YES</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 隐藏时间</span></span><br><span class="line"> header.lastUpdatedTimeLabel.hidden = <span class="literal">YES</span>;</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 马上进入刷新状态</span></span><br><span class="line"> [header beginRefreshing];</span><br><span class="line"> </span><br><span class="line"> <span class="comment">// 设置header</span></span><br><span class="line"> <span class="keyword">self</span>.tableView.mj_header = header;</span><br></pre></td></tr></table></figure>
+<h4 id="4-默认下拉刷新-隐藏时间、隐藏状态"><a href="#4-默认下拉刷新-隐藏时间、隐藏状态" class="headerlink" title="4 默认下拉刷新+隐藏时间、隐藏状态"></a>4 默认下拉刷新+隐藏时间、隐藏状态</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）</span></span><br><span class="line">MJChiBaoZiHeader *header = [MJChiBaoZiHeader headerWithRefreshingTarget:<span class="keyword">self</span> refreshingAction:<span class="keyword">@selector</span>(loadNewData)];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 隐藏时间</span></span><br><span class="line">header.lastUpdatedTimeLabel.hidden = <span class="literal">YES</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 隐藏状态</span></span><br><span class="line">header.stateLabel.hidden = <span class="literal">YES</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 马上进入刷新状态</span></span><br><span class="line">[header beginRefreshing];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置header</span></span><br><span class="line"><span class="keyword">self</span>.tableView.mj_header = header;</span><br></pre></td></tr></table></figure>
+<h4 id="5-默认下拉刷新-自定义文字"><a href="#5-默认下拉刷新-自定义文字" class="headerlink" title="5 默认下拉刷新+自定义文字"></a>5 默认下拉刷新+自定义文字</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）</span></span><br><span class="line">   MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:<span class="keyword">self</span> refreshingAction:<span class="keyword">@selector</span>(loadNewData)];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 设置文字</span></span><br><span class="line">   [header setTitle:<span class="string">@"Pull down to refresh"</span> forState:MJRefreshStateIdle];</span><br><span class="line">   [header setTitle:<span class="string">@"Release to refresh"</span> forState:MJRefreshStatePulling];</span><br><span class="line">   [header setTitle:<span class="string">@"Loading ..."</span> forState:MJRefreshStateRefreshing];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 设置字体</span></span><br><span class="line">   header.stateLabel.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">15</span>];</span><br><span class="line">   header.lastUpdatedTimeLabel.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">14</span>];</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 设置颜色</span></span><br><span class="line">   header.stateLabel.textColor = [<span class="built_in">UIColor</span> redColor];</span><br><span class="line">   header.lastUpdatedTimeLabel.textColor = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 马上进入刷新状态</span></span><br><span class="line">   [header beginRefreshing];</span><br><span class="line">   </span><br><span class="line">   <span class="comment">// 设置刷新控件</span></span><br><span class="line">   <span class="keyword">self</span>.tableView.mj_header = header;</span><br></pre></td></tr></table></figure>
+<h4 id="6-下拉刷新-自定义header"><a href="#6-下拉刷新-自定义header" class="headerlink" title="6 下拉刷新+自定义header"></a>6 下拉刷新+自定义header</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadNewData方法）</span></span><br><span class="line">  <span class="keyword">self</span>.tableView.mj_header = [MJDIYHeader headerWithRefreshingTarget:<span class="keyword">self</span> refreshingAction:<span class="keyword">@selector</span>(loadNewData)];</span><br><span class="line">  [<span class="keyword">self</span>.tableView.mj_header beginRefreshing];</span><br></pre></td></tr></table></figure>
+<p>MJDIYHeader是继承自MJRefreshHeader，在这里面进行自定义header视图的操作</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"MJDIYHeader.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MJDIYHeader</span>()</span></span><br><span class="line"><span class="comment">//在这里声明子控件的全局变量</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MJDIYHeader</span></span></span><br><span class="line"><span class="meta">#pragma mark - 重写方法</span></span><br><span class="line"><span class="meta">#pragma mark 在这里做一些初始化配置（比如添加子控件）</span></span><br><span class="line">- (<span class="keyword">void</span>)prepare</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> prepare];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置控件的高度</span></span><br><span class="line">    <span class="keyword">self</span>.mj_h = <span class="number">50</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 在这里添加子控件</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark 在这里设置子控件的位置和尺寸</span></span><br><span class="line">- (<span class="keyword">void</span>)placeSubviews</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> placeSubviews];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//在这里设置子控件的位置和尺寸</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark 监听scrollView的contentOffset改变</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewContentOffsetDidChange:(<span class="built_in">NSDictionary</span> *)change</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> scrollViewContentOffsetDidChange:change];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark 监听scrollView的contentSize改变</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewContentSizeDidChange:(<span class="built_in">NSDictionary</span> *)change</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> scrollViewContentSizeDidChange:change];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark 监听scrollView的拖拽状态改变</span></span><br><span class="line">- (<span class="keyword">void</span>)scrollViewPanStateDidChange:(<span class="built_in">NSDictionary</span> *)change</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> scrollViewPanStateDidChange:change];</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark 监听控件的刷新状态</span></span><br><span class="line">- (<span class="keyword">void</span>)setState:(MJRefreshState)state</span><br><span class="line">&#123;</span><br><span class="line">    MJRefreshCheckState;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (state) &#123;</span><br><span class="line">        <span class="keyword">case</span> MJRefreshStateIdle:</span><br><span class="line">             <span class="comment">/** 普通闲置状态 */</span></span><br><span class="line">            <span class="comment">//在这里设置子控件在普通闲置状态的界面展示</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> MJRefreshStatePulling:</span><br><span class="line">            <span class="comment">/** 松开就可以进行刷新的状态 */</span></span><br><span class="line">            <span class="comment">//在这里设置子控件在松开就可以进行刷新的状态的界面展示</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> MJRefreshStateRefreshing:</span><br><span class="line">            <span class="comment">/** 正在刷新中的状态 */</span></span><br><span class="line">            <span class="comment">//在这里设置子控件在正在刷新中的状态的界面展示</span></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark 监听拖拽比例（控件被拖出来的比例）</span></span><br><span class="line">- (<span class="keyword">void</span>)setPullingPercent:(<span class="built_in">CGFloat</span>)pullingPercent</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> setPullingPercent:pullingPercent];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="7-上拉刷新-默认界面"><a href="#7-上拉刷新-默认界面" class="headerlink" title="7 上拉刷新 默认界面"></a>7 上拉刷新 默认界面</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置回调（一旦进入刷新状态就会调用这个refreshingBlock）</span></span><br><span class="line">   <span class="keyword">self</span>.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^&#123;</span><br><span class="line">       [weakSelf loadMoreData];</span><br><span class="line">   &#125;];</span><br></pre></td></tr></table></figure>
+<h4 id="8-上拉刷新-设置动画"><a href="#8-上拉刷新-设置动画" class="headerlink" title="8 上拉刷新+设置动画"></a>8 上拉刷新+设置动画</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"> 设置回调（一旦进入刷新状态，就调用target的action，也就是调用<span class="keyword">self</span>的loadMoreData方法）</span><br><span class="line">    <span class="keyword">self</span>.tableView.mj_footer = [MJChiBaoZiFooter footerWithRefreshingTarget:<span class="keyword">self</span> refreshingAction:<span class="keyword">@selector</span>(loadMoreData)];</span><br><span class="line"></span><br><span class="line"> <span class="meta">#import <span class="meta-string">"MJChiBaoZiFooter.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">MJChiBaoZiFooter</span></span></span><br><span class="line"><span class="meta">#pragma mark - 重写方法</span></span><br><span class="line"><span class="meta">#pragma mark 基本设置</span></span><br><span class="line">- (<span class="keyword">void</span>)prepare</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> prepare];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 设置正在刷新状态的动画图片</span></span><br><span class="line">    <span class="built_in">NSMutableArray</span> *refreshingImages = [<span class="built_in">NSMutableArray</span> array];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">NSUInteger</span> i = <span class="number">1</span>; i&lt;=<span class="number">3</span>; i++) &#123;</span><br><span class="line">        <span class="built_in">UIImage</span> *image = [<span class="built_in">UIImage</span> imageNamed:[<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"dropdown_loading_0%zd"</span>, i]];</span><br><span class="line">        [refreshingImages addObject:image];</span><br><span class="line">    &#125;</span><br><span class="line">    [<span class="keyword">self</span> setImages:refreshingImages forState:MJRefreshStateRefreshing];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<h4 id="9-上拉刷新-隐藏刷新状态的文字"><a href="#9-上拉刷新-隐藏刷新状态的文字" class="headerlink" title="9 上拉刷新 隐藏刷新状态的文字"></a>9 上拉刷新 隐藏刷新状态的文字</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）</span></span><br><span class="line">  MJChiBaoZiFooter *footer = [MJChiBaoZiFooter footerWithRefreshingTarget:<span class="keyword">self</span> refreshingAction:<span class="keyword">@selector</span>(loadMoreData)];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 当上拉刷新控件出现50%时（出现一半），就会自动刷新。这个值默认是1.0（也就是上拉刷新100%出现时，才会自动刷新）</span></span><br><span class="line">  <span class="comment">//    footer.triggerAutomaticallyRefreshPercent = 0.5;</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 隐藏刷新状态的文字</span></span><br><span class="line">  footer.refreshingTitleHidden = <span class="literal">YES</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置footer</span></span><br><span class="line">  <span class="keyword">self</span>.tableView.mj_footer = footer;</span><br></pre></td></tr></table></figure>
+<h4 id="10-上拉刷新-禁止自动加载"><a href="#10-上拉刷新-禁止自动加载" class="headerlink" title="10 上拉刷新 禁止自动加载"></a>10 上拉刷新 禁止自动加载</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）</span></span><br><span class="line">  MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:<span class="keyword">self</span> refreshingAction:<span class="keyword">@selector</span>(loadMoreData)];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 禁止自动加载</span></span><br><span class="line">  footer.automaticallyRefresh = <span class="literal">NO</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置footer</span></span><br><span class="line">  <span class="keyword">self</span>.tableView.mj_footer = footer;</span><br></pre></td></tr></table></figure>
+<h4 id="11-上拉刷新-自定义文字"><a href="#11-上拉刷新-自定义文字" class="headerlink" title="11 上拉刷新 自定义文字"></a>11 上拉刷新 自定义文字</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）</span></span><br><span class="line">  MJRefreshAutoNormalFooter *footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:<span class="keyword">self</span> refreshingAction:<span class="keyword">@selector</span>(loadMoreData)];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置文字</span></span><br><span class="line">  [footer setTitle:<span class="string">@"Click or drag up to refresh"</span> forState:MJRefreshStateIdle];</span><br><span class="line">  [footer setTitle:<span class="string">@"Loading more ..."</span> forState:MJRefreshStateRefreshing];</span><br><span class="line">  [footer setTitle:<span class="string">@"No more data"</span> forState:MJRefreshStateNoMoreData];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设置字体</span></span><br><span class="line">  footer.stateLabel.font = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">17</span>];</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 设置颜色</span></span><br><span class="line">  footer.stateLabel.textColor = [<span class="built_in">UIColor</span> blueColor];</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 设置footer</span></span><br><span class="line">  <span class="keyword">self</span>.tableView.mj_footer = footer;</span><br></pre></td></tr></table></figure>
+
+<h3 id="三、UIWebView的下拉刷新和上拉刷新"><a href="#三、UIWebView的下拉刷新和上拉刷新" class="headerlink" title="三、UIWebView的下拉刷新和上拉刷新"></a>三、UIWebView的下拉刷新和上拉刷新</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - 示例</span></span><br><span class="line">- (<span class="keyword">void</span>)example31</span><br><span class="line">&#123;</span><br><span class="line">    __<span class="keyword">weak</span> <span class="built_in">UIWebView</span> *webView = <span class="keyword">self</span>.webView;</span><br><span class="line">    webView.delegate = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    __<span class="keyword">weak</span> <span class="built_in">UIScrollView</span> *scrollView = <span class="keyword">self</span>.webView.scrollView;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 添加下拉刷新控件</span></span><br><span class="line">    scrollView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^&#123;</span><br><span class="line">        [webView reload];</span><br><span class="line">    &#125;];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 如果是上拉刷新，就以此类推</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#pragma mark - webViewDelegate</span></span><br><span class="line">- (<span class="keyword">void</span>)webViewDidFinishLoad:(<span class="keyword">nonnull</span> <span class="built_in">UIWebView</span> *)webView</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">self</span>.webView.scrollView.mj_header endRefreshing];</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="四、UICollectionView的下拉刷新和上拉刷新"><a href="#四、UICollectionView的下拉刷新和上拉刷新" class="headerlink" title="四、UICollectionView的下拉刷新和上拉刷新"></a>四、UICollectionView的下拉刷新和上拉刷新</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark - 示例</span></span><br><span class="line"><span class="meta">#pragma mark UICollectionView 上下拉刷新</span></span><br><span class="line">- (<span class="keyword">void</span>)example21</span><br><span class="line">&#123;</span><br><span class="line">    __<span class="keyword">weak</span> __<span class="keyword">typeof</span>(<span class="keyword">self</span>) weakSelf = <span class="keyword">self</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 下拉刷新</span></span><br><span class="line">    <span class="keyword">self</span>.collectionView.mj_header= [MJRefreshNormalHeader headerWithRefreshingBlock:^&#123;</span><br><span class="line">        <span class="comment">// 增加5条假数据</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;<span class="number">10</span>; i++) &#123;</span><br><span class="line">            [weakSelf.colors insertObject:MJRandomColor atIndex:<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）</span></span><br><span class="line">        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(MJDuration * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            [weakSelf.collectionView reloadData];</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 结束刷新</span></span><br><span class="line">            [weakSelf.collectionView.mj_header endRefreshing];</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;];</span><br><span class="line">    [<span class="keyword">self</span>.collectionView.mj_header beginRefreshing];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 上拉刷新</span></span><br><span class="line">    <span class="keyword">self</span>.collectionView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^&#123;</span><br><span class="line">        <span class="comment">// 增加5条假数据</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;<span class="number">5</span>; i++) &#123;</span><br><span class="line">            [weakSelf.colors addObject:MJRandomColor];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 模拟延迟加载数据，因此2秒后才调用（真实开发中，可以移除这段gcd代码）</span></span><br><span class="line">        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(MJDuration * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">            [weakSelf.collectionView reloadData];</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 结束刷新</span></span><br><span class="line">            [weakSelf.collectionView.mj_footer endRefreshing];</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;];</span><br><span class="line">    <span class="comment">// 默认先隐藏footer</span></span><br><span class="line">    <span class="keyword">self</span>.collectionView.mj_footer.hidden = <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2016/10/10/ios/SDWebImage使用/" class="pre-post btn btn-default" title='SDWebImage使用'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">SDWebImage使用</span>
+        </a>
+    
+    
+        <a href="/2016/09/24/ios/MJExtension使用/" class="next-post btn btn-default" title='MJExtension的使用'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">MJExtension的使用</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、导入MJRefresh到项目中"><span class="toc-text">一、导入MJRefresh到项目中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、UITableView下拉刷新和上拉刷新"><span class="toc-text">二、UITableView下拉刷新和上拉刷新</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-默认下拉界面"><span class="toc-text">1 默认下拉界面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-下拉刷新设置动画图片"><span class="toc-text">2 下拉刷新设置动画图片</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-默认下拉刷新-隐藏时间"><span class="toc-text">3 默认下拉刷新+隐藏时间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-默认下拉刷新-隐藏时间、隐藏状态"><span class="toc-text">4 默认下拉刷新+隐藏时间、隐藏状态</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-默认下拉刷新-自定义文字"><span class="toc-text">5 默认下拉刷新+自定义文字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-下拉刷新-自定义header"><span class="toc-text">6 下拉刷新+自定义header</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-上拉刷新-默认界面"><span class="toc-text">7 上拉刷新 默认界面</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-上拉刷新-设置动画"><span class="toc-text">8 上拉刷新+设置动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-上拉刷新-隐藏刷新状态的文字"><span class="toc-text">9 上拉刷新 隐藏刷新状态的文字</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-上拉刷新-禁止自动加载"><span class="toc-text">10 上拉刷新 禁止自动加载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-上拉刷新-自定义文字"><span class="toc-text">11 上拉刷新 自定义文字</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、UIWebView的下拉刷新和上拉刷新"><span class="toc-text">三、UIWebView的下拉刷新和上拉刷新</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四、UICollectionView的下拉刷新和上拉刷新"><span class="toc-text">四、UICollectionView的下拉刷新和上拉刷新</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

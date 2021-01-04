@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>自定义控件-LFImagePickerLayoutView | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="自定义控件-LFImagePickerLayoutView">
+            
+	            自定义控件-LFImagePickerLayoutView
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios">
+            ios
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/framework详解" title='framework详解'>
+                        framework详解
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/12/24</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  LFImagePickerLayoutView.swift</span><br><span class="line">//  PXSSwift</span><br><span class="line">//</span><br><span class="line">//  Created by Pro on 2019/12/24.</span><br><span class="line">//  Copyright © 2019 刘刘峰. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">import UIKit</span><br><span class="line"></span><br><span class="line">public typealias CallBack = ()-&gt;()</span><br><span class="line">public typealias DeleteCallBack = (_ deleteIndex:Int)-&gt;()</span><br><span class="line">public typealias IndexCallBack = (_ selectRow:Int)-&gt;()</span><br><span class="line"></span><br><span class="line">public struct ItemSize &#123;</span><br><span class="line">    var width:CGFloat = 70</span><br><span class="line">    var height:CGFloat = 70</span><br><span class="line">    var minimumInteritemSpacing:CGFloat = 10</span><br><span class="line">    var minimumLineSpacing:CGFloat = 10</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class LFImagePickerLayoutView: UIView &#123;</span><br><span class="line">    </span><br><span class="line">    let cellIdentifier = &quot;LFImagePickerCell&quot;</span><br><span class="line">    public var itemSize:ItemSize!</span><br><span class="line">    public var space:CGFloat = 10</span><br><span class="line">    public var datasourceHeight:CGFloat = 0</span><br><span class="line">    //添加回调</span><br><span class="line">    public var addCallBack:CallBack?</span><br><span class="line">    //点击回调</span><br><span class="line">    public var tapCellCallBack:IndexCallBack?</span><br><span class="line">    //删除回调</span><br><span class="line">    public var deletePhotoCallBack:DeleteCallBack?</span><br><span class="line">    //image个数</span><br><span class="line">    public var dataSource:[ZYPhotoModel]?</span><br><span class="line">    //当需要加号的时候是否隐藏加号</span><br><span class="line">    var neeHiddenPlus = false</span><br><span class="line">    //是否需要加号</span><br><span class="line">    public var hiddenPlus = false &#123;</span><br><span class="line">        didSet&#123;</span><br><span class="line">            if hiddenPlus == true&#123;</span><br><span class="line">                neeHiddenPlus = false</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //一行个数</span><br><span class="line">    public var numberOfLine = 3</span><br><span class="line">    //最大几个数</span><br><span class="line">    public var maxNumber = 9</span><br><span class="line">    public var hiddenDelete = false</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    private lazy var imageCollectionView: UICollectionView = &#123;</span><br><span class="line">        let flowLayout = UICollectionViewFlowLayout()</span><br><span class="line">        flowLayout.scrollDirection = .vertical</span><br><span class="line">        //  collectionView</span><br><span class="line">        let collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: flowLayout)</span><br><span class="line">        collectionView.backgroundColor = UIColor.clear</span><br><span class="line">        collectionView.isPagingEnabled = true</span><br><span class="line">        //  添加协议方法</span><br><span class="line">        collectionView.delegate = self</span><br><span class="line">        collectionView.dataSource = self</span><br><span class="line">        //  设置 cell</span><br><span class="line">        </span><br><span class="line">        collectionView.register(cellWithClass: LFImagePickerCell.self)</span><br><span class="line">        collectionView.register(cellWithClass: LFAddImageCell.self)</span><br><span class="line">    </span><br><span class="line">        return collectionView</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    override init(frame: CGRect) &#123;</span><br><span class="line">        super.init(frame: frame)</span><br><span class="line">        self.setupUI()</span><br><span class="line">    &#125;</span><br><span class="line">    override public func awakeFromNib() &#123;</span><br><span class="line">        super.awakeFromNib()</span><br><span class="line">        self.setupUI()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    required public init?(coder aDecoder: NSCoder) &#123;</span><br><span class="line">        //        fatalError(&quot;init(coder:) has not been implemented&quot;)</span><br><span class="line">        super.init(coder: aDecoder)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//MARK: - UI</span><br><span class="line">extension LFImagePickerLayoutView &#123;</span><br><span class="line">    override func layoutSubviews() &#123;</span><br><span class="line">        super.layoutSubviews()</span><br><span class="line">        for constanst in  self.constraints &#123;</span><br><span class="line">            var lineNumber:Float = 0.0</span><br><span class="line">            if neeHiddenPlus == true&#123;</span><br><span class="line">                lineNumber  = ceilf(Float(CGFloat(dataSource?.count ?? 0)/CGFloat(numberOfLine)))</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                lineNumber  = ceilf(Float(CGFloat((dataSource?.count ?? 0)+1)/CGFloat(numberOfLine)))</span><br><span class="line">            &#125;</span><br><span class="line">            print(lineNumber)</span><br><span class="line">            constanst.constant = CGFloat(lineNumber) * (itemSize.width + 10.0)</span><br><span class="line">            imageCollectionView.frame.size.width = self.frame.width</span><br><span class="line">            imageCollectionView.frame.size.height = constanst.constant</span><br><span class="line">        &#125;</span><br><span class="line">        self.snp_updateConstraints &#123; (make) in</span><br><span class="line">            make.height.equalTo(imageCollectionView.frame.size.height )</span><br><span class="line">        &#125;</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func setupUI()&#123;</span><br><span class="line">        self.imageCollectionView.frame = self.frame</span><br><span class="line">        self.addSubview(self.imageCollectionView)</span><br><span class="line">        itemSize = ItemSize()</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func updateCollectionView()&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public func reloadView()&#123;</span><br><span class="line">        checkHiddenPlus()</span><br><span class="line">        </span><br><span class="line">        let spaceNumber = CGFloat(numberOfLine) - 1</span><br><span class="line">        let width =  (self.frame.size.width - (space * spaceNumber))/CGFloat(numberOfLine)</span><br><span class="line">        itemSize = ItemSize.init(width:width , height: width, minimumInteritemSpacing: space, minimumLineSpacing: space)</span><br><span class="line">        self.layoutSubviews()</span><br><span class="line">        imageCollectionView.reloadData()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func checkHiddenPlus()&#123;</span><br><span class="line">        </span><br><span class="line">        if dataSource == nil&#123;</span><br><span class="line">            neeHiddenPlus = false</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        //显示加号且不是最大的时候</span><br><span class="line">        if maxNumber &gt; (dataSource?.count)! &amp;&amp; hiddenPlus == false&#123;</span><br><span class="line">            neeHiddenPlus = false</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            neeHiddenPlus = true</span><br><span class="line">            let array  = dataSource?[0..&lt;maxNumber]</span><br><span class="line">            dataSource = Array(array!)</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//MARK:- UICollectionViewDelegate</span><br><span class="line">extension LFImagePickerLayoutView:UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout &#123;</span><br><span class="line">    </span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -&gt; Int &#123;</span><br><span class="line">        if neeHiddenPlus == true&#123;</span><br><span class="line"></span><br><span class="line">            return dataSource?.count ?? 0</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">    </span><br><span class="line">            return (dataSource?.count ?? 0) + 1</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -&gt; UICollectionViewCell &#123;</span><br><span class="line">        //加号cell</span><br><span class="line">        if indexPath.row &gt;= dataSource?.count ?? 0 &#123;</span><br><span class="line">            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:&quot;LFAddImageCell&quot;, for: indexPath) as? LFAddImageCell else &#123;</span><br><span class="line">                return UICollectionViewCell()</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            return cell</span><br><span class="line">        //图片cell</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier:cellIdentifier, for: indexPath) as? LFImagePickerCell else &#123;</span><br><span class="line">                return UICollectionViewCell()</span><br><span class="line">            &#125;</span><br><span class="line">            //==========</span><br><span class="line">            let photoTuple: ZYPhotoModel = self.dataSource![indexPath.row]</span><br><span class="line">             if let originImage = photoTuple.originImage &#123;</span><br><span class="line">                cell.imageView.image = originImage</span><br><span class="line">             &#125; else if let imageURL = photoTuple.imageURL &#123;</span><br><span class="line">                 if let thumbnailImage = photoTuple.thumbnailImage &#123;</span><br><span class="line">                    cell.imageView.image = thumbnailImage</span><br><span class="line">                 &#125;</span><br><span class="line">            </span><br><span class="line">                cell.imageView.kf.setImage(with: URL.init(string: imageURL))</span><br><span class="line">             &#125; else &#123;</span><br><span class="line">                cell.imageView.image = photoTuple.thumbnailImage</span><br><span class="line">             &#125;</span><br><span class="line">            //==========</span><br><span class="line">                </span><br><span class="line">            </span><br><span class="line">            cell.deleteBtn.isHidden = hiddenDelete</span><br><span class="line"></span><br><span class="line">            //删除</span><br><span class="line">            cell.deleteCallBack = &#123; () in</span><br><span class="line">                self.dataSource?.remove(at: indexPath.row)</span><br><span class="line">                self.imageCollectionView.reloadData()</span><br><span class="line">                self.checkHiddenPlus()</span><br><span class="line">                self.deletePhotoCallBack!(indexPath.row)</span><br><span class="line">            &#125;</span><br><span class="line">            return cell</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) &#123;</span><br><span class="line">        if indexPath.row &gt;= dataSource?.count ?? 0 &#123; //加号按钮</span><br><span class="line">            if let callback = addCallBack&#123;</span><br><span class="line">                callback()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            if let callback = tapCellCallBack &#123;//点击图片</span><br><span class="line">                callback(indexPath.row)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -&gt; CGFloat &#123;</span><br><span class="line">        return itemSize.minimumLineSpacing</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -&gt; CGFloat &#123;</span><br><span class="line">        return itemSize.minimumInteritemSpacing</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -&gt; CGSize &#123;</span><br><span class="line">        return CGSize(width:itemSize.width, height: itemSize.height)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2020/05/23/swift/swift - 快速设置富文本的分类/" class="pre-post btn btn-default" title='swift - 快速设置富文本的分类'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">swift - 快速设置富文本的分类</span>
+        </a>
+    
+    
+        <a href="/2019/09/24/ios/Swift - 访问控制（fileprivate，private，internal，public，open）/" class="next-post btn btn-default" title='Swift - 访问控制（fileprivate，private，internal，public，open）'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Swift - 访问控制（fileprivate，private，internal，public，open）</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <p>暂无目录</p>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

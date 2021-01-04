@@ -1,0 +1,403 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>MJExtension的使用 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="MJExtension的使用">
+            
+	            MJExtension的使用
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios">
+            ios
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/framework详解" title='framework详解'>
+                        framework详解
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2016/09/24</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="基本方法"><a href="#基本方法" class="headerlink" title="基本方法"></a>基本方法</h3><h4 id="1-简单的字典-–-gt-模型"><a href="#1-简单的字典-–-gt-模型" class="headerlink" title="1.简单的字典 –&gt; 模型"></a>1.简单的字典 –&gt; 模型</h4><p><code>mj_objectWithKeyValues</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">  </span><br><span class="line">  <span class="keyword">typedef</span> <span class="keyword">enum</span> &#123;</span><br><span class="line">    SexMale,</span><br><span class="line">    SexFemale</span><br><span class="line">&#125; Sex;</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">User</span> : <span class="title">NSObject</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;<span class="comment">/* 姓名 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *icon;<span class="comment">/* 头像 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">unsigned</span> <span class="keyword">int</span> age;<span class="comment">/* 年龄 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *height;<span class="comment">/* 身高 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSNumber</span> *money;<span class="comment">/* 资产 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) Sex sex;<span class="comment">/* 性别 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>, <span class="keyword">getter</span>=isGay) <span class="built_in">BOOL</span> gay;<span class="comment">/* 是否是同性恋 */</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</span><br><span class="line">    <span class="string">@"name"</span> : <span class="string">@"Jack"</span>,</span><br><span class="line">    <span class="string">@"icon"</span> : <span class="string">@"lufy.png"</span>,</span><br><span class="line">    <span class="string">@"age"</span> : @<span class="number">20</span>,</span><br><span class="line">    <span class="string">@"height"</span> : <span class="string">@"1.55"</span>,</span><br><span class="line">    <span class="string">@"money"</span> : @<span class="number">100.9</span>,</span><br><span class="line">    <span class="string">@"sex"</span> : @(SexFemale),<span class="comment">/* 枚举需要使用NSNumber包装 */</span></span><br><span class="line">    <span class="string">@"gay"</span> : <span class="string">@"NO"</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//字典转模型，使用的是mj_objectWithKeyValues:方法</span></span><br><span class="line">User *user = [User mj_objectWithKeyValues:dict];</span><br><span class="line">  </span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+
+<h4 id="2-JSON字符串-–-gt-模型"><a href="#2-JSON字符串-–-gt-模型" class="headerlink" title="2.JSON字符串 –&gt; 模型"></a>2.JSON字符串 –&gt; 模型</h4><p><code>mj_objectWithKeyValues</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义一个JSON字符串</span></span><br><span class="line"><span class="built_in">NSString</span> *jsonString = <span class="string">@"&#123;\"name\":\"Jack\", \"icon\":\"lufy.png\", \"age\":20&#125;"</span>;</span><br><span class="line"><span class="comment">// JSON字符串转模型</span></span><br><span class="line">User *user = [User mj_objectWithKeyValues:jsonString];</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="3-复杂的字典-–-gt-模型-模型里面包含了模型"><a href="#3-复杂的字典-–-gt-模型-模型里面包含了模型" class="headerlink" title="3.复杂的字典 –&gt; 模型 (模型里面包含了模型)"></a>3.复杂的字典 –&gt; 模型 (模型里面包含了模型)</h4><p><code>mj_objectWithKeyValues</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Status</span> : <span class="title">NSObject</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *text;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) User *user;<span class="comment">/* 其他模型类型 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) Status *retweetedStatus;<span class="comment">/* 自我模型类型 */</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</span><br><span class="line">    <span class="string">@"text"</span> : <span class="string">@"Agree!Nice weather!"</span>,</span><br><span class="line">    <span class="string">@"user"</span> : @&#123;</span><br><span class="line">        <span class="string">@"name"</span> : <span class="string">@"Jack"</span>,</span><br><span class="line">        <span class="string">@"icon"</span> : <span class="string">@"lufy.png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">@"retweetedStatus"</span> : @&#123;</span><br><span class="line">        <span class="string">@"text"</span> : <span class="string">@"Nice weather!"</span>,</span><br><span class="line">        <span class="string">@"user"</span> : @&#123;</span><br><span class="line">            <span class="string">@"name"</span> : <span class="string">@"Rose"</span>,</span><br><span class="line">            <span class="string">@"icon"</span> : <span class="string">@"nami.png"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Status *status = [Status mj_objectWithKeyValues:dict];</span><br><span class="line"><span class="built_in">NSString</span> *text2 = status.retweetedStatus.text;</span><br><span class="line"><span class="built_in">NSString</span> *name2 = status.retweetedStatus.user.name;</span><br><span class="line"><span class="built_in">NSString</span> *icon2 = status.retweetedStatus.user.icon;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="4-复杂的字典-–-gt-模型-模型的数组属性里面又装着模型"><a href="#4-复杂的字典-–-gt-模型-模型的数组属性里面又装着模型" class="headerlink" title="4.复杂的字典 –&gt; 模型 (模型的数组属性里面又装着模型)"></a>4.复杂的字典 –&gt; 模型 (模型的数组属性里面又装着模型)</h4><p><code>mj_ objectClassInArray</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Ad</span> : <span class="title">NSObject</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *image;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *url;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">StatusResult</span> : <span class="title">NSObject</span></span></span><br><span class="line"><span class="comment">/** 数组中存储模型Status类型数据 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSMutableArray</span> *statuses;</span><br><span class="line"><span class="comment">/** 数组中存储模型Ad类型数据 */</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSArray</span> *ads;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSNumber</span> *totalNumber;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"MJExtension.h"</span></span></span><br><span class="line"><span class="comment">/* 数组中存储模型数据，需要说明数组中存储的模型数据类型 */</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">StatusResult</span></span></span><br><span class="line"><span class="comment">/* 实现该方法，说明数组中存储的模型数据类型 */</span></span><br><span class="line">+ (<span class="built_in">NSDictionary</span> *)mj_ objectClassInArray&#123;</span><br><span class="line">    <span class="keyword">return</span> @&#123; <span class="string">@"statuses"</span> : <span class="string">@"Status"</span>,</span><br><span class="line">              <span class="string">@"ads"</span> : <span class="string">@"Ad"</span></span><br><span class="line">            &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</span><br><span class="line">    <span class="string">@"text"</span> : <span class="string">@"Agree!Nice weather!"</span>,</span><br><span class="line">    <span class="string">@"user"</span> : @&#123;</span><br><span class="line">        <span class="string">@"name"</span> : <span class="string">@"Jack"</span>,</span><br><span class="line">        <span class="string">@"icon"</span> : <span class="string">@"lufy.png"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">@"retweetedStatus"</span> : @&#123;</span><br><span class="line">        <span class="string">@"text"</span> : <span class="string">@"Nice weather!"</span>,</span><br><span class="line">        <span class="string">@"user"</span> : @&#123;</span><br><span class="line">            <span class="string">@"name"</span> : <span class="string">@"Rose"</span>,</span><br><span class="line">            <span class="string">@"icon"</span> : <span class="string">@"nami.png"</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//字典转模型，模型里面含有模型</span></span><br><span class="line">Status *status = [Status mj_objectWithKeyValues:dict];</span><br><span class="line"><span class="built_in">NSString</span> *text = status.text;</span><br><span class="line"><span class="built_in">NSString</span> *name = status.user.name;</span><br><span class="line"><span class="built_in">NSString</span> *icon = status.user.icon;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"text=%@, name=%@, icon=%@"</span>, text, name, icon);</span><br><span class="line"><span class="comment">// text=Agree!Nice weather!, name=Jack, icon=lufy.png</span></span><br><span class="line"><span class="built_in">NSString</span> *text2 = status.retweetedStatus.text;</span><br><span class="line"><span class="built_in">NSString</span> *name2 = status.retweetedStatus.user.name;</span><br><span class="line"><span class="built_in">NSString</span> *icon2 = status.retweetedStatus.user.icon;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"text2=%@, name2=%@, icon2=%@"</span>, text2, name2, icon2);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="5-复杂的字典-–-gt-模型（模型属性名和字典的key不一样"><a href="#5-复杂的字典-–-gt-模型（模型属性名和字典的key不一样" class="headerlink" title="5.复杂的字典 –&gt; 模型（模型属性名和字典的key不一样)"></a>5.复杂的字典 –&gt; 模型（模型属性名和字典的key不一样)</h4><p><code>mj_replacedKeyFromPropertyName</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Bag</span> : <span class="title">NSObject</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">double</span> price;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Student</span> : <span class="title">NSObject</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *ID;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *desc;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *nowName;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *oldName;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *nameChangedTime;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) Bag *bag;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"MJExtension.h"</span></span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> </span></span><br><span class="line"><span class="comment">/* 设置模型属性名和字典key之间的映射关系 */</span></span><br><span class="line">+ (<span class="built_in">NSDictionary</span> *)mj_replacedKeyFromPropertyName&#123;</span><br><span class="line">    <span class="comment">/* 返回的字典，key为模型属性名，value为转化的字典的多级key */</span></span><br><span class="line">    <span class="keyword">return</span> @&#123;</span><br><span class="line">               <span class="string">@"ID"</span> : <span class="string">@"id"</span>,</span><br><span class="line">               <span class="string">@"desc"</span> : <span class="string">@"desciption"</span>,</span><br><span class="line">               <span class="string">@"oldName"</span> : <span class="string">@"name.oldName"</span>,</span><br><span class="line">               <span class="string">@"nowName"</span> : <span class="string">@"name.newName"</span>,</span><br><span class="line">               <span class="string">@"nameChangedTime"</span> : <span class="string">@"name.info[1].nameChangedTime"</span>,</span><br><span class="line">               <span class="string">@"bag"</span> : <span class="string">@"other.bag"</span></span><br><span class="line">           &#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</span><br><span class="line">    <span class="string">@"id"</span> : <span class="string">@"20"</span>,</span><br><span class="line">    <span class="string">@"desciption"</span> : <span class="string">@"kids"</span>,</span><br><span class="line">    <span class="string">@"name"</span> : @&#123;</span><br><span class="line">        <span class="string">@"newName"</span> : <span class="string">@"lufy"</span>,</span><br><span class="line">        <span class="string">@"oldName"</span> : <span class="string">@"kitty"</span>,</span><br><span class="line">        <span class="string">@"info"</span> : @[</span><br><span class="line">                 <span class="string">@"test-data"</span>,</span><br><span class="line">                 @&#123;</span><br><span class="line">                             <span class="string">@"nameChangedTime"</span> : <span class="string">@"2013-08"</span></span><br><span class="line">                         &#125;</span><br><span class="line">                  ]</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="string">@"other"</span> : @&#123;</span><br><span class="line">        <span class="string">@"bag"</span> : @&#123;</span><br><span class="line">            <span class="string">@"name"</span> : <span class="string">@"a red bag"</span>,</span><br><span class="line">            <span class="string">@"price"</span> : @<span class="number">100.7</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//字典转模型，支持多级映射</span></span><br><span class="line">Student *stu = [Student mj_objectWithKeyValues:dict];</span><br><span class="line"><span class="comment">//打印</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"ID=%@, desc=%@, oldName=%@, nowName=%@, nameChangedTime=%@"</span>,</span><br><span class="line">      stu.ID, stu.desc, stu.oldName, stu.nowName, stu.nameChangedTime);</span><br><span class="line"><span class="comment">// ID=20, desc=kids, oldName=kitty, nowName=lufy, nameChangedTime=2013-08</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"bagName=%@, bagPrice=%f"</span>, stu.bag.name, stu.bag.price);</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="6-字典数组-–-gt-模型数组"><a href="#6-字典数组-–-gt-模型数组" class="headerlink" title="6.字典数组 –&gt; 模型数组"></a>6.字典数组 –&gt; 模型数组</h4><p><code>mj_objectArrayWithKeyValuesArray</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *dictArray = @[</span><br><span class="line">                         @&#123;</span><br><span class="line">                             <span class="string">@"name"</span> : <span class="string">@"Jack"</span>,</span><br><span class="line">                             <span class="string">@"icon"</span> : <span class="string">@"lufy.png"</span></span><br><span class="line">                         &#125;,</span><br><span class="line">                         @&#123;</span><br><span class="line">                             <span class="string">@"name"</span> : <span class="string">@"Rose"</span>,</span><br><span class="line">                             <span class="string">@"icon"</span> : <span class="string">@"nami.png"</span></span><br><span class="line">                         &#125;</span><br><span class="line">                     ];</span><br><span class="line"><span class="comment">//字典数组转模型数组，使用的是mj_objectArrayWithKeyValuesArray:方法</span></span><br><span class="line"><span class="built_in">NSArray</span> *userArray = [User mj_objectArrayWithKeyValuesArray:dictArray];</span><br><span class="line"><span class="comment">//打印</span></span><br><span class="line"><span class="keyword">for</span> (User *user <span class="keyword">in</span> userArray) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"name=%@, icon=%@"</span>, user.name, user.icon);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// name=Jack, icon=lufy.png</span></span><br><span class="line"><span class="comment">// name=Rose, icon=nami.png</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="7-模型-–-gt-字典"><a href="#7-模型-–-gt-字典" class="headerlink" title="7.模型 –&gt; 字典"></a>7.模型 –&gt; 字典</h4><p><code>mj_keyValues</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">/创建一个模型对象</span><br><span class="line">User *user = [[User alloc] init];</span><br><span class="line">user.name = <span class="string">@"Jack"</span>;</span><br><span class="line">user.icon = <span class="string">@"lufy.png"</span>;</span><br><span class="line">Status *status = [[Status alloc] init];</span><br><span class="line">status.user = user;</span><br><span class="line">status.text = <span class="string">@"Nice mood!"</span>;</span><br><span class="line"><span class="comment">//模型转字典，使用的是mj_keyValues属性</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *statusDict = status.mj_keyValues;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, statusDict);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> &#123;</span></span><br><span class="line"><span class="comment"> text = "Nice mood!";</span></span><br><span class="line"><span class="comment"> user =     &#123;</span></span><br><span class="line"><span class="comment"> icon = "lufy.png";</span></span><br><span class="line"><span class="comment"> name = Jack;</span></span><br><span class="line"><span class="comment"> &#125;;</span></span><br><span class="line"><span class="comment"> &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="8-模型数组-–-gt-字典数组"><a href="#8-模型数组-–-gt-字典数组" class="headerlink" title="8.模型数组 –&gt; 字典数组"></a>8.模型数组 –&gt; 字典数组</h4><p><code>mj_keyValuesArrayWithObjectArray</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//创建模型数组</span></span><br><span class="line">User *user1 = [[User alloc] init];</span><br><span class="line">user1.name = <span class="string">@"Jack"</span>;</span><br><span class="line">user1.icon = <span class="string">@"lufy.png"</span>;</span><br><span class="line">User *user2 = [[User alloc] init];</span><br><span class="line">user2.name = <span class="string">@"Rose"</span>;</span><br><span class="line">user2.icon = <span class="string">@"nami.png"</span>;</span><br><span class="line"><span class="built_in">NSArray</span> *userArray = @[user1, user2];</span><br><span class="line"><span class="comment">//模型数组转字典数组，使用的是mj_keyValuesArrayWithObjectArray:方法</span></span><br><span class="line"><span class="built_in">NSArray</span> *dictArray = [User mj_keyValuesArrayWithObjectArray:userArray];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, dictArray);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> (</span></span><br><span class="line"><span class="comment"> &#123;</span></span><br><span class="line"><span class="comment"> icon = "lufy.png";</span></span><br><span class="line"><span class="comment"> name = Jack;</span></span><br><span class="line"><span class="comment"> &#125;,</span></span><br><span class="line"><span class="comment"> &#123;</span></span><br><span class="line"><span class="comment"> icon = "nami.png";</span></span><br><span class="line"><span class="comment"> name = Rose;</span></span><br><span class="line"><span class="comment"> &#125;</span></span><br><span class="line"><span class="comment"> )</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="9-字典-–-gt-CoreData模型"><a href="#9-字典-–-gt-CoreData模型" class="headerlink" title="9.字典 –&gt; CoreData模型"></a>9.字典 –&gt; CoreData模型</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</span><br><span class="line">                         <span class="string">@"name"</span> : <span class="string">@"Jack"</span>,</span><br><span class="line">                         <span class="string">@"icon"</span> : <span class="string">@"lufy.png"</span>,</span><br><span class="line">                         <span class="string">@"age"</span> : @<span class="number">20</span>,</span><br><span class="line">                         <span class="string">@"height"</span> : @<span class="number">1.55</span>,</span><br><span class="line">                         <span class="string">@"money"</span> : <span class="string">@"100.9"</span>,</span><br><span class="line">                         <span class="string">@"sex"</span> : @(SexFemale),</span><br><span class="line">                         <span class="string">@"gay"</span> : <span class="string">@"true"</span></span><br><span class="line">                     &#125;;</span><br><span class="line"><span class="comment">//字典转为CoreData模型</span></span><br><span class="line"><span class="built_in">NSManagedObjectContext</span> *context = <span class="literal">nil</span>;</span><br><span class="line">User *user = [User mj_objectWithKeyValues:dict </span><br><span class="line">                                  context:context];</span><br><span class="line">[context save:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="10-归档与解档NSCoding"><a href="#10-归档与解档NSCoding" class="headerlink" title="10.归档与解档NSCoding"></a>10.归档与解档NSCoding</h4><p><code>MJExtensionCodingImplementation</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Bag</span> : <span class="title">NSObject</span> &lt;<span class="title">NSCoding</span>&gt;</span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">assign</span>, <span class="keyword">nonatomic</span>) <span class="keyword">double</span> price;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"MJExtension.h"</span></span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Bag</span></span></span><br><span class="line"><span class="comment">//添加了下面的宏定义</span></span><br><span class="line">MJExtensionCodingImplementation</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 实现下面的方法，说明哪些属性不需要归档和解档 */</span></span><br><span class="line">+ (<span class="built_in">NSArray</span> *)mj_ignoredCodingPropertyNames&#123;</span><br><span class="line">    <span class="keyword">return</span> @[<span class="string">@"name"</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建模型</span></span><br><span class="line">Bag *bag = [[Bag alloc] init];</span><br><span class="line">bag.name = <span class="string">@"Red bag"</span>;</span><br><span class="line">bag.price = <span class="number">200.8</span>;</span><br><span class="line"><span class="comment">//获取归档路径</span></span><br><span class="line"><span class="built_in">NSString</span> *file = [<span class="built_in">NSHomeDirectory</span>() stringByAppendingPathComponent:<span class="string">@"Desktop/bag.data"</span>];</span><br><span class="line"><span class="comment">//归档</span></span><br><span class="line">[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:bag toFile:file];</span><br><span class="line"><span class="comment">//解档</span></span><br><span class="line">Bag *decodedBag = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:file];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"name=%@, price=%f"</span>, decodedBag.name, decodedBag.price);</span><br><span class="line"><span class="comment">// name=(null), price=200.800000</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="11-过滤字典的值"><a href="#11-过滤字典的值" class="headerlink" title="11.过滤字典的值"></a>11.过滤字典的值</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Book</span>: <span class="title">NSObject</span></span></span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">copy</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSString</span> *name;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">strong</span>, <span class="keyword">nonatomic</span>) <span class="built_in">NSDate</span> *publishedTime;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#import <span class="meta-string">"MJExtension.h"</span></span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Book</span></span></span><br><span class="line"><span class="comment">/* 转化过程中对字典的值进行过滤和进一步转化 */</span></span><br><span class="line">- (<span class="keyword">id</span>)mj_newValueFromOldValue:(<span class="keyword">id</span>)oldValue property:(MJProperty *)property</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> ([property.name isEqualToString:<span class="string">@"publisher"</span>]) &#123;</span><br><span class="line">        <span class="keyword">if</span> (oldValue == <span class="literal">nil</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">@""</span>;</span><br><span class="line">        &#125;        </span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (property.type.typeClass == [<span class="built_in">NSDate</span> <span class="keyword">class</span>]) &#123;</span><br><span class="line">        <span class="built_in">NSDateFormatter</span> *fmt = [[<span class="built_in">NSDateFormatter</span> alloc] init];</span><br><span class="line">        fmt.dateFormat = <span class="string">@"yyyy-MM-dd"</span>;</span><br><span class="line">        <span class="keyword">return</span> [fmt dateFromString:oldValue];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> oldValue;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">NSDictionary</span> *dict = @&#123;</span><br><span class="line">                       <span class="string">@"name"</span> : <span class="string">@"5分钟突破iOS开发"</span>,</span><br><span class="line">                       <span class="string">@"publishedTime"</span> : <span class="string">@"2011-09-10"</span></span><br><span class="line">                       &#125;;</span><br><span class="line"><span class="comment">//字典转模型，过滤name为nil的情况，把NSString转为NSDate</span></span><br><span class="line">Book *book = [Book mj_objectWithKeyValues:dict];</span><br><span class="line"><span class="comment">//打印</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"name=%@, publishedTime=%@"</span>, book.name, book.publishedTime);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Runtime运行时机制简单了解"><a href="#Runtime运行时机制简单了解" class="headerlink" title="Runtime运行时机制简单了解"></a>Runtime运行时机制简单了解</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* OC方法调用 */</span></span><br><span class="line">[obj makeTest];</span><br><span class="line"><span class="comment">/* 编译时Runtime会将上面的代码转为下面的消息发送 */</span></span><br><span class="line">objc_msgSend(obj, <span class="keyword">@selector</span>(makeText));</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p><strong>iOS的顶层基类NSObject含有一个指向objc_class结构体的isa指针：</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSObject</span></span>&#123;</span><br><span class="line">Class isa;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> objc_class *Class;</span><br><span class="line"><span class="keyword">struct</span> objc_class &#123;</span><br><span class="line">    Class isa; <span class="comment">// 指向metaclass，也就是静态的Class</span></span><br><span class="line">    Class super_class ; <span class="comment">// 指向其父类</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">char</span> *name ; <span class="comment">// 类名</span></span><br><span class="line">    <span class="keyword">long</span> version ; <span class="comment">// 类的版本信息，初始化默认为0</span></span><br><span class="line">    <span class="comment">/* 一些标识信息，如CLS_CLASS(0x1L)表示该类为普通class;</span></span><br><span class="line"><span class="comment">    CLS_META(0x2L)表示该类为metaclass */</span></span><br><span class="line">    <span class="keyword">long</span> info; </span><br><span class="line">    <span class="keyword">long</span> instance_size ; <span class="comment">// 该类的实例变量大小(包括从父类继承下来的实例变量</span></span><br><span class="line">    <span class="keyword">struct</span> objc_ivar_list *ivars; <span class="comment">// 用于存储每个成员变量的地址</span></span><br><span class="line">     <span class="comment">/* 与info的一些标志位有关,如是普通class则存储对象方法，如是metaclass则存储类方法 */</span></span><br><span class="line">    <span class="keyword">struct</span> objc_method_list **methodLists ; </span><br><span class="line">    <span class="keyword">struct</span> objc_cache *cache; <span class="comment">// 指向最近使用的方法的指    针，用于提升效率；</span></span><br><span class="line">    <span class="keyword">struct</span> objc_protocol_list *protocols; <span class="comment">// 存储该类   遵守的协议</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>在objc_msgSend函数的调用过程:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">首先通过obj的isa指针找到obj对应的Class。</span><br><span class="line">在Class中先去cache中通过SEL查找对应函数method</span><br><span class="line">若cache中未找到，再去methodLists中查找</span><br><span class="line">若methodLists中未找到，则进入superClass按前面的步骤进行递归查找</span><br><span class="line">若找到method，则将method加入到cache中，以方便下次查找，并通过method中的函数指针跳转到对应的函数中去执行。</span><br><span class="line">如果一直查找到<span class="built_in">NSObject</span>还没查找到，则会进入消息动态处理流程。</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>消息动态处理流程：</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 1. 时机处理之一，在这个方法中我们可以利用runtime的特性动态添加方法来处理 */</span></span><br><span class="line">+ (<span class="built_in">BOOL</span>)resolveInstanceMethod:(SEL)sel;</span><br><span class="line"><span class="comment">/* 2. 时机处理之二，在这个方法中看代理能不能处理，如果代理对象能处理，则转接给代理对象 */</span></span><br><span class="line">- (<span class="keyword">id</span>)forwardingTargetForSelector:(SEL)aSelector;</span><br><span class="line"><span class="comment">/* 3. 消息转发之一，该方法返回方法签名，如果返回nil，则转发流程终止，抛出异常 */</span></span><br><span class="line">- (<span class="built_in">NSMethodSignature</span> *)methodSignatureForSelector:(SEL)aSelector;</span><br><span class="line"><span class="comment">/* 4. 消息转发之二，在该方法中我们可以对调用方法进行重定向 */</span></span><br><span class="line">- (<span class="keyword">void</span>)forwardInvocation:(<span class="built_in">NSInvocation</span> *)anInvocation;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p><code>所以使用Runtime机制我们就可以动态向类添加方法或属性：</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/* 动态向一个类添加属性 */</span></span><br><span class="line">class_addIvar(kclass, <span class="string">"expression"</span>, size, alignment, <span class="string">"*"</span>);</span><br><span class="line"><span class="comment">/* 动态向一个类添加方法 */</span></span><br><span class="line">class_addMethod(kclass, <span class="keyword">@selector</span>(setExpressionFormula:), (IMP)setExpressionFormula, <span class="string">"v@:@"</span>);</span><br><span class="line">class_addMethod(kclass, <span class="keyword">@selector</span>(getExpressionFormula), (IMP)getExpressionFormula, <span class="string">"@@:"</span>);</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">void</span> setExpressionFormula(<span class="keyword">id</span> <span class="keyword">self</span>, SEL cmd, <span class="keyword">id</span> value)&#123;           </span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"call setExpressionFormula"</span>);  </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">static</span> <span class="keyword">id</span> getExpressionFormula(<span class="keyword">id</span> <span class="keyword">self</span>, SEL cmd)  &#123;        </span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"call getExpressionFormula"</span>);  </span><br><span class="line">    <span class="keyword">return</span> <span class="literal">nil</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="参照博客"><a href="#参照博客" class="headerlink" title="参照博客"></a>参照博客</h3><p><a href="https://www.jianshu.com/p/01d2a7757c04" target="_blank" rel="noopener">原文</a></p>
+<h3 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h3><p><a href="https://blog.csdn.net/sjy457346652/article/details/79035180" target="_blank" rel="noopener">参考</a></p>
+
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2016/10/07/ios/MJRefresh使用/" class="pre-post btn btn-default" title='MJRefresh使用'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">MJRefresh使用</span>
+        </a>
+    
+    
+        <a href="/2016/09/23/ios/YTKNetwork使用/" class="next-post btn btn-default" title='YTKNetwork使用'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">YTKNetwork使用</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本方法"><span class="toc-text">基本方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-简单的字典-–-gt-模型"><span class="toc-text">1.简单的字典 –&gt; 模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-JSON字符串-–-gt-模型"><span class="toc-text">2.JSON字符串 –&gt; 模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-复杂的字典-–-gt-模型-模型里面包含了模型"><span class="toc-text">3.复杂的字典 –&gt; 模型 (模型里面包含了模型)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-复杂的字典-–-gt-模型-模型的数组属性里面又装着模型"><span class="toc-text">4.复杂的字典 –&gt; 模型 (模型的数组属性里面又装着模型)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-复杂的字典-–-gt-模型（模型属性名和字典的key不一样"><span class="toc-text">5.复杂的字典 –&gt; 模型（模型属性名和字典的key不一样)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-字典数组-–-gt-模型数组"><span class="toc-text">6.字典数组 –&gt; 模型数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-模型-–-gt-字典"><span class="toc-text">7.模型 –&gt; 字典</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-模型数组-–-gt-字典数组"><span class="toc-text">8.模型数组 –&gt; 字典数组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-字典-–-gt-CoreData模型"><span class="toc-text">9.字典 –&gt; CoreData模型</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-归档与解档NSCoding"><span class="toc-text">10.归档与解档NSCoding</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-过滤字典的值"><span class="toc-text">11.过滤字典的值</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Runtime运行时机制简单了解"><span class="toc-text">Runtime运行时机制简单了解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参照博客"><span class="toc-text">参照博客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#源码解析"><span class="toc-text">源码解析</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

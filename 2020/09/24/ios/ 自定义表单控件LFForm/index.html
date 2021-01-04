@@ -1,0 +1,373 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>自定义表单控件LFForm | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="自定义表单控件LFForm">
+            
+	            自定义表单控件LFForm
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios">
+            ios
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2020/09/24</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="效果图如下"><a href="#效果图如下" class="headerlink" title="效果图如下"></a>效果图如下</h3><p><img src="https://upload-images.jianshu.io/upload_images/1747706-c9aff88a8fd01190.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>使用tableView来写，自定义不同类型的cell，写好统一的base控制器和行模型和组模型，使用MVVM模式来写会更好些，子类只要配置好数据源就可以<br>输入控件统一使用textView，因为有可能要显示多行<br>###文件目录如图<br><img src="https://upload-images.jianshu.io/upload_images/1747706-b82852d973f0cbbe.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="自定义base控制器"><a href="#自定义base控制器" class="headerlink" title="自定义base控制器"></a>自定义base控制器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  LFFormController.swift</span><br><span class="line">//  MyDoYu</span><br><span class="line">//</span><br><span class="line">//  Created by 刘刘峰 on 2019/11/24.</span><br><span class="line">//  Copyright © 2019 刘刘峰. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">import UIKit</span><br><span class="line"></span><br><span class="line">class LFFormController: BaseViewController &#123;</span><br><span class="line">    </span><br><span class="line">    var mdataSource:[LFSectionModel]?</span><br><span class="line">    </span><br><span class="line">    lazy var imageArray = [ZYPhotoModel]()</span><br><span class="line"></span><br><span class="line">    var viewModel:LFFormViewModel = &#123;</span><br><span class="line">        return LFFormViewModel()</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    lazy var tableView:UITableView = &#123;</span><br><span class="line">        let tableView = UITableView.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: UITableView.Style.grouped)</span><br><span class="line">        tableView.delegate = self</span><br><span class="line">        tableView.dataSource = self</span><br><span class="line">        tableView.tableFooterView = UIView()</span><br><span class="line">        tableView.separatorStyle = .none</span><br><span class="line">        tableView.showsVerticalScrollIndicator = false</span><br><span class="line">        </span><br><span class="line">        tableView.register(LFFormBaseCell.self, forCellReuseIdentifier: NSStringFromClass(LFFormBaseCell.self))</span><br><span class="line">        tableView.register(LFFormImageCell.self, forCellReuseIdentifier: NSStringFromClass(LFFormImageCell.self))</span><br><span class="line">        tableView.register(LFFormInputCell.self, forCellReuseIdentifier: NSStringFromClass(LFFormInputCell.self))</span><br><span class="line">        tableView.register(LFFormTextViewInputCell.self, forCellReuseIdentifier: NSStringFromClass(LFFormTextViewInputCell.self))</span><br><span class="line">        tableView.register(LFFormPlainCell.self, forCellReuseIdentifier: NSStringFromClass(LFFormPlainCell.self))</span><br><span class="line">        tableView.register(LFFormIconCell.self, forCellReuseIdentifier: NSStringFromClass(LFFormIconCell.self))</span><br><span class="line">        tableView.register(LFImageCollectionCell.self, forCellReuseIdentifier: NSStringFromClass(LFImageCollectionCell.self))</span><br><span class="line">        tableView.register(LFFormSexSelectCell.self, forCellReuseIdentifier: NSStringFromClass(LFFormSexSelectCell.self))</span><br><span class="line"></span><br><span class="line">        return tableView</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    override func viewDidLoad() &#123;</span><br><span class="line">        super.viewDidLoad()</span><br><span class="line">        </span><br><span class="line">        self.view .addSubview(self.tableView)</span><br><span class="line">        </span><br><span class="line">        self.tableView.snp_makeConstraints &#123; (make) in</span><br><span class="line">            make.left.right.top.bottom.equalToSuperview()</span><br><span class="line">        &#125;</span><br><span class="line">        self.tableView.uHead.beginRefreshing()</span><br><span class="line">        </span><br><span class="line">        //回调通知刷新</span><br><span class="line">        viewModel.updateDataBlock = &#123;[unowned self] in</span><br><span class="line">            self.tableView.reloadData()</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        self.loadData()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    func loadData() &#123;</span><br><span class="line">        </span><br><span class="line">        viewModel.loadData()</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    override func viewWillDisappear(_ animated: Bool) &#123;</span><br><span class="line">        super.viewWillDisappear(animated)</span><br><span class="line">        self.view.endEditing(false)</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extension LFFormController :UITableViewDataSource,UITableViewDelegate &#123;</span><br><span class="line">    </span><br><span class="line">    func numberOfSections(in tableView: UITableView) -&gt; Int &#123;</span><br><span class="line">        return viewModel.mdataSource?.count ?? 0</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -&gt; CGFloat &#123;</span><br><span class="line">        let sectionModel = viewModel.mdataSource?[indexPath.section]</span><br><span class="line">        let rowModel = sectionModel?.rows[indexPath.row]</span><br><span class="line">        if rowModel?.cellType == FormCellType.textScroll &#123;</span><br><span class="line">            //自动计算高度</span><br><span class="line">            return LFFormTextViewInputCell.heightWithModel(rowModel: rowModel!)</span><br><span class="line">        &#125;</span><br><span class="line">        return rowModel!.rowHeight</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -&gt; Int &#123;</span><br><span class="line">        let sectionModel = viewModel.mdataSource?[section]</span><br><span class="line">        return sectionModel?.rows.count ?? 0</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -&gt; UITableViewCell &#123;</span><br><span class="line">        </span><br><span class="line">        let sectionModel = viewModel.mdataSource?[indexPath.section]</span><br><span class="line">        let rowModel = sectionModel?.rows[indexPath.row]</span><br><span class="line">        </span><br><span class="line">        if rowModel?.cellType == FormCellType.text &#123;</span><br><span class="line">            let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(LFFormInputCell.self), for: indexPath)as?LFFormInputCell</span><br><span class="line">            cell?.rowModel = rowModel!</span><br><span class="line">            </span><br><span class="line">            return cell!</span><br><span class="line">            </span><br><span class="line">        &#125;else if rowModel?.cellType == FormCellType.textScroll &#123;</span><br><span class="line">            let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(LFFormTextViewInputCell.self), for: indexPath)as?LFFormTextViewInputCell</span><br><span class="line">            cell?.rowModel = rowModel!</span><br><span class="line">            </span><br><span class="line">            return cell!</span><br><span class="line">            </span><br><span class="line">        &#125;else if rowModel?.cellType == FormCellType.headImage &#123;</span><br><span class="line">            let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(LFFormImageCell.self), for: indexPath)as?LFFormImageCell</span><br><span class="line">            cell?.rowModel = rowModel!</span><br><span class="line">            </span><br><span class="line">            return cell!</span><br><span class="line">            </span><br><span class="line">        &#125;else if rowModel?.cellType == FormCellType.icon &#123;</span><br><span class="line">            let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(LFFormIconCell.self), for: indexPath)as?LFFormIconCell</span><br><span class="line">            cell?.rowModel = rowModel!</span><br><span class="line">            </span><br><span class="line">            return cell!</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        else if rowModel?.cellType == FormCellType.plain &#123;</span><br><span class="line">            let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(LFFormPlainCell.self), for: indexPath)as?LFFormPlainCell</span><br><span class="line">            cell?.rowModel = rowModel!</span><br><span class="line">            </span><br><span class="line">            return cell!</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        else if rowModel?.cellType == FormCellType.collectionImageCell &#123;</span><br><span class="line">            let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(LFImageCollectionCell.self), for: indexPath)as?LFImageCollectionCell</span><br><span class="line">            cell?.rowModel = rowModel!</span><br><span class="line">            self.imageArray = (cell?.rowModel!.imageArray)!</span><br><span class="line">            return cell!</span><br><span class="line">                        </span><br><span class="line">        &#125;else if rowModel?.cellType == FormCellType.sexCell &#123;</span><br><span class="line">            let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(LFFormSexSelectCell.self), for: indexPath)as?LFFormSexSelectCell</span><br><span class="line">            cell?.rowModel = rowModel!</span><br><span class="line"></span><br><span class="line">            return cell!</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            </span><br><span class="line">            let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(LFFormBaseCell.self), for: indexPath)as?LFFormBaseCell</span><br><span class="line">            cell?.rowModel = rowModel!</span><br><span class="line">            return cell!</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -&gt; UIView? &#123;</span><br><span class="line">        let sectionModel = viewModel.mdataSource?[section]</span><br><span class="line">        return sectionModel?.headerView</span><br><span class="line">    &#125;</span><br><span class="line">    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -&gt; UIView? &#123;</span><br><span class="line">        let sectionModel = viewModel.mdataSource?[section]</span><br><span class="line">        return sectionModel?.footerView</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -&gt; CGFloat &#123;</span><br><span class="line">        let sectionModel = viewModel.mdataSource?[section]</span><br><span class="line"></span><br><span class="line">        return sectionModel?.headerHeight ?? 0</span><br><span class="line">    &#125;</span><br><span class="line">    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -&gt; CGFloat &#123;</span><br><span class="line">        let sectionModel = viewModel.mdataSource?[section]</span><br><span class="line"></span><br><span class="line">        return sectionModel?.footerHeight ?? 0</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) &#123;</span><br><span class="line">        </span><br><span class="line">        let sectionModel = viewModel.mdataSource?[indexPath.section]</span><br><span class="line">        let rowModel = sectionModel?.rows[indexPath.row]</span><br><span class="line">        guard rowModel?.canEdit == false else &#123;</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        self.view.endEditing(false)</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>写这种表单或者个人信息页面等都可以继承这个控制器，然后在子类重写一下loadData方法即可，也可以自己再按自己需求添加自定义的cell</p>
+<h3 id="自定义base类Cell"><a href="#自定义base类Cell" class="headerlink" title="自定义base类Cell"></a>自定义base类Cell</h3><p>自定义cell比较简单我就不一一贴代码只贴一个base基类<br>比较核心的代码:监听textView的文字的变化并使用rowModel更新文字</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">func textDidChange(text: String?) &#123;</span><br><span class="line">    rowModel?.text = text ?? &quot;&quot;</span><br><span class="line">    //通知tableView刷新</span><br><span class="line">    let view = self.superview</span><br><span class="line">    if view != nil  &#123;</span><br><span class="line">        let tableView = self.superTableView()</span><br><span class="line">        UIView.performWithoutAnimation &#123;</span><br><span class="line">            tableView?.beginUpdates()</span><br><span class="line">            tableView?.endUpdates()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="textView自适应cell的高度"><a href="#textView自适应cell的高度" class="headerlink" title="textView自适应cell的高度"></a>textView自适应cell的高度</h3><p>有时候有需求是cell的高度随着输入框输入文字而变化，核心代码<br>在heightForRowAt这个方法里计算高度，但是我们要给textView约束</p>
+<ul>
+<li><p>计算高度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -&gt; CGFloat &#123;</span><br><span class="line">    let sectionModel = viewModel.mdataSource?[indexPath.section]</span><br><span class="line">    let rowModel = sectionModel?.rows[indexPath.row]</span><br><span class="line">    if rowModel?.cellType == FormCellType.textScroll &#123;</span><br><span class="line">        //自动计算高度</span><br><span class="line">        return LFFormTextViewInputCell.heightWithModel(rowModel: rowModel!)</span><br><span class="line">    &#125;</span><br><span class="line">    return rowModel!.rowHeight</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>textView添加约束<br>给一个最小高度，超出最小高度之后需要更改约束那么使用约束的优先级即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">self.textView.snp_makeConstraints &#123; (make) in</span><br><span class="line">    make.left.equalToSuperview().offset(16)</span><br><span class="line">    make.right.equalToSuperview().offset(-16)</span><br><span class="line">    make.top.equalTo(titleLab.snp_bottom).offset(10)</span><br><span class="line">    make.height.greaterThanOrEqualTo(60).priorityHigh()</span><br><span class="line">    make.bottom.equalToSuperview().priorityLow()</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>textView自动更新高度</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">func textViewDidChange(_ textView: UITextView) &#123;</span><br><span class="line">    //获取frame的值</span><br><span class="line">    let frame = textView.frame</span><br><span class="line">    //定义一个constrainSize值用于计算textview的高度</span><br><span class="line">    </span><br><span class="line">    let constrainSize = CGSize(width:frame.size.width,height:CGFloat(MAXFLOAT))</span><br><span class="line">     </span><br><span class="line">    //获取textview的真实高度</span><br><span class="line">    </span><br><span class="line">    var size = textView.sizeThatFits(constrainSize)</span><br><span class="line">    </span><br><span class="line">    //如果textview的高度大于最大高度高度就为最大高度并可以滚动，否则不能滚动</span><br><span class="line">    </span><br><span class="line">    if size.height &gt;= maxHeight&#123;</span><br><span class="line"></span><br><span class="line">        size.height = maxHeight</span><br><span class="line"></span><br><span class="line">        textView.isScrollEnabled = true</span><br><span class="line"></span><br><span class="line">    &#125;else&#123;</span><br><span class="line"></span><br><span class="line">        textView.isScrollEnabled = false</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    //重新设置textview的高度</span><br><span class="line">    </span><br><span class="line">    textView.frame.size.height = size.height</span><br><span class="line">    </span><br><span class="line">    currentLength = textView.text.length</span><br><span class="line">    </span><br><span class="line">    self.lengthLab.text = &quot;\(currentLength)/\(maxLength)&quot;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>BaseCell</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  LFFormBaseCell.swift</span><br><span class="line">//  PXSSwift</span><br><span class="line">//</span><br><span class="line">//  Created by Pro on 2020/4/11.</span><br><span class="line">//  Copyright © 2020 刘刘峰. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">import UIKit</span><br><span class="line"></span><br><span class="line">enum FormCellType:String &#123;</span><br><span class="line">    case plain = &quot;无标题输入框&quot;</span><br><span class="line">    case text = &quot;标题+输入框&quot;</span><br><span class="line">    case picker = &quot;选择器&quot;</span><br><span class="line">    case icon = &quot;图标+文字&quot;</span><br><span class="line">    case headImage = &quot;头像&quot;</span><br><span class="line">    case textScroll = &quot;滚动输入框&quot;</span><br><span class="line">    case collectionImageCell = &quot;图片上传&quot;</span><br><span class="line">    case imageTextCell = &quot;配套设施图片文字&quot;</span><br><span class="line">    case sexCell = &quot;性别选择&quot;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">class LFFormBaseCell: UITableViewCell,LFTextViewDelegate &#123;</span><br><span class="line">    </span><br><span class="line">    var rowModel:LFRowModel? &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            self.cellType = self.rowModel!.cellType</span><br><span class="line">            self.titleLab.text = self.rowModel?.title</span><br><span class="line">            </span><br><span class="line">            let bool = self.rowModel?.text?.isBlank</span><br><span class="line">            self.textView.placeholderLabel.isHidden = !(bool ?? true)</span><br><span class="line">            </span><br><span class="line">            self.textView.placeholderLabel.text = self.rowModel?.detailText</span><br><span class="line">            self.textView.text = self.rowModel?.text</span><br><span class="line"></span><br><span class="line">            </span><br><span class="line">            self.textView.maxLength = self.rowModel?.maxLength ?? 20</span><br><span class="line">            self.textView.keyboardType = self.rowModel!.keyboardType</span><br><span class="line">            </span><br><span class="line">            //设置右边箭头按钮或者单位</span><br><span class="line">            self.canEdit = self.rowModel?.canEdit</span><br><span class="line"></span><br><span class="line">            if self.rowModel?.unit?.length ?? 0  &gt; 0 &#123;</span><br><span class="line">                self.unit = self.rowModel?.unit</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            if self.rowModel?.rightImage?.length ?? 0  &gt; 0 &#123;</span><br><span class="line">                self.rightImage = self.rowModel?.rightImage</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            self.iconImageV.isHidden = self.rowModel?.iconHiden ?? false</span><br><span class="line">            if self.cellType == .headImage &#123;</span><br><span class="line">                self.headImageV.kf.setImage(with: URL(string: self.rowModel?.headImage ?? &quot;&quot;))</span><br><span class="line">            &#125;else if self.cellType == .icon &#123;</span><br><span class="line">                self.iconImageV.image = UIImage.init(named: self.rowModel?.iconImage ?? &quot;&quot;)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    var maxLength:Int?&#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            self.textView.maxLength =  self.maxLength ?? 10</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //单位</span><br><span class="line">    var unit:String? &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            self.rightBtn.setTitle(self.unit, for: UIControl.State.normal)</span><br><span class="line">            self.rightBtn.setTitleColor(AppColor.darkgGray, for: UIControl.State.normal)</span><br><span class="line">            self.rightBtn.titleLabel?.font = FONT(font: 14)</span><br><span class="line">            //设置了单位就不设置图片</span><br><span class="line">            self.rightBtn.setImage(UIImage.init(named: &quot;&quot;), for: UIControl.State.normal)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //cell类型</span><br><span class="line">    var cellType :FormCellType &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            self.setupUI()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    //是否可编辑</span><br><span class="line">    var canEdit:Bool?&#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            self.textView.isUserInteractionEnabled = self.canEdit ?? true</span><br><span class="line">            if self.textView.isUserInteractionEnabled == false &#123;</span><br><span class="line">//                self.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator</span><br><span class="line">                //设置了图片就不设置单位</span><br><span class="line">                self.rightBtn.setTitle(&quot;&quot;, for: UIControl.State.normal)</span><br><span class="line"></span><br><span class="line">                self.rightBtn.setImage(UIImage.init(named: &quot;mine_Arrow&quot;), for: UIControl.State.normal)</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    //标题</span><br><span class="line">    var titleLab:UILabel = &#123;</span><br><span class="line">        var label = UILabel()</span><br><span class="line">        label.textColor = AppColor.black</span><br><span class="line">        label.font = UIFont.systemFont(ofSize: 16)</span><br><span class="line">        label.textAlignment = NSTextAlignment.left</span><br><span class="line">        return label</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    //详细描述</span><br><span class="line">    var detailLab:UILabel = &#123;</span><br><span class="line">        var label = UILabel()</span><br><span class="line">        label.textColor = AppColor.darkgGray</span><br><span class="line">        label.font = UIFont.systemFont(ofSize: 14)</span><br><span class="line">        label.textAlignment = NSTextAlignment.left</span><br><span class="line">        return label</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    //右边单位</span><br><span class="line">    var rightBtn:UIButton = &#123;</span><br><span class="line">        var button = UIButton()</span><br><span class="line">        button.sizeToFit()</span><br><span class="line">        return button</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    var rightImage:String? &#123;</span><br><span class="line">        didSet &#123;</span><br><span class="line">            self.rightBtn.setImage(UIImage.init(named: self.rightImage ?? &quot; &quot;), for: UIControl.State.normal)</span><br><span class="line">            self.rightBtn.addTarget(self, action: #selector(rightBtnClick(sender:)), for: UIControl.Event.touchUpInside)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    var textView:LFTextView = &#123;</span><br><span class="line">        var textView = LFTextView()</span><br><span class="line">        textView.textColor = AppColor.darkgGray</span><br><span class="line">        textView.textAlignment = NSTextAlignment.right</span><br><span class="line">        textView.font = UIFont.systemFont(ofSize: 14)</span><br><span class="line">        textView.placeholderLabel.text = &quot;请输入&quot;</span><br><span class="line">        textView.placeholderLabel.font = FONT(font: 14)</span><br><span class="line">        textView.placeholderLabel.textAlignment = NSTextAlignment.right</span><br><span class="line">        </span><br><span class="line">        return textView</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    var iconImageV:UIImageView = &#123;</span><br><span class="line">        var imageView = UIImageView()</span><br><span class="line">        return imageView</span><br><span class="line">    &#125;()</span><br><span class="line">    </span><br><span class="line">    var headImageV:UIImageView = &#123;</span><br><span class="line">        var imageView = UIImageView()</span><br><span class="line">        return imageView</span><br><span class="line">    &#125;()</span><br><span class="line">    var botline:UIView = &#123;</span><br><span class="line">        var view = UIView()</span><br><span class="line">        view.backgroundColor = AppColor.lineColor</span><br><span class="line">        return view</span><br><span class="line">    &#125;()</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    var callBlock:LFCallBack?</span><br><span class="line">    </span><br><span class="line">    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) &#123;</span><br><span class="line">        self.cellType = .plain</span><br><span class="line">        super.init(style: style, reuseIdentifier: reuseIdentifier)</span><br><span class="line">        self.selectionStyle = .none</span><br><span class="line">        </span><br><span class="line">        self.contentView.addSubview(self.botline)</span><br><span class="line">        self.botline.snp_makeConstraints &#123; (make) in</span><br><span class="line">            make.left.equalToSuperview().offset(16)</span><br><span class="line">            make.right.equalToSuperview().offset(-16)</span><br><span class="line">            make.height.equalTo(0.5)</span><br><span class="line">            make.bottom.equalToSuperview()</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    required init?(coder: NSCoder) &#123;</span><br><span class="line">        fatalError(&quot;init(coder:) has not been implemented&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    func setupUI() &#123;</span><br><span class="line">      </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//MARK: 监听</span><br><span class="line">extension LFFormBaseCell &#123;</span><br><span class="line">    func textDidChange(text: String?) &#123;</span><br><span class="line">        rowModel?.text = text ?? &quot;&quot;</span><br><span class="line">        //通知tableView刷新高度</span><br><span class="line">        let view = self.superview</span><br><span class="line">        if view != nil  &#123;</span><br><span class="line">            let tableView = self.superTableView()</span><br><span class="line">            UIView.performWithoutAnimation &#123;</span><br><span class="line">                tableView?.beginUpdates()</span><br><span class="line">                tableView?.endUpdates()</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    @objc func rightBtnClick(sender:UIButton) &#123;</span><br><span class="line">        if (callBlock != nil) &#123;</span><br><span class="line">            callBlock!()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extension LFFormBaseCell &#123;</span><br><span class="line">    //返回cell所在的UITableView</span><br><span class="line">    func superTableView() -&gt; UITableView? &#123;</span><br><span class="line">        for view in sequence(first: self.superview, next: &#123; $0?.superview &#125;) &#123;</span><br><span class="line">            if let tableView = view as? UITableView &#123;</span><br><span class="line">                return tableView</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return nil</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="baseModel类"><a href="#baseModel类" class="headerlink" title="baseModel类"></a>baseModel类</h3><ul>
+<li><p>行模型 可以根据自己需求添加属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  LFRowModel.swift</span><br><span class="line">//  MyDoYu</span><br><span class="line">//</span><br><span class="line">//  Created by 刘刘峰 on 2019/11/24.</span><br><span class="line">//  Copyright © 2019 刘刘峰. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">import UIKit</span><br><span class="line"></span><br><span class="line">class LFRowModel:NSObject &#123;</span><br><span class="line">    var title:String?//标题</span><br><span class="line">    var text:String?</span><br><span class="line">    var detailText:String? //占位文字</span><br><span class="line">    var rowHeight :CGFloat = 54.0</span><br><span class="line">    var cellType:FormCellType = .plain</span><br><span class="line">    var canEdit:Bool = true //是否可编辑</span><br><span class="line">    var maxLength:Int = 20</span><br><span class="line">    var unit:String? //单位</span><br><span class="line">    var value:String?</span><br><span class="line">    var headImage:String?//头像</span><br><span class="line">    var iconImage:String?//左侧icon</span><br><span class="line">    var rightImage:String?//右侧icon</span><br><span class="line">    </span><br><span class="line">    var sexValue:Int? //性别 0 未知 1男 2女</span><br><span class="line"></span><br><span class="line">    var keyboardType:UIKeyboardType = .default</span><br><span class="line">    var needHud:Bool = true //是否弹提示</span><br><span class="line">    var iconHiden:Bool = false //是否隐藏星号</span><br><span class="line">    var showTips:String?//弹出提示</span><br><span class="line"></span><br><span class="line">    //上传图片数据源</span><br><span class="line">    var imageArray = [ZYPhotoModel]()</span><br><span class="line"></span><br><span class="line">    init(title: String? = nil, detailText:String, cellType: FormCellType) &#123;</span><br><span class="line">        self.title = title</span><br><span class="line">        self.detailText = detailText</span><br><span class="line">        self.cellType = cellType</span><br><span class="line">        super.init()</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>组模型<br>包含 组头标题组尾标题和高度等，也可以传入自定义的view</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  LFSectionModel.swift</span><br><span class="line">//</span><br><span class="line">//  Created by 刘刘峰 on 2019/11/24.</span><br><span class="line">//  Copyright © 2019 刘刘峰. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">import UIKit</span><br><span class="line"></span><br><span class="line">class LFSectionModel:NSObject &#123;</span><br><span class="line">    var headerTitle:String?</span><br><span class="line">    var footerTitle:String?</span><br><span class="line">    var rows =  [LFRowModel]()</span><br><span class="line">    var headerView: UIView?</span><br><span class="line">    var footerView: UIView?</span><br><span class="line">    var headerHeight:CGFloat = 0</span><br><span class="line">    var footerHeight:CGFloat = 0</span><br><span class="line">    </span><br><span class="line">    init(rows:[LFRowModel]) &#123;</span><br><span class="line">        self.rows = rows</span><br><span class="line">        super.init()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="照片选择自适应cell高度"><a href="#照片选择自适应cell高度" class="headerlink" title="照片选择自适应cell高度"></a>照片选择自适应cell高度</h3><p>主要布局cell里面嵌套 UICollectionView，图片选择框架可以自己找一些比较出名的框架，</p>
+<p>###demo效果如图<br><img src="https://upload-images.jianshu.io/upload_images/1747706-e451e6a3f3f5e2f7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2020/10/12/flutter/event_bus 事件广播事件监听/" class="pre-post btn btn-default" title='event_bus 事件广播事件监听'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">event_bus 事件广播事件监听</span>
+        </a>
+    
+    
+        <a href="/2020/09/23/ios/类似朋友圈搭建/" class="next-post btn btn-default" title='类似朋友圈搭建'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">类似朋友圈搭建</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#效果图如下"><span class="toc-text">效果图如下</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分析"><span class="toc-text">分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义base控制器"><span class="toc-text">自定义base控制器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自定义base类Cell"><span class="toc-text">自定义base类Cell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#textView自适应cell的高度"><span class="toc-text">textView自适应cell的高度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#baseModel类"><span class="toc-text">baseModel类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#照片选择自适应cell高度"><span class="toc-text">照片选择自适应cell高度</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

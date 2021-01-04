@@ -1,0 +1,349 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>swift - 快速设置富文本的分类 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="swift - 快速设置富文本的分类">
+            
+	            swift - 快速设置富文本的分类
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/swift">
+            swift
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+                    <a href="/tags/swift" title='swift'>
+                        swift
+                    </a>
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2020/05/23</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <p>#一. range和NSRange互相转换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">extension String &#123;</span><br><span class="line">    /// range转换为NSRange</span><br><span class="line">    func nsRange(from range: Range&lt;String.Index&gt;) -&gt; NSRange &#123;</span><br><span class="line">        return NSRange(range, in: self)</span><br><span class="line">    &#125;</span><br><span class="line">    //使用实例</span><br><span class="line">//    let languages = &quot;Java,Swift,Objective-C&quot;</span><br><span class="line">//    let one = &quot;Swift&quot;</span><br><span class="line">//    let range = languages.range(of: one)</span><br><span class="line">//    let nsRange = languages.nsRange(from: range!)</span><br><span class="line">//    print(nsRange) // &#123;5, 5&#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extension String &#123;</span><br><span class="line">    /// NSRange转化为range</span><br><span class="line">    func range(from nsRange: NSRange) -&gt; Range&lt;String.Index&gt;? &#123;</span><br><span class="line">        guard</span><br><span class="line">            let from16 = utf16.index(utf16.startIndex, offsetBy: nsRange.location, limitedBy: utf16.endIndex),</span><br><span class="line">            let to16 = utf16.index(from16, offsetBy: nsRange.length, limitedBy: utf16.endIndex),</span><br><span class="line">            let from = String.Index(from16, within: self),</span><br><span class="line">            let to = String.Index(to16, within: self)</span><br><span class="line">            else &#123; return nil &#125;</span><br><span class="line">          return from ..&lt; to</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="二-NSMutableAttributedString快速添加属性"><a href="#二-NSMutableAttributedString快速添加属性" class="headerlink" title="二.NSMutableAttributedString快速添加属性"></a>二.NSMutableAttributedString快速添加属性</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br></pre></td><td class="code"><pre><span class="line">//</span><br><span class="line">//  NSMutableAttributedString+Extension.swift</span><br><span class="line">//  PXSSwift</span><br><span class="line">//</span><br><span class="line">//  Created by 刘刘峰 on 2020/12/21.</span><br><span class="line">//  Copyright © 2020 刘刘峰. All rights reserved.</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">import Foundation</span><br><span class="line">extension NSMutableAttributedString &#123;</span><br><span class="line">    // =========================字体的设置=========================//</span><br><span class="line">    /// 设置字体大小</span><br><span class="line">    public func lf_addFont(_ font: UIFont, on range: NSRange) &#123;</span><br><span class="line">        </span><br><span class="line">        if self.length &lt; range.location + range.length &#123; return &#125;</span><br><span class="line">        </span><br><span class="line">        let attrs = [NSAttributedString.Key.font: font]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /// 设置字体颜色</span><br><span class="line">    public func lf_addForegroundColor(_ color: UIColor, range: NSRange) &#123;</span><br><span class="line">        </span><br><span class="line">        if self.length &lt; range.location + range.length &#123;</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        let attrs = [NSAttributedString.Key.foregroundColor: color]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /// 设置字体的背景颜色</span><br><span class="line">    public func lf_addBackgroundColor(_ color: UIColor, range: NSRange) &#123;</span><br><span class="line">        </span><br><span class="line">        if self.length &lt; range.location + range.length &#123;</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        let attrs = [NSAttributedString.Key.backgroundColor: color]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">extension NSMutableAttributedString &#123;</span><br><span class="line">    </span><br><span class="line">    //=========================文本的处理==========================//</span><br><span class="line">    /// 字符间距的设置 字符间距 正值间距加宽，负值间距变窄</span><br><span class="line">    public func lf_addKern(_ kern: Int, range: NSRange) &#123;</span><br><span class="line">        </span><br><span class="line">        if self.length &lt; range.location + range.length &#123; return &#125;</span><br><span class="line">        </span><br><span class="line">        let attrs = [NSAttributedString.Key.kern: kern]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    /// 设置字体倾斜度，正值右倾，负值左倾</span><br><span class="line">    public func lf_addObliqueness(_ obliqueness: CGFloat, range: NSRange) &#123;</span><br><span class="line">        </span><br><span class="line">        if self.length &lt; range.location + range.length &#123; return &#125;</span><br><span class="line">        </span><br><span class="line">        let attrs = [NSAttributedString.Key.obliqueness: obliqueness]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /// 设置字体的横向拉伸，正值拉伸 ，负值压缩</span><br><span class="line">    public func lf_addExpansion(_ expansion: CGFloat, range: NSRange) &#123;</span><br><span class="line">        </span><br><span class="line">        if self.length &lt; range.location + range.length &#123; return &#125;</span><br><span class="line">        </span><br><span class="line">        let attrs = [NSAttributedString.Key.expansion: expansion]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    /// 文字书写方向</span><br><span class="line">    public func lf_addWritingDirection(_ direction: NSWritingDirection, range: NSRange) &#123;</span><br><span class="line">        </span><br><span class="line">        if self.length &lt; range.location + range.length &#123; return &#125;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        var value: (Int) = (0)</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        if direction == .leftToRight &#123;</span><br><span class="line">            if #available(iOS 9.0, *) &#123;</span><br><span class="line">                value = (NSWritingDirectionFormatType.override.rawValue |  NSWritingDirection.leftToRight.rawValue)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // Fallback on earlier versions</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            if #available(iOS 9.0, *) &#123;</span><br><span class="line">                value = (NSWritingDirectionFormatType.override.rawValue |  NSWritingDirection.rightToLeft.rawValue)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // Fallback on earlier versions</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        /**</span><br><span class="line">         NSAttributedString.Key.writingDirection接收的是一个数组</span><br><span class="line">         */</span><br><span class="line">        </span><br><span class="line">        /**</span><br><span class="line">         //@[@(NSWritingDirectionLeftToRight | NSWritingDirectionEmbedding)]</span><br><span class="line">         //@[@(NSWritingDirectionLeftToRight | NSWritingDirectionOverride)]</span><br><span class="line">         //@[@(NSWritingDirectionRightToLeft | NSWritingDirectionEmbedding)]</span><br><span class="line">         //@[@(NSWritingDirectionRightToLeft | NSWritingDirectionOverride)]</span><br><span class="line">         // NSWritingDirectionOverride 和 NSWritingDirectionEmbedding 是指定Unicode双向定义的格式控制算法（具体的没太搞清楚）</span><br><span class="line">         */</span><br><span class="line">        </span><br><span class="line">        let attrs = [NSAttributedString.Key.writingDirection: [value]]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">extension NSMutableAttributedString &#123;</span><br><span class="line">    </span><br><span class="line">    //=========================删除线==========================//</span><br><span class="line">    /// 设置删除线 NSUnderlineStyle: none不设置，single单细线删除，thick粗单线， Double双细线</span><br><span class="line">    public func lf_addStrikethrough(style: NSUnderlineStyle = .single, color: UIColor? = nil, range: NSRange) &#123;</span><br><span class="line">        </span><br><span class="line">        if self.length &lt; range.location + range.length &#123;</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        let attr1 = [NSAttributedString.Key.strikethroughStyle: style.rawValue]</span><br><span class="line">        self.addAttributes(attr1, range: range)</span><br><span class="line">        </span><br><span class="line">        if let tempColor = color &#123;</span><br><span class="line">            let attr2 = [NSAttributedString.Key.strikethroughColor: tempColor]</span><br><span class="line">            self.addAttributes(attr2, range: range)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    //=========================下划线==========================//</span><br><span class="line">    /// 设置下划线 NSUnderlineStyle: none不设置，single单细线删除，thick粗单线， Double双细线</span><br><span class="line">    public func lf_addUnderLine(style: NSUnderlineStyle = .single, color: UIColor? = nil, range: NSRange) &#123;</span><br><span class="line">        </span><br><span class="line">        if self.length &lt; range.location + range.length &#123;</span><br><span class="line">            return</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        let attrs = [NSAttributedString.Key.underlineStyle: NSUnderlineStyle.single.rawValue]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">        </span><br><span class="line">        if let tempColor = color &#123;</span><br><span class="line">            let attr2 = [NSAttributedString.Key.underlineColor: tempColor]</span><br><span class="line">            self.addAttributes(attr2, range: range)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">extension NSMutableAttributedString &#123;</span><br><span class="line">    //=========================文字的效果==========================//</span><br><span class="line">    /// 设置文字的描边</span><br><span class="line">    public func lf_addStroke(color: UIColor, width: CGFloat, range: NSRange) &#123;</span><br><span class="line">        </span><br><span class="line">        /**</span><br><span class="line">         设置文字描边颜色，需要NSStrokeWidthAttributeName设置描边宽度，这样就能使文字空心.</span><br><span class="line">         </span><br><span class="line">         NSStrokeWidthAttributeName,该值改变笔画宽度（相对于字体 size 的百分比），负值填充效果，正值中空效果，默认为 0，即不改变。正数只改变描边宽度。负数同时改变文字的描边和填充宽度。例如，对于常见的空心字，这个值通常为 3.0。</span><br><span class="line">         同时设置了空心描边和文字前景两个属性，并且NSStrokeWidthAttributeName 属性设置为整数，文字前景色就无效果了</span><br><span class="line">         */</span><br><span class="line">   </span><br><span class="line">        if self.length &lt; range.location + range.length &#123; return &#125;</span><br><span class="line">        </span><br><span class="line">        let attrs = [</span><br><span class="line">            NSAttributedString.Key.strokeWidth: width,</span><br><span class="line">            NSAttributedString.Key.strokeColor: color</span><br><span class="line">            ] as [NSAttributedString.Key : Any]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /// 阴影</span><br><span class="line">    public func lf_addShadow(_ shadow: NSShadow, range: NSRange) &#123;</span><br><span class="line">        if self.length &lt; range.location + range.length &#123; return &#125;</span><br><span class="line">        let attrs = [NSAttributedString.Key.shadow: shadow]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /// 设置文字的特殊NSAttributedString.Key这一个凸版印刷效果)</span><br><span class="line">    public func lf_addTextEffect(effect: NSAttributedString.TextEffectStyle = .letterpressStyle, range: NSRange) &#123;</span><br><span class="line">        if self.length &lt; range.location + range.length &#123; return &#125;</span><br><span class="line">        let attrs = [NSAttributedString.Key.textEffect: effect]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">extension NSMutableAttributedString &#123;</span><br><span class="line">    </span><br><span class="line">    //=========================偏移量==========================//</span><br><span class="line">    /// 设置上下偏移量 正数上移，负数下移</span><br><span class="line">    public func lf_addBaselineOffset(_ offset: CGFloat, range: NSRange) &#123;</span><br><span class="line">        if self.length &lt; range.location + range.length &#123; return &#125;</span><br><span class="line">        let attrs = [NSAttributedString.Key.baselineOffset: offset]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    /// 设置行间距</span><br><span class="line">    public func lf_addLineSpacing(_ style: NSMutableParagraphStyle, range: NSRange) &#123;</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        /**</span><br><span class="line">         具体请看： https://www.jianshu.com/p/b0afc45bb642</span><br><span class="line">         </span><br><span class="line">         NSAttributedString.Key.paragraphStyle     设置文本段落排版，为NSParagraphStyle对象</span><br><span class="line">         </span><br><span class="line">         paragraphStyle.lineSpacing            = 0.0; //增加行高</span><br><span class="line">         paragraphStyle.headIndent             = 0;   //头部缩进，相当于左padding</span><br><span class="line">         paragraphStyle.tailIndent             = 0;   //相当于右padding</span><br><span class="line">         paragraphStyle.lineHeightMultiple     = 0;   //行间距是多少倍</span><br><span class="line">         paragraphStyle.alignment              = NSTextAlignmentLeft;//对齐方式</span><br><span class="line">         paragraphStyle.firstLineHeadIndent    = 0;   //首行头缩进</span><br><span class="line">         paragraphStyle.paragraphSpacing       = 0;   //段落后面的间距</span><br><span class="line">         paragraphStyle.paragraphSpacingBefore = 0;   //段落之前的间距</span><br><span class="line">         */</span><br><span class="line">        </span><br><span class="line">        if self.length &lt; range.location + range.length &#123; return &#125;</span><br><span class="line">        </span><br><span class="line">        let attrs = [NSAttributedString.Key.paragraphStyle: style]</span><br><span class="line">        self.addAttributes(attrs, range: range)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">extension NSMutableAttributedString &#123;</span><br><span class="line"></span><br><span class="line">    /// 插入图片</span><br><span class="line">    public func lf_addTextAttachment(image: UIImage?, imageFrame: CGRect, atIndex index: Int) &#123;</span><br><span class="line">        </span><br><span class="line">        let attachment = NSTextAttachment.init()</span><br><span class="line">        attachment.image = image</span><br><span class="line">        attachment.bounds = imageFrame</span><br><span class="line">        let att = NSAttributedString(attachment: attachment)</span><br><span class="line">        self.insert(att, at: index)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="三-项目中使用"><a href="#三-项目中使用" class="headerlink" title="三.项目中使用"></a>三.项目中使用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">let attr = NSMutableAttributedString.init(string: str)</span><br><span class="line">        let range = str.range(of: self.model?.view_rent_un_prefix ?? &quot;&quot;)</span><br><span class="line">        let nsrange = str.nsRange(from: range!)</span><br><span class="line"> </span><br><span class="line">        attr.lf_addForegroundColor(AppColor.themeColor, range: nsrange)</span><br><span class="line">        descLab.attributedText = attr</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2020/06/01/flutter/flutter安装/" class="pre-post btn btn-default" title='flutter安装'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">flutter安装</span>
+        </a>
+    
+    
+        <a href="/2019/12/24/ios/自定义控件-LFImagePickerLayoutView/" class="next-post btn btn-default" title='自定义控件-LFImagePickerLayoutView'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">自定义控件-LFImagePickerLayoutView</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二-NSMutableAttributedString快速添加属性"><span class="toc-text">二.NSMutableAttributedString快速添加属性</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三-项目中使用"><span class="toc-text">三.项目中使用</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>

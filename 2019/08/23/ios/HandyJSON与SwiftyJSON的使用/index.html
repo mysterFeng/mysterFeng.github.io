@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <!--Setting-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="刘峰的个人博客">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no,email=no,adress=no">
+    <meta name="browsermode" content="application">
+    <meta name="screen-orientation" content="portrait">
+    <link rel="dns-prefetch" href="https://mysterFeng.github.io">
+    <!--SEO-->
+
+<meta name="description" content="对知识的整理和备忘,也希望能对他人有用">
+
+
+
+
+
+<meta name="robots" content="all">
+<meta name="google" content="all">
+<meta name="googlebot" content="all">
+<meta name="verify" content="all">
+    <!--Title-->
+
+
+<title>HandyJSON与SwiftyJSON的使用 | 刘峰的个人博客</title>
+
+
+    <link rel="alternate" href="/atom.xml" title="刘峰的个人博客" type="application/atom+xml">
+
+
+    <link rel="icon" href="/favicon.ico">
+
+    
+
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css?rev=3.3.7">
+<link rel="stylesheet" href="/css/font-awesome.min.css?rev=4.5.0">
+<link rel="stylesheet" href="/css/style.css?rev=@@hash">
+
+
+
+
+    
+	<div class="hide">
+		<script type="text/javascript">
+			var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan class='cnzz_stat_icon_1263868967 hide' %3E%3Cscript%20src%3D%22https%3A%2F%2Fs95.cnzz.com%2Fz_stat.php%3Fweb_id%3D1272564536%22%3E%3C%2Fscript%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s19.cnzz.com/z_stat.php%3Fid%3D1263868967%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
+		</script>
+	</div>
+
+
+
+
+
+
+    
+
+</head>
+
+</html>
+<!--[if lte IE 8]>
+<style>
+    html{ font-size: 1em }
+</style>
+<![endif]-->
+<!--[if lte IE 9]>
+<div style="ie">你使用的浏览器版本过低，为了你更好的阅读体验，请更新浏览器的版本或者使用其他现代浏览器，比如Chrome、Firefox、Safari等。</div>
+<![endif]-->
+
+<body>
+    <header class="main-header"  style="background-image:url(http://7xpw2b.com1.z0.glb.clouddn.com/hexo-sinppet/img/banner.jpg)"  >
+    <div class="main-header-box">
+        <a class="header-avatar" href="/" title='mysterFeng'>
+            <img src="/img/avatar.jpg" alt="logo头像" class="img-responsive center-block">
+        </a>
+        <div class="branding">
+        	<!--<h2 class="text-hide">Snippet主题,从未如此简单有趣</h2>-->
+            
+                 <img src="/img/branding.png" alt="Snippet 博客主题" class="img-responsive center-block">
+            
+    	</div>
+    </div>
+</header>
+    <nav class="main-navigation">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="navbar-header"><span class="nav-toggle-button collapsed pull-right" data-toggle="collapse" data-target="#main-menu" id="mnav">
+                    <span class="sr-only"></span>
+                        <i class="fa fa-bars"></i>
+                    </span>
+                    <a class="navbar-brand" href="https://mysterFeng.github.io">刘峰的个人博客</a>
+                </div>
+                <div class="collapse navbar-collapse" id="main-menu">
+                    <ul class="menu">
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/"><i class="fa "></i>首页</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/swift/"><i class="fa "></i>swift</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/ios/"><i class="fa "></i>iOS</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/简历/"><i class="fa "></i>个人简历</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Flutter/"><i class="fa "></i>Flutter</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/工具/"><i class="fa "></i>工具</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/archives/"><i class="fa "></i>时间轴</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Web/"><i class="fa "></i>Web</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Java/"><i class="fa "></i>Java</a>
+                            </li>
+                        
+                            <li role="presentation" class="text-center">
+                                <a href="/categories/Android/"><i class="fa "></i>Android</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+    <section class="content-wrap">
+        <div class="container">
+            <div class="row">
+                <main class="col-md-8 main-content m-post">
+                    <p id="process"></p>
+<article class="post">
+    <div class="post-head">
+        <h1 id="HandyJSON与SwiftyJSON的使用">
+            
+	            HandyJSON与SwiftyJSON的使用
+            
+        </h1>
+        <div class="post-meta">
+    
+    
+    <span class="categories-meta fa-wrap">
+        <i class="fa fa-folder-open-o"></i>
+        <a href="/categories/ios">
+            ios
+        </a>
+    </span>
+    
+
+    
+    <span class="fa-wrap">
+        <i class="fa fa-tags"></i>
+        <span class="tags-meta">
+            
+                
+            
+        </span>
+    </span>
+    
+
+    
+        
+        <span class="fa-wrap">
+            <i class="fa fa-clock-o"></i>
+            <span class="date-meta">2019/08/23</span>
+        </span>
+        
+    
+</div>
+
+            
+            
+    </div>
+    
+    <div class="post-body post-content">
+        <h3 id="HandJSON的使用参考"><a href="#HandJSON的使用参考" class="headerlink" title="HandJSON的使用参考"></a>HandJSON的使用参考</h3><p><a href="https://www.jianshu.com/p/e9d933ce7c74" target="_blank" rel="noopener">https://www.jianshu.com/p/e9d933ce7c74</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class BaseModel: HandyJSON,Codable &#123;</span><br><span class="line">    required init() &#123;&#125;</span><br><span class="line">     func mapping(mapper: HelpingMapper) &#123;   //自定义解析规则，日期数字颜色，如果要指定解析格式，子类实现重写此方法即可</span><br><span class="line">    //        mapper &lt;&lt;&lt;</span><br><span class="line">    //            date &lt;-- CustomDateFormatTransform(formatString: &quot;yyyy-MM-dd&quot;)</span><br><span class="line">    //</span><br><span class="line">    //        mapper &lt;&lt;&lt;</span><br><span class="line">    //            decimal &lt;-- NSDecimalNumberTransform()</span><br><span class="line">    //</span><br><span class="line">    //        mapper &lt;&lt;&lt;</span><br><span class="line">    //            url &lt;-- URLTransform(shouldEncodeURLString: false)</span><br><span class="line">    //</span><br><span class="line">    //        mapper &lt;&lt;&lt;</span><br><span class="line">    //            data &lt;-- DataTransform()</span><br><span class="line">    //</span><br><span class="line">    //        mapper &lt;&lt;&lt;</span><br><span class="line">    //            color &lt;-- HexColorTransform()</span><br><span class="line">          &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="具体json转model需要"><a href="#具体json转model需要" class="headerlink" title="具体json转model需要"></a>具体json转model需要</h3><p>以下是我项目中使用的代码<br>后台返回json</p>
+<blockquote>
+<p>{<br>    “code”: 200,<br>    “data”: {<br>        “result”: [<br>            {<br>                “id”: 39,<br>                “img”: “<a href="http://pxs3-img-test.oss-cn-shenzhen.aliyuncs.com/uploads/image/20200429092338/8ad5a28a461104d941bca939a0919d05d231d9c1.png?city_id=441900&amp;platform_id=2&quot;" target="_blank" rel="noopener">http://pxs3-img-test.oss-cn-shenzhen.aliyuncs.com/uploads/image/20200429092338/8ad5a28a461104d941bca939a0919d05d231d9c1.png?city_id=441900&amp;platform_id=2&quot;</a>,<br>                “img_width”: “”,<br>                “img_height”: “”,<br>                “bg_images”: “<a href="https://pxs3-img.oss-cn-shenzhen.aliyuncs.com/defauit_overall_img.png?city_id=441900&amp;platform_id=2&quot;" target="_blank" rel="noopener">https://pxs3-img.oss-cn-shenzhen.aliyuncs.com/defauit_overall_img.png?city_id=441900&amp;platform_id=2&quot;</a>,<br>                “bg_images_width”: “”,<br>                “bg_images_height”: “”,<br>                “jump_type”: 1,<br>                “jump_view”: “shop_success”,<br>                “jump_param”: “”<br>            }<br>        ]<br>    },<br>    “msg”: “SUCCESS”<br>}</p>
+</blockquote>
+<p>####配合SwiftyJSON框架转模型</p>
+<blockquote>
+<p>JSON转数组模型</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">func loadBannerData(position:String) &#123;</span><br><span class="line">    </span><br><span class="line">    HttpRequest.loadData(target: PXSHomeAPI.banner(position: position), success: &#123; (data) in</span><br><span class="line">        let json = JSON(data)</span><br><span class="line">        if let imageArr = JSONDeserializer&lt;ImageModel&gt;.deserializeModelArrayFrom(json: json[&quot;data&quot;][&quot;result&quot;].description) &#123;</span><br><span class="line">        self.updateDataBlock?()</span><br><span class="line"></span><br><span class="line">    &#125;) &#123; (code, msg) in</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>JSON转模型</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">后台JSON数据：</span><br><span class="line">&gt; &#123;</span><br><span class="line">	&quot;code&quot;: 200,</span><br><span class="line">	&quot;data&quot;: &#123;</span><br><span class="line">		&quot;result&quot;: &#123;</span><br><span class="line">			&quot;transfer_shop&quot;: &quot;2124&quot;,   //在线转店</span><br><span class="line">			&quot;transfer_success&quot;: 1788,  //转店成功</span><br><span class="line">			&quot;find_shop&quot;: 0            //找店成功</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	&quot;msg&quot;: &quot;SUCCESS&quot;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    func loadCountData() &#123;</span><br><span class="line">        HttpRequest.loadData(target: PXSHomeAPI.statistics, success: &#123; (res) in</span><br><span class="line">            let json = JSON(res)</span><br><span class="line">            </span><br><span class="line">            if let model = JSONDeserializer&lt;PXSHomeCountModel&gt;.deserializeFrom(json: json.description, designatedPath: &quot;data.result&quot;) &#123;</span><br><span class="line">                self.countModel = model</span><br><span class="line">                self.updateDataBlock?()</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;) &#123; (code, message) in</span><br><span class="line">            </span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+    
+        <div class="reward">
+    <div class="reward-wrap">赏
+        <div class="reward-box">
+            
+            
+                <span class="reward-type">
+                    <img class="wechat" src="../img/reward-wepay.jpg"><b>微信打赏</b>
+                </span>
+            
+        </div>
+    </div>
+    <p class="reward-tip">赞赏是不耍流氓的鼓励</p>
+</div>
+
+
+    
+    <div class="post-footer">
+        <div>
+            
+                转载声明：商业转载请联系作者获得授权,非商业转载请注明出处 © <a href="" target="_blank">Snippet</a>
+            
+        </div>
+        <div>
+            
+        </div>
+    </div>
+</article>
+
+<div class="article-nav prev-next-wrap clearfix">
+    
+        <a href="/2019/08/23/ios/个人Demo搭建01/" class="pre-post btn btn-default" title='个人Demo搭建01'>
+            <i class="fa fa-angle-left fa-fw"></i><span class="hidden-lg">上一篇</span>
+            <span class="hidden-xs">个人Demo搭建01</span>
+        </a>
+    
+    
+        <a href="/2019/06/22/swift/Swift枚举的全用法/" class="next-post btn btn-default" title='Swift枚举的全用法'>
+            <span class="hidden-lg">下一篇</span>
+            <span class="hidden-xs">Swift枚举的全用法</span><i class="fa fa-angle-right fa-fw"></i>
+        </a>
+    
+</div>
+
+
+    <div id="comments">
+        
+    
+    <div id="vcomments" class="valine"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src="/assets/valine.min.js"></script>
+
+    <script>
+        new Valine({
+            av: AV,
+            el: '#vcomments',
+            appId: 'xOKV9J4UeQAtVkvnJC7Kq2Jn-gzGzoHsz',
+            appKey: 'erIpQac4azoCmgfBB7Dl9maa',
+            placeholder: '说点什么吧',
+            notify: false,
+            verify: false,
+            avatar: 'mm',
+            meta: 'nick,mail'.split(','),
+            pageSize: '10',
+            path: window.location.pathname,
+            lang: 'zh-CN'.toLowerCase()
+        })
+    </script>
+
+
+    </div>
+
+
+
+
+
+                </main>
+                
+                    <aside id="article-toc" role="navigation" class="col-md-4">
+    <div class="widget">
+        <h3 class="title">文章目录</h3>
+        
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#HandJSON的使用参考"><span class="toc-text">HandJSON的使用参考</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#具体json转model需要"><span class="toc-text">具体json转model需要</span></a></li></ol>
+        
+    </div>
+</aside>
+
+                
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+    <div class="container">
+        <div class="row">
+        </div>
+    </div>
+</footer>
+
+<a id="back-to-top" class="icon-btn hide">
+	<i class="fa fa-chevron-up"></i>
+</a>
+
+
+
+
+    <div class="copyright">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="busuanzi">
+    
+</div>
+
+            </div>
+            <div class="col-sm-12">
+                <span>Copyright &copy; 2017
+                </span> |
+                <span>
+                    Powered by <a href="//hexo.io" class="copyright-links" target="_blank" rel="nofollow">Hexo</a>
+                </span> |
+                <span>
+                    Theme by <a href="//github.com/shenliyang/hexo-theme-snippet.git" class="copyright-links" target="_blank" rel="nofollow">Snippet</a>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<script src="/js/app.js?rev=@@hash"></script>
+
+</body>
+</html>
